@@ -38,3 +38,19 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+tasks.register('semanticSimilarityExperiment', JavaExec) {
+    group = 'verification'
+    description = 'Runs the local general complaint semantic similarity experiment.'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.example.ccas.retrieval.experiment.GeneralComplaintSimilarityExperimentMain'
+
+    ['experiment.input', 'experiment.expected'].each { propertyName ->
+        if (System.getProperty(propertyName) != null) {
+            systemProperty propertyName, System.getProperty(propertyName)
+        }
+    }
+    systemProperty 'experiment.variant', System.getProperty('experiment.variant', 'WITH_TITLE')
+    systemProperty 'spring.profiles.active', 'local'
+    systemProperty 'spring.main.web-application-type', 'none'
+}
