@@ -11,12 +11,14 @@ import com.example.ccas.retrieval.domain.type.Certainty;
 import com.example.ccas.retrieval.domain.type.RequestedActionCode;
 import com.example.ccas.retrieval.domain.type.RiskSignalCode;
 import com.example.ccas.retrieval.domain.type.SubjectMatterCode;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@Component
 public class SearchTextBuilder {
 
     private static final String NO_EXPLICIT_RISK_SIGNAL = "명시적 위험 신호 없음";
