@@ -9,7 +9,12 @@ import org.springframework.http.MediaType;
 import org.springframework.web.client.RestClient;
 
 @Configuration
-@EnableConfigurationProperties({EmbeddingProperties.class, OpenAiProperties.class, RetrievalVersionProperties.class})
+@EnableConfigurationProperties({
+        EmbeddingProperties.class,
+        OpenAiProperties.class,
+        RetrievalVersionProperties.class,
+        RetrievalSearchProperties.class
+})
 public class OpenAiClientConfig {
 
     @Bean
