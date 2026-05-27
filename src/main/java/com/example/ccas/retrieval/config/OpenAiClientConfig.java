@@ -13,7 +13,8 @@ import org.springframework.web.client.RestClient;
         EmbeddingProperties.class,
         OpenAiProperties.class,
         RetrievalVersionProperties.class,
-        RetrievalSearchProperties.class
+        RetrievalSearchProperties.class,
+        RetrievalEvaluationProperties.class
 })
 public class OpenAiClientConfig {
 

@@ -69,10 +69,19 @@ public class RetrievalQueryExecutionService {
                 versionProperties.complaintSearchTextVersion()
         );
 
-        RetrievalCandidates candidates = transactionalExecutor.persistAndSearch(row, embeddingResult);
         boolean riskSignalPresent = !command.structuredComplaint().riskSignals().isEmpty();
+        RetrievalQueryTransactionResult transactionResult = transactionalExecutor.persistSearchAndEvaluate(
+                row,
+                embeddingResult,
+                riskSignalPresent
+        );
 
-        return new RetrievalQueryExecutionResult(queryId, riskSignalPresent, candidates);
+        return new RetrievalQueryExecutionResult(
+                queryId,
+                riskSignalPresent,
+                transactionResult.candidates(),
+                transactionResult.decision()
+        );
     }
 
     private void validate(ExecuteRetrievalQueryCommand command) {
