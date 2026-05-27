@@ -14,7 +14,8 @@ import org.springframework.web.client.RestClient;
         OpenAiProperties.class,
         RetrievalVersionProperties.class,
         RetrievalSearchProperties.class,
-        RetrievalEvaluationProperties.class
+        RetrievalEvaluationProperties.class,
+        RetrievalImportProperties.class
 })
 public class OpenAiClientConfig {
 

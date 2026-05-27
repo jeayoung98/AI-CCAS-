@@ -1,0 +1,42 @@
+{
+  "datasetId": "reviewed-knowledge-placeholder",
+  "description": "Placeholder only. Replace with a human-reviewed dataset description before import.",
+  "synthetic": false,
+  "datasetVersion": "v1",
+  "structureVersion": "complaint-structure-v1",
+  "embeddingVersion": "embed-v1-large-1536",
+  "reviewedBy": "REPLACE_WITH_REVIEWER",
+  "reviewedAt": "2026-01-01T00:00:00",
+  "sources": [
+    {
+      "sourceKey": "official-source-placeholder",
+      "sourceType": "OFFICIAL_DOCUMENT",
+      "title": "REPLACE_WITH_REVIEWED_SOURCE_TITLE",
+      "sourceOrganization": "REPLACE_WITH_SOURCE_ORGANIZATION",
+      "sourceUrl": "https://replace-with-reviewed-source.example",
+      "publishedAt": null,
+      "checkedAt": "2026-01-01T00:00:00",
+      "items": [
+        {
+          "externalKey": "official-guide-placeholder-001",
+          "title": "REPLACE_WITH_REVIEWED_CHUNK_TITLE",
+          "itemType": "OFFICIAL_GUIDE",
+          "reviewStatus": "REVIEW_REQUIRED",
+          "maskedText": null,
+          "verifiedCase": null,
+          "categoryReference": null,
+          "verifiedCategoryCode": null,
+          "verifiedRouteCode": null,
+          "officialGuideChunk": {
+            "documentTitle": "REPLACE_WITH_REVIEWED_DOCUMENT_TITLE",
+            "sectionTitle": "REPLACE_WITH_REVIEWED_SECTION_TITLE",
+            "chunkText": "REPLACE_WITH_REVIEWED_OFFICIAL_GUIDE_CHUNK. Do not use this placeholder as real data.",
+            "subjectMatters": ["GENERAL_CONSULTATION"],
+            "relatedActions": ["CONSULT"],
+            "relatedRiskSignals": []
+          }
+        }
+      ]
+    }
+  ]
+}

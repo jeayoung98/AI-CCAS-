@@ -1,0 +1,135 @@
+{
+  "datasetId": "synthetic-import-v1",
+  "description": "SYNTHETIC ONLY. Test fixture for import code paths. Not official guidance, not real complaint data, and not production search knowledge.",
+  "synthetic": true,
+  "datasetVersion": "v1",
+  "structureVersion": "complaint-structure-v1",
+  "embeddingVersion": "embed-v1-large-1536",
+  "reviewedBy": null,
+  "reviewedAt": null,
+  "sources": [
+    {
+      "sourceKey": "synthetic-case-source",
+      "sourceType": "TEAM_VERIFIED_CASESET",
+      "title": "Synthetic case source",
+      "sourceOrganization": null,
+      "sourceUrl": null,
+      "publishedAt": null,
+      "checkedAt": null,
+      "items": [
+        {
+          "externalKey": "synthetic-case-lost-wallet",
+          "title": "Synthetic lost wallet case",
+          "itemType": "VERIFIED_CASE",
+          "reviewStatus": "VERIFIED",
+          "maskedText": "Synthetic masked complaint text. Not real user data.",
+          "verifiedCategoryCode": "LOST_ITEM",
+          "verifiedRouteCode": null,
+          "categoryReference": null,
+          "officialGuideChunk": null,
+          "verifiedCase": {
+            "factualSummary": "SYNTHETIC_IMPORT_VECTOR:lost Synthetic verified case about a lost wallet.",
+            "context": { "placeType": "PUBLIC_FACILITY", "relationshipType": "UNKNOWN", "timePattern": "ONE_TIME" },
+            "observedFacts": [
+              { "factType": "ACTION", "value": "synthetic wallet lost", "evidence": "synthetic evidence", "certainty": "EXPLICIT" }
+            ],
+            "riskSignals": [],
+            "subjectMatters": [
+              { "code": "LOST_ITEM", "evidence": "synthetic lost item", "certainty": "EXPLICIT" }
+            ],
+            "requestedActions": [
+              { "code": "SEARCH", "evidence": "synthetic search request", "certainty": "EXPLICIT" }
+            ],
+            "ongoingStatus": "PAST_EVENT",
+            "missingInformation": []
+          }
+        }
+      ]
+    },
+    {
+      "sourceKey": "synthetic-category-source",
+      "sourceType": "CATEGORY_POLICY",
+      "title": "Synthetic category source",
+      "sourceOrganization": null,
+      "sourceUrl": null,
+      "publishedAt": null,
+      "checkedAt": null,
+      "items": [
+        {
+          "externalKey": "synthetic-category-lost-item",
+          "title": "Synthetic lost item category",
+          "itemType": "CATEGORY_REFERENCE",
+          "reviewStatus": "VERIFIED",
+          "maskedText": null,
+          "verifiedCase": null,
+          "officialGuideChunk": null,
+          "verifiedCategoryCode": null,
+          "verifiedRouteCode": null,
+          "categoryReference": {
+            "categoryCode": "LOST_ITEM",
+            "categoryName": "Synthetic lost item category",
+            "description": "SYNTHETIC_IMPORT_VECTOR:lost Synthetic category reference for lost items.",
+            "inclusionCriteria": ["synthetic lost item lookup"],
+            "exclusionCriteria": [],
+            "relevantRiskSignals": [],
+            "subjectMatters": ["LOST_ITEM"],
+            "supportedActions": ["SEARCH", "CONSULT"],
+            "requiresOfficialGuide": true
+          }
+        },
+        {
+          "externalKey": "synthetic-category-draft",
+          "title": "Synthetic draft category",
+          "itemType": "CATEGORY_REFERENCE",
+          "reviewStatus": "DRAFT",
+          "maskedText": null,
+          "verifiedCase": null,
+          "officialGuideChunk": null,
+          "verifiedCategoryCode": null,
+          "verifiedRouteCode": null,
+          "categoryReference": {
+            "categoryCode": "GENERAL_CONSULTATION",
+            "categoryName": "Synthetic draft category",
+            "description": "SYNTHETIC_IMPORT_VECTOR:draft Synthetic draft category, not searchable.",
+            "inclusionCriteria": ["synthetic draft inclusion"],
+            "exclusionCriteria": [],
+            "relevantRiskSignals": [],
+            "subjectMatters": ["GENERAL_CONSULTATION"],
+            "supportedActions": ["CONSULT"],
+            "requiresOfficialGuide": false
+          }
+        }
+      ]
+    },
+    {
+      "sourceKey": "synthetic-guide-source",
+      "sourceType": "OFFICIAL_DOCUMENT",
+      "title": "Synthetic guide source",
+      "sourceOrganization": "Synthetic test organization",
+      "sourceUrl": "https://synthetic.invalid/guide",
+      "publishedAt": null,
+      "checkedAt": null,
+      "items": [
+        {
+          "externalKey": "synthetic-guide-lost-item",
+          "title": "Synthetic lost item guide",
+          "itemType": "OFFICIAL_GUIDE",
+          "reviewStatus": "VERIFIED",
+          "maskedText": null,
+          "verifiedCase": null,
+          "categoryReference": null,
+          "verifiedCategoryCode": null,
+          "verifiedRouteCode": null,
+          "officialGuideChunk": {
+            "documentTitle": "Synthetic guide document",
+            "sectionTitle": "Synthetic lost item guide section",
+            "chunkText": "SYNTHETIC_IMPORT_VECTOR:lost Synthetic guide chunk. Not official guidance.",
+            "subjectMatters": ["LOST_ITEM"],
+            "relatedActions": ["SEARCH"],
+            "relatedRiskSignals": []
+          }
+        }
+      ]
+    }
+  ]
+}
