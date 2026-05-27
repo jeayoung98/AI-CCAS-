@@ -1,0 +1,475 @@
+{
+  "datasetId": "synthetic-retrieval-evaluation-v1",
+  "description": "SYNTHETIC ONLY. This fixture verifies evaluation code paths and metrics. It is not official guidance, not real complaint data, and not production quality evidence.",
+  "synthetic": true,
+  "structureVersion": "complaint-structure-v1",
+  "embeddingVersion": "embed-v1-large-1536",
+  "thresholdProfileVersion": "provisional-v1",
+  "knowledgeItems": [
+    {
+      "itemKey": "case-lost-wallet-synthetic",
+      "itemType": "VERIFIED_CASE",
+      "sourceType": "TEAM_VERIFIED_CASESET",
+      "sourceTitle": "Synthetic verified case set",
+      "title": "Synthetic lost wallet case",
+      "reviewStatus": "VERIFIED",
+      "verifiedCase": {
+        "factualSummary": "SYNTHETIC_VECTOR:lost Synthetic masked case about finding a lost wallet.",
+        "context": { "placeType": "PUBLIC_FACILITY", "relationshipType": "UNKNOWN", "timePattern": "ONE_TIME" },
+        "observedFacts": [
+          { "factType": "ACTION", "value": "lost wallet", "evidence": "synthetic case says wallet was lost", "certainty": "EXPLICIT" }
+        ],
+        "riskSignals": [],
+        "subjectMatters": [
+          { "code": "LOST_ITEM", "evidence": "synthetic lost item case", "certainty": "EXPLICIT" }
+        ],
+        "requestedActions": [
+          { "code": "SEARCH", "evidence": "synthetic search request", "certainty": "EXPLICIT" }
+        ],
+        "ongoingStatus": "PAST_EVENT",
+        "missingInformation": []
+      }
+    },
+    {
+      "itemKey": "case-safety-threat-synthetic",
+      "itemType": "VERIFIED_CASE",
+      "sourceType": "TEAM_VERIFIED_CASESET",
+      "sourceTitle": "Synthetic verified case set",
+      "title": "Synthetic safety threat case",
+      "reviewStatus": "VERIFIED",
+      "verifiedCase": {
+        "factualSummary": "SYNTHETIC_VECTOR:safety Synthetic masked case about repeated threat from a neighbor.",
+        "context": { "placeType": "RESIDENCE", "relationshipType": "NEIGHBOR", "timePattern": "REPEATED" },
+        "observedFacts": [
+          { "factType": "ACTION", "value": "repeated visit and threat", "evidence": "synthetic case describes a threat", "certainty": "EXPLICIT" }
+        ],
+        "riskSignals": [
+          { "code": "DEATH_THREAT", "evidence": "synthetic death threat", "certainty": "EXPLICIT" }
+        ],
+        "subjectMatters": [
+          { "code": "SAFETY_THREAT", "evidence": "synthetic safety threat case", "certainty": "EXPLICIT" }
+        ],
+        "requestedActions": [
+          { "code": "REPORT", "evidence": "synthetic report request", "certainty": "EXPLICIT" }
+        ],
+        "ongoingStatus": "REPEATED_AND_MAY_CONTINUE",
+        "missingInformation": []
+      }
+    },
+    {
+      "itemKey": "category-lost-item-synthetic",
+      "itemType": "CATEGORY_REFERENCE",
+      "sourceType": "CATEGORY_POLICY",
+      "sourceTitle": "Synthetic category policy",
+      "title": "Synthetic lost item category",
+      "reviewStatus": "VERIFIED",
+      "categoryReference": {
+        "categoryCode": "LOST_ITEM",
+        "categoryName": "Synthetic lost item category",
+        "description": "SYNTHETIC_VECTOR:lost Synthetic category for lost item search requests.",
+        "inclusionCriteria": ["synthetic lost wallet", "synthetic lost phone lookup"],
+        "exclusionCriteria": ["synthetic theft allegation"],
+        "relevantRiskSignals": [],
+        "subjectMatters": ["LOST_ITEM"],
+        "supportedActions": ["SEARCH", "CONSULT"],
+        "requiresOfficialGuide": true
+      }
+    },
+    {
+      "itemKey": "category-traffic-admin-synthetic",
+      "itemType": "CATEGORY_REFERENCE",
+      "sourceType": "CATEGORY_POLICY",
+      "sourceTitle": "Synthetic category policy",
+      "title": "Synthetic traffic admin category",
+      "reviewStatus": "VERIFIED",
+      "categoryReference": {
+        "categoryCode": "TRAFFIC_ADMIN",
+        "categoryName": "Synthetic traffic administration category",
+        "description": "SYNTHETIC_VECTOR:traffic Synthetic category for traffic administration lookup.",
+        "inclusionCriteria": ["synthetic traffic record lookup", "synthetic administrative traffic question"],
+        "exclusionCriteria": [],
+        "relevantRiskSignals": [],
+        "subjectMatters": ["TRAFFIC_ADMIN"],
+        "supportedActions": ["SEARCH", "CHECK_STATUS"],
+        "requiresOfficialGuide": true
+      }
+    },
+    {
+      "itemKey": "category-cyber-transaction-synthetic",
+      "itemType": "CATEGORY_REFERENCE",
+      "sourceType": "CATEGORY_POLICY",
+      "sourceTitle": "Synthetic category policy",
+      "title": "Synthetic cyber transaction category",
+      "reviewStatus": "VERIFIED",
+      "categoryReference": {
+        "categoryCode": "CYBER_TRANSACTION",
+        "categoryName": "Synthetic cyber transaction category",
+        "description": "SYNTHETIC_VECTOR:cyber Synthetic category for online transaction damage reports.",
+        "inclusionCriteria": ["synthetic online trade damage", "synthetic seller non-delivery"],
+        "exclusionCriteria": [],
+        "relevantRiskSignals": ["PERSONAL_DATA_EXPOSURE"],
+        "subjectMatters": ["CYBER_TRANSACTION"],
+        "supportedActions": ["REPORT", "CONSULT"],
+        "requiresOfficialGuide": true
+      }
+    },
+    {
+      "itemKey": "category-patrol-request-synthetic",
+      "itemType": "CATEGORY_REFERENCE",
+      "sourceType": "CATEGORY_POLICY",
+      "sourceTitle": "Synthetic category policy",
+      "title": "Synthetic patrol request category",
+      "reviewStatus": "VERIFIED",
+      "categoryReference": {
+        "categoryCode": "PATROL_REQUEST",
+        "categoryName": "Synthetic patrol request category",
+        "description": "SYNTHETIC_VECTOR:patrol Synthetic category for requesting patrol near a place.",
+        "inclusionCriteria": ["synthetic patrol request", "synthetic neighborhood patrol"],
+        "exclusionCriteria": [],
+        "relevantRiskSignals": [],
+        "subjectMatters": ["PATROL_REQUEST"],
+        "supportedActions": ["APPLY", "CONSULT"],
+        "requiresOfficialGuide": true
+      }
+    },
+    {
+      "itemKey": "category-safety-threat-synthetic",
+      "itemType": "CATEGORY_REFERENCE",
+      "sourceType": "CATEGORY_POLICY",
+      "sourceTitle": "Synthetic category policy",
+      "title": "Synthetic safety threat category",
+      "reviewStatus": "VERIFIED",
+      "categoryReference": {
+        "categoryCode": "SAFETY_THREAT",
+        "categoryName": "Synthetic safety threat category",
+        "description": "SYNTHETIC_VECTOR:safety Synthetic category for explicit safety threats.",
+        "inclusionCriteria": ["synthetic death threat", "synthetic weapon risk"],
+        "exclusionCriteria": [],
+        "relevantRiskSignals": ["DEATH_THREAT", "WEAPON"],
+        "subjectMatters": ["SAFETY_THREAT"],
+        "supportedActions": ["REPORT", "CONSULT"],
+        "requiresOfficialGuide": true
+      }
+    },
+    {
+      "itemKey": "category-ambiguous-a-synthetic",
+      "itemType": "CATEGORY_REFERENCE",
+      "sourceType": "CATEGORY_POLICY",
+      "sourceTitle": "Synthetic category policy",
+      "title": "Synthetic ambiguous category A",
+      "reviewStatus": "VERIFIED",
+      "categoryReference": {
+        "categoryCode": "LOST_ITEM",
+        "categoryName": "Synthetic ambiguous lost item side",
+        "description": "SYNTHETIC_VECTOR:ambiguous_a Synthetic ambiguous category side A.",
+        "inclusionCriteria": ["synthetic ambiguous overlap A"],
+        "exclusionCriteria": [],
+        "relevantRiskSignals": [],
+        "subjectMatters": ["LOST_ITEM"],
+        "supportedActions": ["SEARCH"],
+        "requiresOfficialGuide": true
+      }
+    },
+    {
+      "itemKey": "category-ambiguous-b-synthetic",
+      "itemType": "CATEGORY_REFERENCE",
+      "sourceType": "CATEGORY_POLICY",
+      "sourceTitle": "Synthetic category policy",
+      "title": "Synthetic ambiguous category B",
+      "reviewStatus": "VERIFIED",
+      "categoryReference": {
+        "categoryCode": "TRAFFIC_ADMIN",
+        "categoryName": "Synthetic ambiguous traffic side",
+        "description": "SYNTHETIC_VECTOR:ambiguous_b Synthetic ambiguous category side B.",
+        "inclusionCriteria": ["synthetic ambiguous overlap B"],
+        "exclusionCriteria": [],
+        "relevantRiskSignals": [],
+        "subjectMatters": ["TRAFFIC_ADMIN"],
+        "supportedActions": ["SEARCH"],
+        "requiresOfficialGuide": true
+      }
+    },
+    {
+      "itemKey": "guide-lost-item-synthetic",
+      "itemType": "OFFICIAL_GUIDE",
+      "sourceType": "OFFICIAL_DOCUMENT",
+      "sourceTitle": "Synthetic guide source",
+      "title": "Synthetic lost item guide",
+      "reviewStatus": "VERIFIED",
+      "officialGuideChunk": {
+        "documentTitle": "Synthetic guide document",
+        "sectionTitle": "Synthetic lost item section",
+        "chunkText": "SYNTHETIC_VECTOR:lost Synthetic guide chunk for lost item lookup. Not official guidance.",
+        "subjectMatters": ["LOST_ITEM"],
+        "relatedActions": ["SEARCH", "REPORT"],
+        "relatedRiskSignals": []
+      }
+    },
+    {
+      "itemKey": "guide-traffic-admin-synthetic",
+      "itemType": "OFFICIAL_GUIDE",
+      "sourceType": "OFFICIAL_DOCUMENT",
+      "sourceTitle": "Synthetic guide source",
+      "title": "Synthetic traffic admin guide",
+      "reviewStatus": "VERIFIED",
+      "officialGuideChunk": {
+        "documentTitle": "Synthetic guide document",
+        "sectionTitle": "Synthetic traffic administration section",
+        "chunkText": "SYNTHETIC_VECTOR:traffic Synthetic guide chunk for traffic administration lookup. Not official guidance.",
+        "subjectMatters": ["TRAFFIC_ADMIN"],
+        "relatedActions": ["SEARCH", "CHECK_STATUS"],
+        "relatedRiskSignals": []
+      }
+    },
+    {
+      "itemKey": "guide-cyber-transaction-synthetic",
+      "itemType": "OFFICIAL_GUIDE",
+      "sourceType": "OFFICIAL_DOCUMENT",
+      "sourceTitle": "Synthetic guide source",
+      "title": "Synthetic cyber transaction guide",
+      "reviewStatus": "VERIFIED",
+      "officialGuideChunk": {
+        "documentTitle": "Synthetic guide document",
+        "sectionTitle": "Synthetic cyber transaction section",
+        "chunkText": "SYNTHETIC_VECTOR:cyber Synthetic guide chunk for online transaction report. Not official guidance.",
+        "subjectMatters": ["CYBER_TRANSACTION"],
+        "relatedActions": ["REPORT", "CONSULT"],
+        "relatedRiskSignals": ["PERSONAL_DATA_EXPOSURE"]
+      }
+    },
+    {
+      "itemKey": "guide-patrol-request-synthetic",
+      "itemType": "OFFICIAL_GUIDE",
+      "sourceType": "OFFICIAL_DOCUMENT",
+      "sourceTitle": "Synthetic guide source",
+      "title": "Synthetic patrol request guide",
+      "reviewStatus": "VERIFIED",
+      "officialGuideChunk": {
+        "documentTitle": "Synthetic guide document",
+        "sectionTitle": "Synthetic patrol request section",
+        "chunkText": "SYNTHETIC_VECTOR:patrol Synthetic guide chunk for patrol request. Not official guidance.",
+        "subjectMatters": ["PATROL_REQUEST"],
+        "relatedActions": ["APPLY", "CONSULT"],
+        "relatedRiskSignals": []
+      }
+    },
+    {
+      "itemKey": "guide-safety-threat-synthetic",
+      "itemType": "OFFICIAL_GUIDE",
+      "sourceType": "OFFICIAL_DOCUMENT",
+      "sourceTitle": "Synthetic guide source",
+      "title": "Synthetic safety threat guide",
+      "reviewStatus": "VERIFIED",
+      "officialGuideChunk": {
+        "documentTitle": "Synthetic guide document",
+        "sectionTitle": "Synthetic safety threat section",
+        "chunkText": "SYNTHETIC_VECTOR:safety Synthetic guide chunk for safety threat handling. Not official guidance.",
+        "subjectMatters": ["SAFETY_THREAT"],
+        "relatedActions": ["REPORT"],
+        "relatedRiskSignals": ["DEATH_THREAT", "WEAPON"]
+      }
+    },
+    {
+      "itemKey": "guide-ambiguous-synthetic",
+      "itemType": "OFFICIAL_GUIDE",
+      "sourceType": "OFFICIAL_DOCUMENT",
+      "sourceTitle": "Synthetic guide source",
+      "title": "Synthetic ambiguous guide",
+      "reviewStatus": "VERIFIED",
+      "officialGuideChunk": {
+        "documentTitle": "Synthetic guide document",
+        "sectionTitle": "Synthetic ambiguous section",
+        "chunkText": "SYNTHETIC_VECTOR:ambiguous_q Synthetic guide chunk for ambiguous overlap. Not official guidance.",
+        "subjectMatters": ["GENERAL_CONSULTATION"],
+        "relatedActions": ["CONSULT"],
+        "relatedRiskSignals": []
+      }
+    }
+  ],
+  "queries": [
+    {
+      "queryKey": "query-lost-item-synthetic",
+      "description": "Synthetic lost item query.",
+      "inputSource": "TEXT",
+      "maskedText": "Synthetic masked lost wallet question.",
+      "structuredComplaint": {
+        "factualSummary": "SYNTHETIC_VECTOR:lost Synthetic user asks how to find a lost wallet.",
+        "context": { "placeType": "PUBLIC_FACILITY", "relationshipType": "UNKNOWN", "timePattern": "ONE_TIME" },
+        "observedFacts": [{ "factType": "ACTION", "value": "lost wallet", "evidence": "synthetic masked input", "certainty": "EXPLICIT" }],
+        "riskSignals": [],
+        "subjectMatters": [{ "code": "LOST_ITEM", "evidence": "synthetic lost item", "certainty": "EXPLICIT" }],
+        "requestedActions": [{ "code": "SEARCH", "evidence": "synthetic search request", "certainty": "EXPLICIT" }],
+        "ongoingStatus": "PAST_EVENT",
+        "missingInformation": []
+      },
+      "expectedRelevantVerifiedCaseKeys": ["case-lost-wallet-synthetic"],
+      "expectedRelevantCategoryReferenceKeys": ["category-lost-item-synthetic"],
+      "expectedRelevantOfficialGuideKeys": ["guide-lost-item-synthetic"],
+      "expectedEvidenceStatus": "CASE_AND_REFERENCE_SUPPORTED",
+      "expectedRiskSignalPresent": false,
+      "noReliableSimilarCaseExpected": false,
+      "ambiguityExpected": false
+    },
+    {
+      "queryKey": "query-traffic-admin-synthetic",
+      "description": "Synthetic traffic administration lookup query.",
+      "inputSource": "TEXT",
+      "maskedText": "Synthetic masked traffic administration question.",
+      "structuredComplaint": {
+        "factualSummary": "SYNTHETIC_VECTOR:traffic Synthetic user asks about traffic administration lookup.",
+        "context": { "placeType": "POLICE_SERVICE", "relationshipType": "UNKNOWN", "timePattern": "ONE_TIME" },
+        "observedFacts": [{ "factType": "ACTION", "value": "traffic lookup", "evidence": "synthetic masked input", "certainty": "EXPLICIT" }],
+        "riskSignals": [],
+        "subjectMatters": [{ "code": "TRAFFIC_ADMIN", "evidence": "synthetic traffic admin", "certainty": "EXPLICIT" }],
+        "requestedActions": [{ "code": "SEARCH", "evidence": "synthetic lookup request", "certainty": "EXPLICIT" }],
+        "ongoingStatus": "PAST_EVENT",
+        "missingInformation": []
+      },
+      "expectedRelevantVerifiedCaseKeys": [],
+      "expectedRelevantCategoryReferenceKeys": ["category-traffic-admin-synthetic"],
+      "expectedRelevantOfficialGuideKeys": ["guide-traffic-admin-synthetic"],
+      "expectedEvidenceStatus": "REFERENCE_SUPPORTED",
+      "expectedRiskSignalPresent": false,
+      "noReliableSimilarCaseExpected": false,
+      "ambiguityExpected": false
+    },
+    {
+      "queryKey": "query-cyber-transaction-synthetic",
+      "description": "Synthetic online transaction report query.",
+      "inputSource": "TEXT",
+      "maskedText": "Synthetic masked online transaction damage question.",
+      "structuredComplaint": {
+        "factualSummary": "SYNTHETIC_VECTOR:cyber Synthetic user reports online transaction damage.",
+        "context": { "placeType": "ONLINE", "relationshipType": "TRANSACTION_PARTY", "timePattern": "ONE_TIME" },
+        "observedFacts": [{ "factType": "ACTION", "value": "online seller non-delivery", "evidence": "synthetic masked input", "certainty": "EXPLICIT" }],
+        "riskSignals": [],
+        "subjectMatters": [{ "code": "CYBER_TRANSACTION", "evidence": "synthetic online transaction", "certainty": "EXPLICIT" }],
+        "requestedActions": [{ "code": "REPORT", "evidence": "synthetic report request", "certainty": "EXPLICIT" }],
+        "ongoingStatus": "PAST_EVENT",
+        "missingInformation": []
+      },
+      "expectedRelevantVerifiedCaseKeys": [],
+      "expectedRelevantCategoryReferenceKeys": ["category-cyber-transaction-synthetic"],
+      "expectedRelevantOfficialGuideKeys": ["guide-cyber-transaction-synthetic"],
+      "expectedEvidenceStatus": "REFERENCE_SUPPORTED",
+      "expectedRiskSignalPresent": false,
+      "noReliableSimilarCaseExpected": false,
+      "ambiguityExpected": false
+    },
+    {
+      "queryKey": "query-patrol-request-synthetic",
+      "description": "Synthetic patrol request query.",
+      "inputSource": "TEXT",
+      "maskedText": "Synthetic masked patrol request question.",
+      "structuredComplaint": {
+        "factualSummary": "SYNTHETIC_VECTOR:patrol Synthetic user requests patrol near a place.",
+        "context": { "placeType": "RESIDENCE", "relationshipType": "UNKNOWN", "timePattern": "REPEATED" },
+        "observedFacts": [{ "factType": "ACTION", "value": "patrol requested", "evidence": "synthetic masked input", "certainty": "EXPLICIT" }],
+        "riskSignals": [],
+        "subjectMatters": [{ "code": "PATROL_REQUEST", "evidence": "synthetic patrol request", "certainty": "EXPLICIT" }],
+        "requestedActions": [{ "code": "APPLY", "evidence": "synthetic apply request", "certainty": "EXPLICIT" }],
+        "ongoingStatus": "REPEATED_AND_MAY_CONTINUE",
+        "missingInformation": []
+      },
+      "expectedRelevantVerifiedCaseKeys": [],
+      "expectedRelevantCategoryReferenceKeys": ["category-patrol-request-synthetic"],
+      "expectedRelevantOfficialGuideKeys": ["guide-patrol-request-synthetic"],
+      "expectedEvidenceStatus": "REFERENCE_SUPPORTED",
+      "expectedRiskSignalPresent": false,
+      "noReliableSimilarCaseExpected": false,
+      "ambiguityExpected": false
+    },
+    {
+      "queryKey": "query-safety-threat-synthetic",
+      "description": "Synthetic safety threat query with explicit risk signal.",
+      "inputSource": "STT",
+      "maskedText": "Synthetic masked neighbor death threat.",
+      "structuredComplaint": {
+        "factualSummary": "SYNTHETIC_VECTOR:safety Synthetic user says neighbor made a death threat.",
+        "context": { "placeType": "RESIDENCE", "relationshipType": "NEIGHBOR", "timePattern": "REPEATED" },
+        "observedFacts": [{ "factType": "HARM", "value": "death threat", "evidence": "synthetic masked input", "certainty": "EXPLICIT" }],
+        "riskSignals": [{ "code": "DEATH_THREAT", "evidence": "synthetic death threat", "certainty": "EXPLICIT" }],
+        "subjectMatters": [{ "code": "SAFETY_THREAT", "evidence": "synthetic safety threat", "certainty": "EXPLICIT" }],
+        "requestedActions": [{ "code": "REPORT", "evidence": "synthetic report request", "certainty": "EXPLICIT" }],
+        "ongoingStatus": "REPEATED_AND_MAY_CONTINUE",
+        "missingInformation": []
+      },
+      "expectedRelevantVerifiedCaseKeys": ["case-safety-threat-synthetic"],
+      "expectedRelevantCategoryReferenceKeys": ["category-safety-threat-synthetic"],
+      "expectedRelevantOfficialGuideKeys": ["guide-safety-threat-synthetic"],
+      "expectedEvidenceStatus": "CASE_AND_REFERENCE_SUPPORTED",
+      "expectedRiskSignalPresent": true,
+      "noReliableSimilarCaseExpected": false,
+      "ambiguityExpected": false
+    },
+    {
+      "queryKey": "query-no-match-synthetic",
+      "description": "Synthetic query with no reliable similar item expected.",
+      "inputSource": "TEXT",
+      "maskedText": "Synthetic masked novel expression.",
+      "structuredComplaint": {
+        "factualSummary": "SYNTHETIC_VECTOR:novel Synthetic novel expression with no reliable similar item.",
+        "context": { "placeType": "OTHER", "relationshipType": "OTHER", "timePattern": "UNKNOWN" },
+        "observedFacts": [{ "factType": "ACTION", "value": "novel expression", "evidence": "synthetic masked input", "certainty": "UNCERTAIN" }],
+        "riskSignals": [],
+        "subjectMatters": [{ "code": "GENERAL_CONSULTATION", "evidence": "synthetic general consultation", "certainty": "UNCERTAIN" }],
+        "requestedActions": [{ "code": "CONSULT", "evidence": "synthetic consult request", "certainty": "UNCERTAIN" }],
+        "ongoingStatus": "UNKNOWN",
+        "missingInformation": []
+      },
+      "expectedRelevantVerifiedCaseKeys": [],
+      "expectedRelevantCategoryReferenceKeys": [],
+      "expectedRelevantOfficialGuideKeys": [],
+      "expectedEvidenceStatus": "INSUFFICIENT_EVIDENCE",
+      "expectedRiskSignalPresent": false,
+      "noReliableSimilarCaseExpected": true,
+      "ambiguityExpected": false
+    },
+    {
+      "queryKey": "query-ambiguous-synthetic",
+      "description": "Synthetic query intentionally close to two category references.",
+      "inputSource": "TEXT",
+      "maskedText": "Synthetic masked ambiguous question.",
+      "structuredComplaint": {
+        "factualSummary": "SYNTHETIC_VECTOR:ambiguous_q Synthetic ambiguous query between two categories.",
+        "context": { "placeType": "OTHER", "relationshipType": "UNKNOWN", "timePattern": "ONE_TIME" },
+        "observedFacts": [{ "factType": "ACTION", "value": "ambiguous overlap", "evidence": "synthetic masked input", "certainty": "UNCERTAIN" }],
+        "riskSignals": [],
+        "subjectMatters": [{ "code": "GENERAL_CONSULTATION", "evidence": "synthetic ambiguous subject", "certainty": "UNCERTAIN" }],
+        "requestedActions": [{ "code": "CONSULT", "evidence": "synthetic consult request", "certainty": "UNCERTAIN" }],
+        "ongoingStatus": "UNKNOWN",
+        "missingInformation": []
+      },
+      "expectedRelevantVerifiedCaseKeys": [],
+      "expectedRelevantCategoryReferenceKeys": ["category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic"],
+      "expectedRelevantOfficialGuideKeys": ["guide-ambiguous-synthetic"],
+      "expectedEvidenceStatus": "AMBIGUOUS",
+      "expectedRiskSignalPresent": false,
+      "noReliableSimilarCaseExpected": false,
+      "ambiguityExpected": true
+    },
+    {
+      "queryKey": "query-general-weak-synthetic",
+      "description": "Synthetic weak general query with insufficient evidence expected.",
+      "inputSource": "TEXT",
+      "maskedText": "Synthetic masked weak general question.",
+      "structuredComplaint": {
+        "factualSummary": "SYNTHETIC_VECTOR:weak Synthetic weak general question with little evidence.",
+        "context": { "placeType": "UNKNOWN", "relationshipType": "UNKNOWN", "timePattern": "UNKNOWN" },
+        "observedFacts": [{ "factType": "ACTION", "value": "weak general question", "evidence": "synthetic masked input", "certainty": "UNCERTAIN" }],
+        "riskSignals": [],
+        "subjectMatters": [{ "code": "GENERAL_CONSULTATION", "evidence": "synthetic general subject", "certainty": "UNCERTAIN" }],
+        "requestedActions": [{ "code": "CONSULT", "evidence": "synthetic consult request", "certainty": "UNCERTAIN" }],
+        "ongoingStatus": "UNKNOWN",
+        "missingInformation": []
+      },
+      "expectedRelevantVerifiedCaseKeys": [],
+      "expectedRelevantCategoryReferenceKeys": [],
+      "expectedRelevantOfficialGuideKeys": [],
+      "expectedEvidenceStatus": "INSUFFICIENT_EVIDENCE",
+      "expectedRiskSignalPresent": false,
+      "noReliableSimilarCaseExpected": true,
+      "ambiguityExpected": false
+    }
+  ]
+}
