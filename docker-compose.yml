@@ -1,0 +1,16 @@
+# Local development database only. Do not reuse this password as an operational secret.
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: ccas-postgres
+    environment:
+      POSTGRES_DB: ccas
+      POSTGRES_USER: ccas
+      POSTGRES_PASSWORD: ccas-local-password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ccas-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  ccas-postgres-data:
