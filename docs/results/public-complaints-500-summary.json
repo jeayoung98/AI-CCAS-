@@ -1,0 +1,72 @@
+{
+  "manifest": {
+    "dataset_id": "acrc-public-complaint-excerpts-500-v1",
+    "source": "https://www.acrc.go.kr/board.es?mid=a10504010000&bid=1010",
+    "requested_count": 500,
+    "collected_count": 500,
+    "unique_masked_texts": 500,
+    "synthetic": false,
+    "human_reviewed": false,
+    "evaluation_ground_truth_available": false,
+    "category_counts": {
+      "경찰민원": 107,
+      "산업농림환경민원": 51,
+      "주택건축민원": 136,
+      "복지노동민원": 69,
+      "재정세무민원": 39,
+      "도시수자원민원": 26,
+      "국방보훈민원": 51,
+      "행정문화교육민원": 7,
+      "교통도로민원": 11,
+      "기업·취약계층·집단민원": 3
+    },
+    "excluded_counts": {
+      "no_public_complaint_section": 242,
+      "duplicate_masked_text": 7,
+      "unbounded_complaint_section": 3,
+      "possible_person_name": 2,
+      "too_short": 1
+    },
+    "attempted_detail_pages": 755,
+    "requests_this_run": 386,
+    "updated_at": "2026-10-23T06:59:03.842684+00:00",
+    "selection": "Police category first; remaining board pages oldest-first (earlier resume attempts retained); HTML complaint section required; deduplicated",
+    "limitations": [
+      "Institution-authored accounts of real complaints, not verbatim citizen submissions",
+      "Automated redaction only; manual privacy and relevance review required",
+      "No answer/order copied into query excerpt; no retrieval labels inferred",
+      "Source licensing retained per record; local research staging only, no publication or ingestion"
+    ]
+  },
+  "validation": {
+    "count": 500,
+    "unique_ids": 500,
+    "category_counts": {
+      "경찰민원": 107,
+      "산업농림환경민원": 51,
+      "주택건축민원": 136,
+      "복지노동민원": 69,
+      "재정세무민원": 39,
+      "도시수자원민원": 26,
+      "국방보훈민원": 51,
+      "행정문화교육민원": 7,
+      "교통도로민원": 11,
+      "기업·취약계층·집단민원": 3
+    },
+    "published_date_min": "2015-11-11",
+    "published_date_max": "2020-02-17",
+    "truncated_count": 41,
+    "license_counts": {
+      "본 공공저작물은 공공누리 “3유형 : 출처명시+변경금지” 조건에 따라 이용할 수 있습니다. 본 공공저작물은 “AI유형: 인공지능 학습” 목적으로 이용할 수 있습니다. 이 경우 공공누리 정책 상의 조건을 준수하여야 합니다.": 500
+    },
+    "automated_checks_passed": true,
+    "human_reviewed": false,
+    "problems": []
+  },
+  "dataset_sha256": "b937263ebf33d0aca584af8bc1c0f42f34cad68bc2577951c5a93e16e5de2e16",
+  "collector_unit_tests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "evaluation_executed": false
+}

@@ -38,3 +38,6 @@ out/
 
 # Local semantic experiment data containing complaint records
 .local-data/
+
+# Python collection utilities
+__pycache__/
