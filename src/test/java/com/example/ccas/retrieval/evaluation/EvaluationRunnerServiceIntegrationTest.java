@@ -21,6 +21,11 @@ import org.testcontainers.utility.DockerImageName;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
+import java.util.List;
+import java.util.LinkedHashMap;
+import com.example.ccas.retrieval.application.text.SearchTextBuilder;
+import com.example.ccas.retrieval.config.RetrievalSearchProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -59,6 +64,9 @@ class EvaluationRunnerServiceIntegrationTest {
 
     @Autowired
     private SyntheticEmbeddingPort syntheticEmbeddingPort;
+
+    @Autowired private RetrievalReplayExperiment replay;
+    @Autowired private ObjectMapper objectMapper;
 
     @TempDir
     Path tempDir;
@@ -101,6 +109,48 @@ class EvaluationRunnerServiceIntegrationTest {
         Path reportPath = tempDir.resolve("synthetic-retrieval-evaluation-v1.json");
         assertThat(reportPath).exists();
         assertThat(Files.readString(reportPath)).contains("\"synthetic\" : true");
+    }
+
+    @Test
+    void comparesFrozenSyntheticEmbeddingsWithoutAdditionalEmbeddingCalls() throws Exception {
+        var dataset = datasetLoader.loadSynthetic(Path.of(
+                "src/test/resources/retrieval/evaluation/synthetic/synthetic-retrieval-evaluation-v1.json"));
+        runnerService.run(dataset);
+        var cache = new LinkedHashMap<String, EmbeddingResult>();
+        dataset.queries().forEach(q -> cache.put(q.queryKey(),
+                syntheticEmbeddingPort.embed(new SearchTextBuilder().buildForComplaint(q.structuredComplaint()))));
+        int calls = syntheticEmbeddingPort.callCount();
+        var k = new RetrievalSearchProperties.TopK(5, 3, 3);
+        var report = replay.run(dataset, cache, List.of(
+                new RetrievalSearchProperties(k),
+                new RetrievalSearchProperties(k, RetrievalSearchProperties.Strategy.EXACT, 20, 0, 60),
+                new RetrievalSearchProperties(k, RetrievalSearchProperties.Strategy.METADATA, 20, 0, 60),
+                new RetrievalSearchProperties(k, RetrievalSearchProperties.Strategy.METADATA, 20, .1, 60),
+                new RetrievalSearchProperties(k, RetrievalSearchProperties.Strategy.METADATA, 20, .3, 60),
+                new RetrievalSearchProperties(k, RetrievalSearchProperties.Strategy.CODE_RRF, 20, 0, 60),
+                new RetrievalSearchProperties(k, RetrievalSearchProperties.Strategy.COSINE_CODE_RRF, 20, .05, 60)
+        ), 3, 10);
+        assertThat(syntheticEmbeddingPort.callCount()).isEqualTo(calls);
+        assertThat(report.variants()).hasSize(7);
+        assertThat(report.variants().get(6).metrics().evidenceStatusAccuracy()).isEqualTo(1);
+        assertThat(report.variants().get(6).ambiguity().recall()).isEqualTo(1);
+        assertThat(report.variants().get(0).metrics()).isEqualTo(report.variants().get(1).metrics());
+        assertThat(report.variants().get(0).metrics()).isEqualTo(report.variants().get(2).metrics());
+        assertThat(report.variants()).allSatisfy(v -> {
+            assertThat(v.metrics().riskSignalPreservationRate()).isEqualTo(1);
+            assertThat(v.latencySampleCount()).isEqualTo(80);
+            assertThat(v.retrievalP95Ms()).isGreaterThanOrEqualTo(v.retrievalP50Ms());
+        });
+        var mismatchedCache = new LinkedHashMap<>(cache);
+        var firstQuery = dataset.queries().getFirst().queryKey();
+        var firstEmbedding = cache.get(firstQuery);
+        mismatchedCache.put(firstQuery, new EmbeddingResult(firstEmbedding.vector(), "different-model", 1536, firstEmbedding.version()));
+        org.assertj.core.api.Assertions.assertThatThrownBy(() -> replay.run(dataset, mismatchedCache,
+                List.of(new RetrievalSearchProperties(k)), 0, 1)).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Corpus/query embedding model mismatch");
+        Path output = Path.of("build/reports/retrieval/synthetic-comparison.json");
+        Files.createDirectories(output.getParent());
+        objectMapper.writerWithDefaultPrettyPrinter().writeValue(output.toFile(), report);
     }
 
     @TestConfiguration

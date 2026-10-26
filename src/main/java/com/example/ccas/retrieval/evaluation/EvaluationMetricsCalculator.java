@@ -17,6 +17,14 @@ public class EvaluationMetricsCalculator {
             int categoryReferenceTopK,
             int officialGuideTopK
     ) {
+        if (dataset.queries().isEmpty() || queryResults.size() != dataset.queries().size()) {
+            throw new IllegalArgumentException("Evaluation requires one result per query");
+        }
+        for (int i = 0; i < queryResults.size(); i++) {
+            if (!dataset.queries().get(i).queryKey().equals(queryResults.get(i).queryKey())) {
+                throw new IllegalArgumentException("Query/result key order mismatch");
+            }
+        }
         return new EvaluationReport(
                 dataset.datasetId(),
                 dataset.synthetic(),
@@ -47,27 +55,36 @@ public class EvaluationMetricsCalculator {
         int precisionCount = 0;
         double mrrSum = 0.0;
         int mrrCount = 0;
+        double fixedPrecisionSum = 0;
+        int hit1 = 0, hit3 = 0, hit5 = 0;
+        if (topK < 1) throw new IllegalArgumentException("topK must be positive");
 
         for (int index = 0; index < dataset.queries().size(); index++) {
             EvaluationQueryCase query = dataset.queries().get(index);
             EvaluationQueryResult result = results.get(index);
-            List<String> expected = expectedKeys(query, channel);
-            List<String> returned = returnedKeys(result, channel);
+            List<String> expected = expectedKeys(query, channel).stream().distinct().toList();
+            List<String> returned = returnedKeys(result, channel).stream().limit(topK).toList();
+            fixedPrecisionSum += returned.stream().distinct().filter(expected::contains).count() / (double) topK;
 
             if (!expected.isEmpty()) {
                 Set<String> expectedSet = Set.copyOf(expected);
-                long hitCount = returned.stream().filter(expectedSet::contains).count();
+                long hitCount = returned.stream().distinct().filter(expectedSet::contains).count();
                 recallSum += hitCount / (double) expected.size();
                 recallCount++;
 
                 Integer firstRelevantRank = firstRelevantRank(returned, expectedSet);
+                if (firstRelevantRank != null) {
+                    if (firstRelevantRank <= 1) hit1++;
+                    if (firstRelevantRank <= 3) hit3++;
+                    if (firstRelevantRank <= 5) hit5++;
+                }
                 mrrSum += firstRelevantRank == null ? 0.0 : 1.0 / firstRelevantRank;
                 mrrCount++;
             }
 
             if (!returned.isEmpty()) {
                 Set<String> expectedSet = Set.copyOf(expected);
-                long hitCount = returned.stream().filter(expectedSet::contains).count();
+                long hitCount = returned.stream().distinct().filter(expectedSet::contains).count();
                 precisionSum += hitCount / (double) returned.size();
                 precisionCount++;
             }
@@ -79,7 +96,12 @@ public class EvaluationMetricsCalculator {
                 averageOrNull(precisionSum, precisionCount),
                 averageOrNull(mrrSum, mrrCount),
                 evaluatedQueryCount,
-                topK
+                topK,
+                averageOrNull(hit1, recallCount),
+                topK >= 3 ? averageOrNull(hit3, recallCount) : null,
+                topK >= 5 ? averageOrNull(hit5, recallCount) : null,
+                averageOrNull(fixedPrecisionSum, results.size()),
+                recallCount
         );
     }
 

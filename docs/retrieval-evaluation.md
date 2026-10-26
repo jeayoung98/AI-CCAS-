@@ -45,3 +45,29 @@ Precision is averaged only for query/channel pairs with returned results. Recall
 5. Keep `thresholdProfileVersion` updated when threshold values change.
 
 Synthetic fixture results must not be used to claim retrieval accuracy or tune production thresholds.
+
+## Frozen retrieval comparison (metrics v2)
+
+See [retrieval-optimization.md](retrieval-optimization.md) for commands, measured results and limitations.
+`retrievalReplay` reads an already ingested isolated corpus and cached query embeddings. It does not
+call OpenAI or ingest data. A repeatable-read transaction freezes the corpus across strategies;
+SHA-256 fingerprints identify corpus and query inputs. Model/version mismatch, missing corpus
+items, duplicate keys, wrong-channel relevance labels and unexpected eligible documents fail the run.
+
+The original conditional `precisionAtK` field remains for compatibility. New `precisionAtFixedK`
+uses unique relevant returned items divided by configured K and averages over **all** queries,
+including empty results. Recall uses unique expected keys. Results beyond K are excluded and
+duplicate returned keys cannot increase hit counts or move later results into K. Hit@1/3/5 and
+MRR average over queries with at least one relevant item in the channel; `relevantQueryCount`
+reports that denominator. Hit@5 is null for channels configured with K=3, not an extrapolated score.
+
+The old `noMatchRejectionAccuracy` means refusal to claim reliable **cases**, and
+`ambiguityDetectionAccuracy` is recall on positive ambiguity examples. The replay report also
+includes TP/FP/FN/TN, precision and recall for ambiguity and for all-channel no-match (no relevant
+item in any channel; correct rejection means INSUFFICIENT_EVIDENCE). Undefined precision/recall
+is null. Do not conflate these definitions or compare legacy and fixed-K precision as an improvement.
+
+Replay timings cover JDBC calls, result mapping and Java ranking for all three channels. They exclude
+embedding, request validation, query/decision persistence, evidence evaluation and HTTP overhead.
+EXPLAIN timings cover server execution separately. OpenAI API and actual API E2E timings need
+their own real-embedding run; they are not inferred from replay latency.

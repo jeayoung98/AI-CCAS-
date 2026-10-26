@@ -5,6 +5,11 @@ public record ChannelMetrics(
         Double precisionAtK,
         Double mrr,
         int evaluatedQueryCount,
-        int topK
+        int topK,
+        Double hitAt1,
+        Double hitAt3,
+        Double hitAt5,
+        Double precisionAtFixedK,
+        int relevantQueryCount
 ) {
 }

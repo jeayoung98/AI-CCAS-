@@ -39,6 +39,16 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+tasks.register('retrievalReplay', JavaExec) {
+    group = 'verification'
+    description = 'Read-only comparison on an isolated corpus and cached query embeddings; no API calls.'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.example.ccas.retrieval.evaluation.RetrievalReplayMain'
+    System.properties.findAll { key, value -> key.toString().startsWith('replay.') }.each { key, value ->
+        systemProperty key.toString(), value
+    }
+}
+
 tasks.register('semanticSimilarityExperiment', JavaExec) {
     group = 'verification'
     description = 'Runs the local general complaint semantic similarity experiment.'

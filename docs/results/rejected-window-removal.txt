@@ -1,0 +1,114 @@
+Synthetic 1536-dimensional vectors (two nonzero components), no API calls.
+Single VERIFIED_CASE channel; equal K=5; JDBC + mapping wall time; 3 warmups, 20 samples.
+PostgreSQL: PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+
+rows=100 baseline p50/p95 ms=2.0368/2.6122 bounded p50/p95 ms=1.7959/2.2222
+BASELINE
+Limit  (cost=7.41..7.58 rows=5 width=620) (actual time=0.218..0.221 rows=5 loops=1)
+  Buffers: shared hit=80
+  ->  WindowAgg  (cost=7.41..8.27 rows=25 width=620) (actual time=0.217..0.220 rows=5 loops=1)
+        Buffers: shared hit=80
+        ->  Sort  (cost=7.39..7.46 rows=25 width=616) (actual time=0.210..0.211 rows=5 loops=1)
+              Sort Key: ((embedding <=> '<synthetic query vector>'::vector)), id
+              Sort Method: quicksort  Memory: 30kB
+              Buffers: shared hit=80
+              ->  Seq Scan on retrieval_item  (cost=0.00..6.81 rows=25 width=616) (actual time=0.033..0.133 rows=25 loops=1)
+                    Filter: (is_active AND ((item_type)::text = 'VERIFIED_CASE'::text) AND ((review_status)::text = 'VERIFIED'::text) AND ((embedding_version)::text = 'embed-v1-large-1536'::text))
+                    Rows Removed by Filter: 75
+                    Buffers: shared hit=80
+Planning Time: 0.105 ms
+Execution Time: 0.240 ms
+BOUNDED EXACT
+Limit  (cost=7.48..7.49 rows=5 width=604) (actual time=0.170..0.171 rows=5 loops=1)
+  Buffers: shared hit=155
+  ->  Sort  (cost=7.48..7.54 rows=25 width=604) (actual time=0.169..0.170 rows=5 loops=1)
+        Sort Key: ((embedding <=> '<synthetic query vector>'::vector)), id
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=155
+        ->  Seq Scan on retrieval_item  (cost=0.00..7.06 rows=25 width=604) (actual time=0.025..0.157 rows=25 loops=1)
+              Filter: (is_active AND ((item_type)::text = 'VERIFIED_CASE'::text) AND ((review_status)::text = 'VERIFIED'::text) AND ((embedding_version)::text = 'embed-v1-large-1536'::text))
+              Rows Removed by Filter: 75
+              Buffers: shared hit=155
+Planning Time: 0.089 ms
+Execution Time: 0.183 ms
+
+rows=1000 baseline p50/p95 ms=2.3593/2.7872 bounded p50/p95 ms=2.6001/2.9525
+BASELINE
+Limit  (cost=75.80..75.97 rows=5 width=620) (actual time=0.824..0.827 rows=5 loops=1)
+  Buffers: shared hit=777
+  ->  WindowAgg  (cost=75.80..84.21 rows=241 width=620) (actual time=0.824..0.826 rows=5 loops=1)
+        Buffers: shared hit=777
+        ->  Sort  (cost=75.78..76.38 rows=241 width=616) (actual time=0.818..0.819 rows=5 loops=1)
+              Sort Key: ((embedding <=> '<synthetic query vector>'::vector)), id
+              Sort Method: quicksort  Memory: 73kB
+              Buffers: shared hit=777
+              ->  Bitmap Heap Scan on retrieval_item  (cost=7.72..66.24 rows=241 width=616) (actual time=0.048..0.732 rows=241 loops=1)
+                    Recheck Cond: (((item_type)::text = 'VERIFIED_CASE'::text) AND is_active AND ((review_status)::text = 'VERIFIED'::text))
+                    Filter: ((embedding_version)::text = 'embed-v1-large-1536'::text)
+                    Rows Removed by Filter: 40
+                    Heap Blocks: exact=53
+                    Buffers: shared hit=777
+                    ->  Bitmap Index Scan on idx_retrieval_item_type_active_review  (cost=0.00..7.66 rows=281 width=0) (actual time=0.015..0.015 rows=311 loops=1)
+                          Index Cond: (((item_type)::text = 'VERIFIED_CASE'::text) AND (is_active = true) AND ((review_status)::text = 'VERIFIED'::text))
+                          Buffers: shared hit=1
+Planning Time: 0.077 ms
+Execution Time: 0.844 ms
+BOUNDED EXACT
+Limit  (cost=72.66..72.67 rows=5 width=604) (actual time=1.089..1.090 rows=5 loops=1)
+  Buffers: shared hit=1500
+  ->  Sort  (cost=72.66..73.26 rows=241 width=604) (actual time=1.088..1.089 rows=5 loops=1)
+        Sort Key: ((embedding <=> '<synthetic query vector>'::vector)), id
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=1500
+        ->  Bitmap Heap Scan on retrieval_item  (cost=7.72..68.65 rows=241 width=604) (actual time=0.033..1.018 rows=241 loops=1)
+              Recheck Cond: (((item_type)::text = 'VERIFIED_CASE'::text) AND is_active AND ((review_status)::text = 'VERIFIED'::text))
+              Filter: ((embedding_version)::text = 'embed-v1-large-1536'::text)
+              Rows Removed by Filter: 40
+              Heap Blocks: exact=53
+              Buffers: shared hit=1500
+              ->  Bitmap Index Scan on idx_retrieval_item_type_active_review  (cost=0.00..7.66 rows=281 width=0) (actual time=0.011..0.012 rows=311 loops=1)
+                    Index Cond: (((item_type)::text = 'VERIFIED_CASE'::text) AND (is_active = true) AND ((review_status)::text = 'VERIFIED'::text))
+                    Buffers: shared hit=1
+Planning Time: 0.057 ms
+Execution Time: 1.101 ms
+
+rows=10000 baseline p50/p95 ms=10.9774/12.0771 bounded p50/p95 ms=14.9986/16.1753
+BASELINE
+Limit  (cost=770.46..770.63 rows=5 width=620) (actual time=9.255..9.259 rows=5 loops=1)
+  Buffers: shared hit=7727
+  ->  WindowAgg  (cost=770.46..854.37 rows=2398 width=620) (actual time=9.254..9.257 rows=5 loops=1)
+        Buffers: shared hit=7727
+        ->  Sort  (cost=770.44..776.43 rows=2398 width=616) (actual time=9.244..9.246 rows=5 loops=1)
+              Sort Key: ((embedding <=> '<synthetic query vector>'::vector)), id
+              Sort Method: quicksort  Memory: 584kB
+              Buffers: shared hit=7727
+              ->  Bitmap Heap Scan on retrieval_item  (cost=51.86..635.82 rows=2398 width=616) (actual time=0.176..8.356 rows=2398 loops=1)
+                    Recheck Cond: (((item_type)::text = 'VERIFIED_CASE'::text) AND is_active AND ((review_status)::text = 'VERIFIED'::text))
+                    Filter: ((embedding_version)::text = 'embed-v1-large-1536'::text)
+                    Rows Removed by Filter: 400
+                    Heap Blocks: exact=529
+                    Buffers: shared hit=7727
+                    ->  Bitmap Index Scan on idx_retrieval_item_type_active_review  (cost=0.00..51.26 rows=2798 width=0) (actual time=0.078..0.078 rows=3109 loops=1)
+                          Index Cond: (((item_type)::text = 'VERIFIED_CASE'::text) AND (is_active = true) AND ((review_status)::text = 'VERIFIED'::text))
+                          Buffers: shared hit=4
+Planning Time: 0.109 ms
+Execution Time: 9.284 ms
+BOUNDED EXACT
+Limit  (cost=699.63..699.64 rows=5 width=604) (actual time=12.861..12.862 rows=5 loops=1)
+  Buffers: shared hit=14921
+  ->  Sort  (cost=699.63..705.62 rows=2398 width=604) (actual time=12.860..12.861 rows=5 loops=1)
+        Sort Key: ((embedding <=> '<synthetic query vector>'::vector)), id
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=14921
+        ->  Bitmap Heap Scan on retrieval_item  (cost=51.86..659.80 rows=2398 width=604) (actual time=0.178..12.208 rows=2398 loops=1)
+              Recheck Cond: (((item_type)::text = 'VERIFIED_CASE'::text) AND is_active AND ((review_status)::text = 'VERIFIED'::text))
+              Filter: ((embedding_version)::text = 'embed-v1-large-1536'::text)
+              Rows Removed by Filter: 400
+              Heap Blocks: exact=529
+              Buffers: shared hit=14921
+              ->  Bitmap Index Scan on idx_retrieval_item_type_active_review  (cost=0.00..51.26 rows=2798 width=0) (actual time=0.079..0.079 rows=3109 loops=1)
+                    Index Cond: (((item_type)::text = 'VERIFIED_CASE'::text) AND (is_active = true) AND ((review_status)::text = 'VERIFIED'::text))
+                    Buffers: shared hit=4
+Planning Time: 0.090 ms
+Execution Time: 12.878 ms
+

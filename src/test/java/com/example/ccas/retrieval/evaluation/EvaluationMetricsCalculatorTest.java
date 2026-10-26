@@ -27,6 +27,23 @@ class EvaluationMetricsCalculatorTest {
     private final EvaluationMetricsCalculator calculator = new EvaluationMetricsCalculator();
 
     @Test
+    void boundsKDeduplicatesRelevanceAndCountsEmptyResultsInFixedPrecision() {
+        var dataset = new EvaluationDataset("edge", "synthetic", true, "v1", "v1", "v1", List.of(), List.of(
+                query("q1", List.of("a", "a", "b"), List.of(), List.of(), EvidenceStatus.INSUFFICIENT_EVIDENCE, false, false, false),
+                query("q2", List.of("a"), List.of(), List.of(), EvidenceStatus.INSUFFICIENT_EVIDENCE, false, false, false)));
+        var results = List.of(
+                result("q1", EvidenceStatus.INSUFFICIENT_EVIDENCE, true, false, List.of("a", "a", "x", "b"), List.of(), List.of()),
+                result("q2", EvidenceStatus.INSUFFICIENT_EVIDENCE, true, false, List.of(), List.of(), List.of()));
+        var m = calculator.calculate(dataset, true, results, 2, 3, 3).verifiedCaseMetrics();
+        assertThat(m.recallAtK()).isEqualTo(.25);
+        assertThat(m.precisionAtFixedK()).isEqualTo(.25);
+        assertThat(m.hitAt1()).isEqualTo(.5);
+        assertThat(m.hitAt3()).isNull();
+        assertThat(m.hitAt5()).isNull();
+        assertThat(m.mrr()).isEqualTo(.5);
+    }
+
+    @Test
     void calculatesChannelMetricsAndDecisionMetrics() {
         EvaluationDataset dataset = new EvaluationDataset(
                 "metric-test",

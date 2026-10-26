@@ -1,0 +1,2807 @@
+{
+  "configurationVersion" : "replay-v1-metrics-v2",
+  "datasetId" : "synthetic-retrieval-evaluation-v1",
+  "synthetic" : true,
+  "documentCount" : 15,
+  "queryCount" : 8,
+  "embeddingVersion" : "embed-v1-large-1536",
+  "embeddingModels" : [ "synthetic-fake-embedding" ],
+  "latencyScope" : "Frozen supplied query embeddings; no OpenAI calls. Latency is JDBC retrieval + mapping + ranking, not API E2E.",
+  "corpusSha256" : "9410be533daa27b3298470805ce8d4553a36a9ed7796922021224e3aa9ced884",
+  "queriesSha256" : "4b4db367d4d311f9b9037eaf97c88105a9cf91805569a2900f01cf8c2d1e08d8",
+  "postgresVersion" : "PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+  "javaVersion" : "26.0.2.1",
+  "warmups" : 3,
+  "repetitions" : 10,
+  "variants" : [ {
+    "configuration" : {
+      "topK" : {
+        "verifiedCase" : 5,
+        "categoryReference" : 3,
+        "officialGuide" : 3
+      },
+      "strategy" : "BASELINE",
+      "candidateLimit" : 20,
+      "metadataWeight" : 0.1,
+      "rrfConstant" : 60
+    },
+    "metrics" : {
+      "datasetId" : "synthetic-retrieval-evaluation-v1",
+      "synthetic" : true,
+      "embeddingVersion" : "embed-v1-large-1536",
+      "thresholdProfileVersion" : "provisional-v1",
+      "provisionalThreshold" : true,
+      "totalQueryCount" : 8,
+      "verifiedCaseMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.125,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 5,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : 1.0,
+        "precisionAtFixedK" : 0.05,
+        "relevantQueryCount" : 2
+      },
+      "categoryReferenceMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.29166666666666663,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.29166666666666663,
+        "relevantQueryCount" : 6
+      },
+      "officialGuideMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.24999999999999997,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.24999999999999997,
+        "relevantQueryCount" : 6
+      },
+      "evidenceStatusAccuracy" : 1.0,
+      "riskSignalPreservationRate" : 1.0,
+      "noMatchRejectionAccuracy" : 1.0,
+      "ambiguityDetectionAccuracy" : 1.0,
+      "queryResults" : [ {
+        "queryKey" : "query-lost-item-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-ambiguous-b-synthetic", "category-ambiguous-a-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-lost-item-synthetic", "guide-ambiguous-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-traffic-admin-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-traffic-admin-synthetic", "category-lost-item-synthetic", "category-cyber-transaction-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-traffic-admin-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-cyber-transaction-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-cyber-transaction-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-cyber-transaction-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-patrol-request-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-patrol-request-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-patrol-request-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-safety-threat-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : true,
+        "actualRiskSignalPresent" : true,
+        "returnedVerifiedCaseKeys" : [ "case-safety-threat-synthetic", "case-lost-wallet-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-safety-threat-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-safety-threat-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-no-match-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-traffic-admin-synthetic", "category-cyber-transaction-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-lost-item-synthetic", "guide-traffic-admin-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-ambiguous-synthetic",
+        "expectedEvidenceStatus" : "AMBIGUOUS",
+        "actualEvidenceStatus" : "AMBIGUOUS",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-general-weak-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      } ]
+    },
+    "retrievalP50Ms" : 3.2483,
+    "retrievalP95Ms" : 4.5261,
+    "latencySampleCount" : 80,
+    "allChannelsNoMatch" : {
+      "truePositive" : 2,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 6,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "ambiguity" : {
+      "truePositive" : 1,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 7,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "queryDetails" : [ {
+      "queryKey" : "query-lost-item-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8201705982087323
+      }, {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.800000011920929
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : 0.17982940179126772
+    }, {
+      "queryKey" : "query-traffic-admin-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-cyber-transaction-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-patrol-request-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-safety-threat-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-no-match-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-ambiguous-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.9998520557458993
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.9998519643422092
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.8102042064146071
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : 9.140369006122029E-8
+    }, {
+      "queryKey" : "query-general-weak-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.6000000238418579
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.57211903435174
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.5861477580706846
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    } ]
+  }, {
+    "configuration" : {
+      "topK" : {
+        "verifiedCase" : 5,
+        "categoryReference" : 3,
+        "officialGuide" : 3
+      },
+      "strategy" : "EXACT",
+      "candidateLimit" : 20,
+      "metadataWeight" : 0.0,
+      "rrfConstant" : 60
+    },
+    "metrics" : {
+      "datasetId" : "synthetic-retrieval-evaluation-v1",
+      "synthetic" : true,
+      "embeddingVersion" : "embed-v1-large-1536",
+      "thresholdProfileVersion" : "provisional-v1",
+      "provisionalThreshold" : true,
+      "totalQueryCount" : 8,
+      "verifiedCaseMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.125,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 5,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : 1.0,
+        "precisionAtFixedK" : 0.05,
+        "relevantQueryCount" : 2
+      },
+      "categoryReferenceMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.29166666666666663,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.29166666666666663,
+        "relevantQueryCount" : 6
+      },
+      "officialGuideMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.24999999999999997,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.24999999999999997,
+        "relevantQueryCount" : 6
+      },
+      "evidenceStatusAccuracy" : 1.0,
+      "riskSignalPreservationRate" : 1.0,
+      "noMatchRejectionAccuracy" : 1.0,
+      "ambiguityDetectionAccuracy" : 1.0,
+      "queryResults" : [ {
+        "queryKey" : "query-lost-item-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-ambiguous-b-synthetic", "category-ambiguous-a-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-lost-item-synthetic", "guide-ambiguous-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-traffic-admin-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-traffic-admin-synthetic", "category-lost-item-synthetic", "category-cyber-transaction-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-traffic-admin-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-cyber-transaction-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-cyber-transaction-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-cyber-transaction-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-patrol-request-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-patrol-request-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-patrol-request-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-safety-threat-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : true,
+        "actualRiskSignalPresent" : true,
+        "returnedVerifiedCaseKeys" : [ "case-safety-threat-synthetic", "case-lost-wallet-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-safety-threat-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-safety-threat-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-no-match-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-traffic-admin-synthetic", "category-cyber-transaction-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-lost-item-synthetic", "guide-traffic-admin-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-ambiguous-synthetic",
+        "expectedEvidenceStatus" : "AMBIGUOUS",
+        "actualEvidenceStatus" : "AMBIGUOUS",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-general-weak-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      } ]
+    },
+    "retrievalP50Ms" : 2.4611,
+    "retrievalP95Ms" : 3.1965,
+    "latencySampleCount" : 80,
+    "allChannelsNoMatch" : {
+      "truePositive" : 2,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 6,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "ambiguity" : {
+      "truePositive" : 1,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 7,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "queryDetails" : [ {
+      "queryKey" : "query-lost-item-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8201705982087323
+      }, {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.800000011920929
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : 0.17982940179126772
+    }, {
+      "queryKey" : "query-traffic-admin-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-cyber-transaction-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-patrol-request-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-safety-threat-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-no-match-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-ambiguous-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.9998520557458993
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.9998519643422092
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.8102042064146071
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : 9.140369006122029E-8
+    }, {
+      "queryKey" : "query-general-weak-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.6000000238418579
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.57211903435174
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.5861477580706846
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    } ]
+  }, {
+    "configuration" : {
+      "topK" : {
+        "verifiedCase" : 5,
+        "categoryReference" : 3,
+        "officialGuide" : 3
+      },
+      "strategy" : "METADATA",
+      "candidateLimit" : 20,
+      "metadataWeight" : 0.0,
+      "rrfConstant" : 60
+    },
+    "metrics" : {
+      "datasetId" : "synthetic-retrieval-evaluation-v1",
+      "synthetic" : true,
+      "embeddingVersion" : "embed-v1-large-1536",
+      "thresholdProfileVersion" : "provisional-v1",
+      "provisionalThreshold" : true,
+      "totalQueryCount" : 8,
+      "verifiedCaseMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.125,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 5,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : 1.0,
+        "precisionAtFixedK" : 0.05,
+        "relevantQueryCount" : 2
+      },
+      "categoryReferenceMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.29166666666666663,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.29166666666666663,
+        "relevantQueryCount" : 6
+      },
+      "officialGuideMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.24999999999999997,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.24999999999999997,
+        "relevantQueryCount" : 6
+      },
+      "evidenceStatusAccuracy" : 1.0,
+      "riskSignalPreservationRate" : 1.0,
+      "noMatchRejectionAccuracy" : 1.0,
+      "ambiguityDetectionAccuracy" : 1.0,
+      "queryResults" : [ {
+        "queryKey" : "query-lost-item-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-ambiguous-b-synthetic", "category-ambiguous-a-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-lost-item-synthetic", "guide-ambiguous-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-traffic-admin-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-traffic-admin-synthetic", "category-lost-item-synthetic", "category-cyber-transaction-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-traffic-admin-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-cyber-transaction-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-cyber-transaction-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-cyber-transaction-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-patrol-request-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-patrol-request-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-patrol-request-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-safety-threat-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : true,
+        "actualRiskSignalPresent" : true,
+        "returnedVerifiedCaseKeys" : [ "case-safety-threat-synthetic", "case-lost-wallet-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-safety-threat-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-safety-threat-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-no-match-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-traffic-admin-synthetic", "category-cyber-transaction-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-lost-item-synthetic", "guide-traffic-admin-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-ambiguous-synthetic",
+        "expectedEvidenceStatus" : "AMBIGUOUS",
+        "actualEvidenceStatus" : "AMBIGUOUS",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-general-weak-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      } ]
+    },
+    "retrievalP50Ms" : 2.546,
+    "retrievalP95Ms" : 3.6275,
+    "latencySampleCount" : 80,
+    "allChannelsNoMatch" : {
+      "truePositive" : 2,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 6,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "ambiguity" : {
+      "truePositive" : 1,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 7,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "queryDetails" : [ {
+      "queryKey" : "query-lost-item-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8201705982087323
+      }, {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.800000011920929
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : 0.17982940179126772
+    }, {
+      "queryKey" : "query-traffic-admin-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-cyber-transaction-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-patrol-request-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-safety-threat-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-no-match-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-ambiguous-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.9998520557458993
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.9998519643422092
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.8102042064146071
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : 9.140369006122029E-8
+    }, {
+      "queryKey" : "query-general-weak-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.6000000238418579
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.57211903435174
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.5861477580706846
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    } ]
+  }, {
+    "configuration" : {
+      "topK" : {
+        "verifiedCase" : 5,
+        "categoryReference" : 3,
+        "officialGuide" : 3
+      },
+      "strategy" : "METADATA",
+      "candidateLimit" : 20,
+      "metadataWeight" : 0.1,
+      "rrfConstant" : 60
+    },
+    "metrics" : {
+      "datasetId" : "synthetic-retrieval-evaluation-v1",
+      "synthetic" : true,
+      "embeddingVersion" : "embed-v1-large-1536",
+      "thresholdProfileVersion" : "provisional-v1",
+      "provisionalThreshold" : true,
+      "totalQueryCount" : 8,
+      "verifiedCaseMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.125,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 5,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : 1.0,
+        "precisionAtFixedK" : 0.05,
+        "relevantQueryCount" : 2
+      },
+      "categoryReferenceMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.29166666666666663,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.29166666666666663,
+        "relevantQueryCount" : 6
+      },
+      "officialGuideMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.24999999999999997,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.24999999999999997,
+        "relevantQueryCount" : 6
+      },
+      "evidenceStatusAccuracy" : 1.0,
+      "riskSignalPreservationRate" : 1.0,
+      "noMatchRejectionAccuracy" : 1.0,
+      "ambiguityDetectionAccuracy" : 1.0,
+      "queryResults" : [ {
+        "queryKey" : "query-lost-item-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-ambiguous-b-synthetic", "category-ambiguous-a-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-lost-item-synthetic", "guide-ambiguous-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-traffic-admin-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-traffic-admin-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-traffic-admin-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-cyber-transaction-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-cyber-transaction-synthetic", "category-safety-threat-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-cyber-transaction-synthetic", "guide-lost-item-synthetic", "guide-safety-threat-synthetic" ]
+      }, {
+        "queryKey" : "query-patrol-request-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-safety-threat-synthetic", "case-lost-wallet-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-patrol-request-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-patrol-request-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-safety-threat-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : true,
+        "actualRiskSignalPresent" : true,
+        "returnedVerifiedCaseKeys" : [ "case-safety-threat-synthetic", "case-lost-wallet-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-safety-threat-synthetic", "category-cyber-transaction-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-safety-threat-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-no-match-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-cyber-transaction-synthetic", "category-patrol-request-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-cyber-transaction-synthetic", "guide-patrol-request-synthetic" ]
+      }, {
+        "queryKey" : "query-ambiguous-synthetic",
+        "expectedEvidenceStatus" : "AMBIGUOUS",
+        "actualEvidenceStatus" : "AMBIGUOUS",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-general-weak-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-cyber-transaction-synthetic", "guide-patrol-request-synthetic" ]
+      } ]
+    },
+    "retrievalP50Ms" : 2.5699,
+    "retrievalP95Ms" : 3.8235,
+    "latencySampleCount" : 80,
+    "allChannelsNoMatch" : {
+      "truePositive" : 2,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 6,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "ambiguity" : {
+      "truePositive" : 1,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 7,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "queryDetails" : [ {
+      "queryKey" : "query-lost-item-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8201705982087323
+      }, {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.800000011920929
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : 0.17982940179126772
+    }, {
+      "queryKey" : "query-traffic-admin-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-cyber-transaction-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-safety-threat-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-patrol-request-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-safety-threat-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-no-match-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-ambiguous-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.9998520557458993
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.9998519643422092
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.8102042064146071
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : 9.140369006122029E-8
+    }, {
+      "queryKey" : "query-general-weak-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.6000000238418579
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.57211903435174
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.5861477580706846
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    } ]
+  }, {
+    "configuration" : {
+      "topK" : {
+        "verifiedCase" : 5,
+        "categoryReference" : 3,
+        "officialGuide" : 3
+      },
+      "strategy" : "METADATA",
+      "candidateLimit" : 20,
+      "metadataWeight" : 0.3,
+      "rrfConstant" : 60
+    },
+    "metrics" : {
+      "datasetId" : "synthetic-retrieval-evaluation-v1",
+      "synthetic" : true,
+      "embeddingVersion" : "embed-v1-large-1536",
+      "thresholdProfileVersion" : "provisional-v1",
+      "provisionalThreshold" : true,
+      "totalQueryCount" : 8,
+      "verifiedCaseMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.125,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 5,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : 1.0,
+        "precisionAtFixedK" : 0.05,
+        "relevantQueryCount" : 2
+      },
+      "categoryReferenceMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.29166666666666663,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.29166666666666663,
+        "relevantQueryCount" : 6
+      },
+      "officialGuideMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.24999999999999997,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.24999999999999997,
+        "relevantQueryCount" : 6
+      },
+      "evidenceStatusAccuracy" : 1.0,
+      "riskSignalPreservationRate" : 1.0,
+      "noMatchRejectionAccuracy" : 1.0,
+      "ambiguityDetectionAccuracy" : 1.0,
+      "queryResults" : [ {
+        "queryKey" : "query-lost-item-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-lost-item-synthetic", "guide-ambiguous-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-traffic-admin-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-traffic-admin-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-traffic-admin-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-cyber-transaction-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-cyber-transaction-synthetic", "category-safety-threat-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-cyber-transaction-synthetic", "guide-lost-item-synthetic", "guide-safety-threat-synthetic" ]
+      }, {
+        "queryKey" : "query-patrol-request-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-safety-threat-synthetic", "case-lost-wallet-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-patrol-request-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-patrol-request-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-safety-threat-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : true,
+        "actualRiskSignalPresent" : true,
+        "returnedVerifiedCaseKeys" : [ "case-safety-threat-synthetic", "case-lost-wallet-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-safety-threat-synthetic", "category-cyber-transaction-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-safety-threat-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-no-match-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-cyber-transaction-synthetic", "category-patrol-request-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-cyber-transaction-synthetic", "guide-patrol-request-synthetic" ]
+      }, {
+        "queryKey" : "query-ambiguous-synthetic",
+        "expectedEvidenceStatus" : "AMBIGUOUS",
+        "actualEvidenceStatus" : "AMBIGUOUS",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-general-weak-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-cyber-transaction-synthetic", "guide-patrol-request-synthetic" ]
+      } ]
+    },
+    "retrievalP50Ms" : 2.5282,
+    "retrievalP95Ms" : 3.3026,
+    "latencySampleCount" : 80,
+    "allChannelsNoMatch" : {
+      "truePositive" : 2,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 6,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "ambiguity" : {
+      "truePositive" : 1,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 7,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "queryDetails" : [ {
+      "queryKey" : "query-lost-item-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.800000011920929
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.8201705982087323
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : 0.17982940179126772
+    }, {
+      "queryKey" : "query-traffic-admin-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-cyber-transaction-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-safety-threat-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-patrol-request-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-safety-threat-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-no-match-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-ambiguous-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.9998520557458993
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.9998519643422092
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.8102042064146071
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : 9.140369006122029E-8
+    }, {
+      "queryKey" : "query-general-weak-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.6000000238418579
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.57211903435174
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.5861477580706846
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    } ]
+  }, {
+    "configuration" : {
+      "topK" : {
+        "verifiedCase" : 5,
+        "categoryReference" : 3,
+        "officialGuide" : 3
+      },
+      "strategy" : "CODE_RRF",
+      "candidateLimit" : 20,
+      "metadataWeight" : 0.0,
+      "rrfConstant" : 60
+    },
+    "metrics" : {
+      "datasetId" : "synthetic-retrieval-evaluation-v1",
+      "synthetic" : true,
+      "embeddingVersion" : "embed-v1-large-1536",
+      "thresholdProfileVersion" : "provisional-v1",
+      "provisionalThreshold" : true,
+      "totalQueryCount" : 8,
+      "verifiedCaseMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.125,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 5,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : 1.0,
+        "precisionAtFixedK" : 0.05,
+        "relevantQueryCount" : 2
+      },
+      "categoryReferenceMetrics" : {
+        "recallAtK" : 0.8333333333333334,
+        "precisionAtK" : 0.20833333333333331,
+        "mrr" : 0.8333333333333334,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 0.8333333333333334,
+        "hitAt3" : 0.8333333333333334,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.20833333333333331,
+        "relevantQueryCount" : 6
+      },
+      "officialGuideMetrics" : {
+        "recallAtK" : 1.0,
+        "precisionAtK" : 0.24999999999999997,
+        "mrr" : 1.0,
+        "evaluatedQueryCount" : 8,
+        "topK" : 3,
+        "hitAt1" : 1.0,
+        "hitAt3" : 1.0,
+        "hitAt5" : null,
+        "precisionAtFixedK" : 0.24999999999999997,
+        "relevantQueryCount" : 6
+      },
+      "evidenceStatusAccuracy" : 0.875,
+      "riskSignalPreservationRate" : 1.0,
+      "noMatchRejectionAccuracy" : 1.0,
+      "ambiguityDetectionAccuracy" : 0.0,
+      "queryResults" : [ {
+        "queryKey" : "query-lost-item-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-ambiguous-a-synthetic", "category-ambiguous-b-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-lost-item-synthetic", "guide-traffic-admin-synthetic", "guide-ambiguous-synthetic" ]
+      }, {
+        "queryKey" : "query-traffic-admin-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-traffic-admin-synthetic", "category-lost-item-synthetic", "category-ambiguous-b-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-traffic-admin-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-cyber-transaction-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-safety-threat-synthetic", "case-lost-wallet-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-cyber-transaction-synthetic", "category-safety-threat-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-cyber-transaction-synthetic", "guide-lost-item-synthetic", "guide-safety-threat-synthetic" ]
+      }, {
+        "queryKey" : "query-patrol-request-synthetic",
+        "expectedEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-patrol-request-synthetic", "category-lost-item-synthetic", "category-traffic-admin-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-patrol-request-synthetic", "guide-lost-item-synthetic", "guide-traffic-admin-synthetic" ]
+      }, {
+        "queryKey" : "query-safety-threat-synthetic",
+        "expectedEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : true,
+        "actualRiskSignalPresent" : true,
+        "returnedVerifiedCaseKeys" : [ "case-safety-threat-synthetic", "case-lost-wallet-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-safety-threat-synthetic", "category-cyber-transaction-synthetic", "category-lost-item-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-safety-threat-synthetic", "guide-lost-item-synthetic", "guide-cyber-transaction-synthetic" ]
+      }, {
+        "queryKey" : "query-no-match-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-cyber-transaction-synthetic", "category-patrol-request-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-cyber-transaction-synthetic", "guide-ambiguous-synthetic", "guide-patrol-request-synthetic" ]
+      }, {
+        "queryKey" : "query-ambiguous-synthetic",
+        "expectedEvidenceStatus" : "AMBIGUOUS",
+        "actualEvidenceStatus" : "CASE_AND_REFERENCE_SUPPORTED",
+        "evidenceStatusMatched" : false,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-cyber-transaction-synthetic", "category-patrol-request-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-cyber-transaction-synthetic", "guide-patrol-request-synthetic" ]
+      }, {
+        "queryKey" : "query-general-weak-synthetic",
+        "expectedEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "actualEvidenceStatus" : "INSUFFICIENT_EVIDENCE",
+        "evidenceStatusMatched" : true,
+        "expectedRiskSignalPresent" : false,
+        "actualRiskSignalPresent" : false,
+        "returnedVerifiedCaseKeys" : [ "case-lost-wallet-synthetic", "case-safety-threat-synthetic" ],
+        "returnedCategoryReferenceKeys" : [ "category-lost-item-synthetic", "category-cyber-transaction-synthetic", "category-patrol-request-synthetic" ],
+        "returnedOfficialGuideKeys" : [ "guide-ambiguous-synthetic", "guide-cyber-transaction-synthetic", "guide-patrol-request-synthetic" ]
+      } ]
+    },
+    "retrievalP50Ms" : 5.0162,
+    "retrievalP95Ms" : 6.6962,
+    "latencySampleCount" : 80,
+    "allChannelsNoMatch" : {
+      "truePositive" : 2,
+      "falsePositive" : 0,
+      "falseNegative" : 0,
+      "trueNegative" : 6,
+      "precision" : 1.0,
+      "recall" : 1.0
+    },
+    "ambiguity" : {
+      "truePositive" : 0,
+      "falsePositive" : 0,
+      "falseNegative" : 1,
+      "trueNegative" : 7,
+      "precision" : null,
+      "recall" : 0.0
+    },
+    "queryDetails" : [ {
+      "queryKey" : "query-lost-item-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-ambiguous-a-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.800000011920929
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.8201705982087323
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.8102042064146071
+      } ],
+      "cosineCategoryMargin" : 0.17982940179126772
+    }, {
+      "queryKey" : "query-traffic-admin-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-ambiguous-b-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-cyber-transaction-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-safety-threat-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-patrol-request-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-traffic-admin-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-safety-threat-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-safety-threat-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-lost-item-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-no-match-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-ambiguous-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.8102042064146071
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 1.0
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    }, {
+      "queryKey" : "query-general-weak-synthetic",
+      "cases" : [ {
+        "itemKey" : "case-lost-wallet-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "case-safety-threat-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      } ],
+      "categories" : [ {
+        "itemKey" : "category-lost-item-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "category-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "guides" : [ {
+        "itemKey" : "guide-ambiguous-synthetic",
+        "rank" : 1,
+        "cosineSimilarity" : 0.5861477580706846
+      }, {
+        "itemKey" : "guide-cyber-transaction-synthetic",
+        "rank" : 2,
+        "cosineSimilarity" : 0.0
+      }, {
+        "itemKey" : "guide-patrol-request-synthetic",
+        "rank" : 3,
+        "cosineSimilarity" : 0.0
+      } ],
+      "cosineCategoryMargin" : null
+    } ]
+  } ]
+}
