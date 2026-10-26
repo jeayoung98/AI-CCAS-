@@ -1,0 +1,51 @@
+{
+  "inputSha256": "f0b2fde046cefc33fa58ad7402a716d2c181e5aae6904f96354978a00b896f04",
+  "recordCount": 500,
+  "method": "deterministic extractive draft, not per-record LLM inference",
+  "additionalRedactionRecords": 204,
+  "flagCounts": {
+    "ADDITIONAL_REDACTION_APPLIED": 204,
+    "HUMAN_PRIVACY_REVIEW_REQUIRED": 500,
+    "NEGATION_AND_INTENT_UNREVIEWED": 500,
+    "RISK_ABSENCE_NOT_ESTABLISHED": 495,
+    "CHECK_PREVIOUS_ADDRESS_REDACTION_FOR_INFORMATION_LOSS": 67,
+    "TRUNCATED_EXCERPT": 41,
+    "POSSIBLE_DUPLICATE_GROUP": 8
+  },
+  "riskCandidateCounts": {
+    "CHILD_ABUSE": 2,
+    "WEAPON": 2,
+    "PERSONAL_DATA_EXPOSURE": 1
+  },
+  "subjectCandidateCounts": {
+    "POLICE_SERVICE_COMPLAINT": 10,
+    "TRAFFIC_ADMIN": 6,
+    "SAFETY_THREAT": 15,
+    "CASE_STATUS": 2
+  },
+  "requestCandidateCounts": {
+    "APPLY": 2,
+    "CHECK_STATUS": 2
+  },
+  "humanReviewed": false,
+  "embeddingExecuted": false,
+  "retrievalEvaluationExecuted": false,
+  "readyForEmbedding": 0,
+  "readyForScoredEvaluation": 0,
+  "limitations": [
+    "Rules miss paraphrases and cannot resolve negation or intent",
+    "All draft candidate codes require review; no candidate does not mean no risk",
+    "Extractive summary preserves claims, not independently verified facts",
+    "Ground truth and reviewed knowledge corpus remain unavailable"
+  ],
+  "checkedDate": "2026-10-25",
+  "unitTestsPassed": 21,
+  "datasetChecksPassed": true,
+  "originalDatasetUnchanged": true,
+  "draftFileSha256": "f1f47312c684fe1027467e70a878045112b6152e2a6d70a755d6c5d1489377bb",
+  "environment": {
+    "openAiApiKeyConfigured": false,
+    "dockerDaemonAvailable": false
+  },
+  "officialSourceCandidates": 3
+}

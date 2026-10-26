@@ -1,0 +1,63 @@
+{
+  "datasetId": "acrc-public-500-review-v1",
+  "sourceFileSha256": "b937263ebf33d0aca584af8bc1c0f42f34cad68bc2577951c5a93e16e5de2e16",
+  "queryCount": 500,
+  "groupCount": 496,
+  "candidateDuplicatePairs": 4,
+  "candidateDuplicateGroups": 4,
+  "grouping": {
+    "method": "character-5gram Jaccard + shared source ID, connected components",
+    "threshold": 0.65,
+    "humanReviewed": false
+  },
+  "splitCounts": {
+    "test": 400,
+    "dev": 100
+  },
+  "splitCategoryCounts": {
+    "dev": {
+      "경찰민원": 17,
+      "산업농림환경민원": 13,
+      "복지노동민원": 11,
+      "재정세무민원": 9,
+      "주택건축민원": 28,
+      "국방보훈민원": 12,
+      "교통도로민원": 4,
+      "도시수자원민원": 5,
+      "행정문화교육민원": 1
+    },
+    "test": {
+      "경찰민원": 90,
+      "복지노동민원": 58,
+      "주택건축민원": 108,
+      "산업농림환경민원": 38,
+      "재정세무민원": 30,
+      "도시수자원민원": 21,
+      "국방보훈민원": 39,
+      "행정문화교육민원": 6,
+      "교통도로민원": 7,
+      "기업·취약계층·집단민원": 3
+    }
+  },
+  "crossSplitGroupOverlap": 0,
+  "splitFrozen": false,
+  "truncatedExcerptCount": 41,
+  "readyForEmbedding": 0,
+  "readyForScoredEvaluation": 0,
+  "pendingReviewCounts": {
+    "privacy": 500,
+    "usage": 500,
+    "structure": 500,
+    "relevance": 500,
+    "caseGrouping": 500
+  },
+  "retrievalExperimentExecuted": false,
+  "limitations": [
+    "Lexical grouping can miss paraphrases or group unrelated cases; manual review required",
+    "Split is provisional, deterministic, and not category-stratified",
+    "Other source categories are not automatically no-match ground truth",
+    "No reviewed corpus snapshot or relevance labels supplied; no accuracy metrics computed"
+  ],
+  "verificationDate": "2026-10-25",
+  "unitTestsPassed": 13
+}

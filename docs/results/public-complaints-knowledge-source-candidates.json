@@ -1,0 +1,43 @@
+{
+  "checkedDate": "2026-10-25",
+  "status": "SOURCE_DISCOVERY_ONLY",
+  "readyForIngestion": false,
+  "humanReviewed": false,
+  "sources": [
+    {
+      "candidateKey": "acrc-grievance-definition",
+      "proposedChannel": "CATEGORY_REFERENCE",
+      "title": "고충민원 제도 소개",
+      "url": "https://www.acrc.go.kr/menu.es?mid=a10102010100",
+      "organization": "국민권익위원회",
+      "summary": "고충민원의 범위와 일반 행정 문의·각종 신고와의 구분을 설명하는 자료다.",
+      "reviewStatus": "DRAFT",
+      "limitations": ["프로젝트의 민원 대상 코드와 별도 매핑 필요", "개별 사례의 최종 처리 경로나 법적 판단 근거로 자동 사용하지 않음"]
+    },
+    {
+      "candidateKey": "acrc-grievance-application",
+      "proposedChannel": "OFFICIAL_GUIDE",
+      "title": "고충민원 신청방법 안내",
+      "url": "https://www.acrc.go.kr/menu.es?mid=a10201010100",
+      "organization": "국민권익위원회",
+      "summary": "국민신문고를 통한 신청과 인터넷 이용이 어려운 경우의 신청 방법을 안내한다.",
+      "reviewStatus": "DRAFT",
+      "limitations": ["관련 구간 chunk 추출 및 이용 조건·버전 검토 필요", "사건별 관련성 정답은 미지정"]
+    },
+    {
+      "candidateKey": "acrc-epeople-introduction",
+      "proposedChannel": "OFFICIAL_GUIDE",
+      "title": "국민신문고 소개",
+      "url": "https://www.acrc.go.kr/menu.es?mid=a10104030100",
+      "organization": "국민권익위원회",
+      "summary": "행정기관 등과 연결되는 온라인 민원·제안 창구를 소개한다.",
+      "reviewStatus": "DRAFT",
+      "limitations": ["경찰민원 전체를 설명하는 자료는 아님", "일반적인 포털 설명을 모든 질의의 관련 정답으로 지정하지 않음"]
+    }
+  ],
+  "corpusGaps": {
+    "VERIFIED_CASE": "별도의 검수된 사례 corpus 미확보. 평가 질의를 그대로 사례로 적재하지 않음.",
+    "CATEGORY_REFERENCE": "출처 후보만 확보. 프로젝트 코드별 기준과 검수 미완료.",
+    "OFFICIAL_GUIDE": "출처 후보만 확보. 경찰 관련 세부 안내 및 검수된 chunk 미확보."
+  }
+}
