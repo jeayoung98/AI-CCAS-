@@ -87,6 +87,17 @@ Content-Type: application/json
 
 평가 기반은 채널별 Recall@K·Precision@K·MRR, 근거 상태 정확도, 위험 신호 보존율, 근거 없음 거부 정확도, 모호성 감지 정확도를 계산합니다.
 
+검색 전략은 `retrieval.search.strategy`로 전환할 수 있습니다. 기본값 `BASELINE`을 보존하며,
+`EXACT`는 거리·ID Top-K를 먼저 선택하는 SQL 대안입니다. `METADATA` 재정렬과 `CODE_RRF`는
+검증 전 실험 옵션입니다. 동일 저장 벡터를 재사용하는 비교 도구, Hit@K·고정 K Precision,
+판정 혼동행렬 및 실행 계획 측정을 추가했습니다. 합성 평가에서 메타데이터 재정렬의 품질 향상은
+확인되지 않았고 코드 RRF는 모호성 감지를 악화시켰습니다.
+[측정 결과·재현 명령·한계](docs/retrieval-optimization.md)를 확인하세요.
+
+추가로 500개 합성 순위 시나리오(개발 100/최종 비교 400)와 코사인 기반 제한적 RRF 가산 방식
+`COSINE_CODE_RRF`를 비교했습니다. 메타데이터 오류에 따른 악화와 RRF의 모호성 근거 누락을
+분리해 확인했으며 기본 검색 전략은 유지했습니다. [500개 실험 결과](docs/retrieval-stress-experiment.md)
+
 테스트에는 Java 26이 필요하며, Testcontainers 통합 테스트에는 Docker가 필요합니다.
 
 ```powershell
