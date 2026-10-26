@@ -48,11 +48,14 @@ class ReviewServerTests(unittest.TestCase):
             ReviewStore(self.source, self.output)
 
     def test_http_access_and_save(self):
-        server = make_server(self.store, 0)
+        report = self.root / 'ai.html'
+        report.write_text('<h1>AI results</h1>', encoding='utf-8')
+        server = make_server(self.store, 0, ai_report=report)
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
         base = f'http://127.0.0.1:{server.server_port}'
         try:
+            self.assertIn('AI results', urllib.request.urlopen(base + '/ai-relevance').read().decode())
             html = urllib.request.urlopen(base).read().decode()
             token = html.split("const TOKEN='")[1].split("'")[0]
             for headers in ({}, {'X-Review-Token': token, 'Origin': 'https://example.invalid'}):

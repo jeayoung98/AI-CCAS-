@@ -47,8 +47,12 @@ def export(source, corpus, responses, privacy, output):
                 continue
             relevance = int(decision == 'RELEVANT')
             qrels.append({'queryKey': key, 'itemKey': doc, 'itemType': types[doc], 'relevance': relevance,
-                          'reason': label.get('reason', ''), 'reviewer': record.get('reviewer', ''),
-                          'reviewedAt': record['updatedAt'], 'reviewRevision': record['revision']})
+                          'reason': label.get('reason', ''),
+                          'reviewer': ('AI:' + label.get('model', 'unknown')) if label.get('judgmentSource') == 'AI' else record.get('reviewer', ''),
+                          'reviewedAt': label.get('reviewedAt', record['updatedAt']), 'reviewRevision': record['revision'],
+                          'judgmentSource': label.get('judgmentSource', 'HUMAN'),
+                          'model': label.get('model'), 'confidence': label.get('confidence'),
+                          'promptVersion': label.get('promptVersion')})
             (positive if relevance else negative)[types[doc]].append(doc)
         if unresolved:
             pending.append({'queryKey': key, 'state': 'UNRESOLVED_LABELS', 'items': unresolved})
@@ -73,6 +77,7 @@ def export(source, corpus, responses, privacy, output):
                'unreviewedQueries': sum(p['state'] == 'NOT_REVIEWED' for p in pending),
                'resolvedPairs': len(qrels), 'positivePairs': sum(q['relevance'] for q in qrels),
                'negativePairs': sum(1-q['relevance'] for q in qrels),
+               'judgmentSourceCounts': dict(Counter(q['judgmentSource'] for q in qrels)),
                'unresolvedPairs': sum(len(p['items']) for p in pending),
                'completeQuerySplitCounts': split_counts, 'groupOverlap': 0,
                'documentCounts': document_counts,

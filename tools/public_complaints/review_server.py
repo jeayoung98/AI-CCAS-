@@ -61,7 +61,7 @@ class ReviewStore:
             return record
 
 
-def make_server(store, port=8765, relevance=None):
+def make_server(store, port=8765, relevance=None, ai_report=None):
     token = secrets.token_urlsafe(32)
 
     class Handler(BaseHTTPRequestHandler):
@@ -90,6 +90,8 @@ def make_server(store, port=8765, relevance=None):
             if not self.allowed():
                 return self.reply(403, {'error': 'Access denied'})
             path = urlparse(self.path).path
+            if path == '/ai-relevance' and ai_report is not None and ai_report.is_file():
+                return self.reply(200, ai_report.read_text(encoding='utf-8'), 'text/html; charset=utf-8')
             if path == '/relevance' and relevance is not None:
                 html = Path(__file__).with_name('relevance.html').read_text(encoding='utf-8')
                 return self.reply(200, html.replace('__TOKEN__', token), 'text/html; charset=utf-8')
@@ -138,6 +140,7 @@ if __name__ == '__main__':
     store = ReviewStore(args.input, args.output)
     relevance = RelevanceStore(store, Path(__file__).with_name('relevance_documents_v2.json'),
                                args.output.with_name('relevance-responses-v2.json'))
-    server = make_server(store, args.port, relevance)
+    server = make_server(store, args.port, relevance,
+                         ROOT / '.local-data/acrc-ai-relevance-v1/index.html')
     print(f'Review UI: http://127.0.0.1:{server.server_port}', flush=True)
     server.serve_forever()

@@ -38,6 +38,17 @@ class ExportTests(unittest.TestCase):
         self.corpus.write_text(self.corpus.read_text(encoding='utf-8')+' ',encoding='utf-8')
         with self.assertRaises(ValueError):self.run_export()
 
+    def test_ai_provenance_survives_export(self):
+        label = self.review['reviews']['a']['labels']['d']
+        label.update({'judgmentSource': 'AI', 'model': 'test-model', 'confidence': 'LOW', 'reviewedAt': 'ai-time'})
+        self.responses.write_text(json.dumps(self.review), encoding='utf-8')
+        result = self.run_export()
+        self.assertEqual(result['judgmentSourceCounts'], {'AI': 1})
+        row = json.loads((self.root/'out/qrels.jsonl').read_text(encoding='utf-8'))
+        self.assertEqual(row['reviewer'], 'AI:test-model')
+        self.assertEqual(row['reviewedAt'], 'ai-time')
+        self.assertEqual(row['confidence'], 'LOW')
+
     def test_expanded_pool_preserves_old_labels_without_completing_queries(self):
         documents = [{'itemKey': 'd', 'itemType': 'OFFICIAL_GUIDE'}] + [
             {'itemKey': str(i), 'itemType': 'OFFICIAL_GUIDE'} for i in range(4)]
