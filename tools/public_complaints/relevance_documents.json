@@ -1,0 +1,43 @@
+{
+  "version": "official-source-review-v1",
+  "checkedDate": "2026-10-26",
+  "scope": "Initial limited document pool, not a complete retrieval corpus",
+  "documents": [
+    {
+      "itemKey": "acrc-grievance-definition-v1",
+      "itemType": "CATEGORY_REFERENCE",
+      "title": "고충민원의 범위와 일반 문의·신고의 구분",
+      "url": "https://www.acrc.go.kr/menu.es?mid=a10102010100",
+      "section": "고충민원을 신청하기 전 안내 / 주요기능",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "text": "행정기관의 부당하거나 소극적인 처분, 불합리한 제도로 권리 침해나 불편을 겪는 문제는 고충민원 제도의 대상이 될 수 있다. 반면 단순한 행정절차 질문이나 법령 해석 문의, 교통법규 위반 신고 등은 고충민원과 구별된다. 국민권익위원회는 고충민원을 조사하고 처리하며, 여러 사람이 관련된 갈등에 대해서는 조정을 수행한다.",
+      "boundary": "고충민원이라는 유형을 설명하는 자료입니다. 개별 행위가 실제 위법하거나 부당하다는 판단, 특정 사건의 해결 결과는 담지 않습니다.",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING"
+    },
+    {
+      "itemKey": "acrc-grievance-application-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "고충민원 작성과 신청 방법",
+      "url": "https://www.acrc.go.kr/menu.es?mid=a10201010100",
+      "section": "신청서 작성 유의사항 / 신청방법",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "text": "고충민원은 인터넷뿐 아니라 우편·팩스 또는 방문 상담을 통해 신청하는 방법이 안내되어 있다. 신청 내용에는 사건의 주체, 시점, 장소, 경위 등을 사실 중심으로 명확히 적고, 문서나 사진 같은 근거 자료가 있으면 함께 제출하도록 설명한다. 권익위원회 누리집에서의 신청은 국민신문고를 통해 접수된다.",
+      "boundary": "신청 방법을 묻는 질문에 참고할 자료입니다. 이미 발생한 사건의 사실관계나 담당자의 책임, 보상 여부를 판단해 주는 자료는 아닙니다.",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING"
+    },
+    {
+      "itemKey": "acrc-epeople-introduction-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "국민신문고의 역할과 연결 기관",
+      "url": "https://www.acrc.go.kr/menu.es?mid=a10104030100",
+      "section": "국민신문고는",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "text": "국민신문고는 정부에 대한 민원과 제안을 온라인으로 신청하고 처리하는 창구다. 중앙행정기관과 지방자치단체, 교육청, 해외공관뿐 아니라 사법부와 주요 공공기관에도 연결되어 있다.",
+      "boundary": "창구 자체의 기능을 설명합니다. 모든 민원과 자동으로 관련되는 문서는 아니며, 개별 사건의 답이나 최종 처리기관을 확정하지 않습니다.",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING"
+    }
+  ]
+}
