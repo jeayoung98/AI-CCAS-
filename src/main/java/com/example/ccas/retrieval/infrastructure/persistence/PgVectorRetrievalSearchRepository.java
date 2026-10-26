@@ -16,6 +16,7 @@ import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import com.example.ccas.retrieval.application.text.RetrievalMetadata;
 
 @Repository
 public class PgVectorRetrievalSearchRepository {
@@ -28,12 +29,7 @@ public class PgVectorRetrievalSearchRepository {
         this.objectMapper = objectMapper;
     }
 
-    public List<RetrievalSearchHit> searchByItemType(
-            RetrievalItemType itemType,
-            EmbeddingResult queryEmbedding,
-            int limit
-    ) {
-        String sql = """
+    private static final String BASELINE_SQL = """
                 SELECT
                     id,
                     item_type,
@@ -55,6 +51,12 @@ public class PgVectorRetrievalSearchRepository {
                 LIMIT :limit
                 """;
 
+    public List<RetrievalSearchHit> searchByItemType(
+            RetrievalItemType itemType,
+            EmbeddingResult queryEmbedding,
+            int limit
+    ) {
+
         MapSqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("itemType", itemType.name())
                 .addValue("queryEmbedding", new PGvector(queryEmbedding.vector()))
@@ -62,7 +64,7 @@ public class PgVectorRetrievalSearchRepository {
                 .addValue("limit", limit);
 
         try {
-            return jdbcTemplate.query(sql, parameters, this::mapHit);
+            return jdbcTemplate.query(BASELINE_SQL, parameters, this::mapHit);
         } catch (RetrievalSearchException exception) {
             throw exception;
         } catch (RuntimeException exception) {
@@ -82,8 +84,82 @@ public class PgVectorRetrievalSearchRepository {
                 rs.getString("verified_category_code"),
                 rs.getString("verified_route_code"),
                 rs.getDouble("cosine_similarity"),
-                rs.getInt("result_rank")
+                rowNum + 1
         );
+    }
+
+    // Keep the baseline window query above intact for reproducible comparisons.
+    public List<RetrievalSearchHit> searchExactCandidates(RetrievalItemType type, EmbeddingResult embedding, int limit) {
+        return candidateSearch(type, embedding, limit, null);
+    }
+
+    public List<RetrievalSearchHit> searchCodeCandidates(RetrievalItemType type, EmbeddingResult embedding,
+            int limit, RetrievalMetadata metadata) {
+        return candidateSearch(type, embedding, limit, metadata);
+    }
+
+    private List<RetrievalSearchHit> candidateSearch(RetrievalItemType type, EmbeddingResult embedding,
+            int limit, RetrievalMetadata metadata) {
+        var params = candidateParameters(type, embedding, limit, metadata);
+        try {
+            return jdbcTemplate.query(candidateSql(metadata != null), params, this::mapHit);
+        } catch (RuntimeException exception) {
+            throw new RetrievalSearchException("Candidate search failed", exception);
+        }
+    }
+
+    /** Explicit diagnostic only; not used in the request path. Uses the actual retrieval SQL. */
+    public List<String> explainSearch(RetrievalItemType type, EmbeddingResult embedding, int limit,
+            RetrievalMetadata metadata, boolean baseline) {
+        return jdbcTemplate.query("EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT) "
+                + (baseline ? BASELINE_SQL : candidateSql(metadata != null)),
+                candidateParameters(type, embedding, limit, metadata), (rs, row) -> rs.getString(1));
+    }
+
+    private String candidateSql(boolean withCodes) {
+        String codeScore = """
+                ((subject_matter_codes && string_to_array(:subjects, ','))::int
+                + (requested_action_codes && string_to_array(:actions, ','))::int
+                + (risk_signal_codes && string_to_array(:risks, ','))::int)
+                """;
+        String sql = "WITH candidates AS MATERIALIZED (SELECT id, "
+                + "embedding <=> CAST(:queryEmbedding AS vector) AS distance"
+                + (withCodes ? ", " + codeScore + " AS code_score" : "") + " " + """
+                FROM retrieval_item
+                WHERE item_type = :itemType AND review_status = 'VERIFIED'
+                  AND is_active = TRUE AND embedding_version = :embeddingVersion
+                """;
+        if (withCodes) {
+            sql += " AND (subject_matter_codes && string_to_array(:subjects, ',')"
+                    + " OR requested_action_codes && string_to_array(:actions, ',')"
+                    + " OR risk_signal_codes && string_to_array(:risks, ','))";
+        }
+        sql += " ORDER BY " + (withCodes ? "code_score DESC, " : "")
+                + "distance, id LIMIT :limit) " + """
+                SELECT r.id, r.item_type, r.title, r.structured_payload::text AS structured_payload,
+                    r.subject_matter_codes, r.requested_action_codes, r.risk_signal_codes,
+                    r.verified_category_code, r.verified_route_code, 1 - c.distance AS cosine_similarity
+                FROM candidates c JOIN retrieval_item r ON r.id=c.id
+                ORDER BY
+                """ + (withCodes ? "c.code_score DESC, " : "") + "c.distance, r.id";
+        return sql;
+    }
+
+    private MapSqlParameterSource candidateParameters(RetrievalItemType type, EmbeddingResult embedding,
+            int limit, RetrievalMetadata metadata) {
+        var params = new MapSqlParameterSource().addValue("itemType", type.name())
+                .addValue("queryEmbedding", new PGvector(embedding.vector()))
+                .addValue("embeddingVersion", embedding.version()).addValue("limit", limit);
+        if (metadata != null) {
+            params.addValue("subjects", knownCodes(metadata.subjectMatterCodes()))
+                    .addValue("actions", knownCodes(metadata.requestedActionCodes()))
+                    .addValue("risks", knownCodes(metadata.riskSignalCodes()));
+        }
+        return params;
+    }
+
+    private String knownCodes(List<String> codes) {
+        return String.join(",", codes.stream().filter(code -> !code.equals("UNKNOWN")).distinct().toList());
     }
 
     private JsonNode readStructuredPayload(String json) {

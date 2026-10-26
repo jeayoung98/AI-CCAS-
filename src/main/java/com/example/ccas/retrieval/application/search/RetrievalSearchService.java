@@ -5,6 +5,8 @@ import com.example.ccas.retrieval.domain.type.RetrievalItemType;
 import com.example.ccas.retrieval.embedding.EmbeddingResult;
 import com.example.ccas.retrieval.infrastructure.persistence.PgVectorRetrievalSearchRepository;
 import org.springframework.stereotype.Service;
+import com.example.ccas.retrieval.application.text.RetrievalMetadata;
+import java.util.List;
 
 @Service
 public class RetrievalSearchService {
@@ -21,25 +23,46 @@ public class RetrievalSearchService {
     }
 
     public RetrievalCandidates retrieveCandidates(EmbeddingResult queryEmbedding) {
+        return retrieveCandidates(queryEmbedding, null);
+    }
+
+    public RetrievalCandidates retrieveCandidates(EmbeddingResult queryEmbedding, RetrievalMetadata metadata) {
         validateQueryEmbedding(queryEmbedding);
 
         return new RetrievalCandidates(
-                repository.searchByItemType(
+                search(
                         RetrievalItemType.VERIFIED_CASE,
                         queryEmbedding,
-                        properties.topK().verifiedCase()
+                        properties.topK().verifiedCase(), metadata
                 ),
-                repository.searchByItemType(
+                search(
                         RetrievalItemType.CATEGORY_REFERENCE,
                         queryEmbedding,
-                        properties.topK().categoryReference()
+                        properties.topK().categoryReference(), metadata
                 ),
-                repository.searchByItemType(
+                search(
                         RetrievalItemType.OFFICIAL_GUIDE,
                         queryEmbedding,
-                        properties.topK().officialGuide()
+                        properties.topK().officialGuide(), metadata
                 )
         );
+    }
+
+    private List<RetrievalSearchHit> search(RetrievalItemType type, EmbeddingResult embedding,
+            int topK, RetrievalMetadata metadata) {
+        if (properties.strategy() == RetrievalSearchProperties.Strategy.BASELINE) {
+            return repository.searchByItemType(type, embedding, topK);
+        }
+        if (properties.strategy() == RetrievalSearchProperties.Strategy.EXACT) {
+            return repository.searchExactCandidates(type, embedding, topK);
+        }
+        if (metadata == null) throw new IllegalArgumentException("Experimental strategies require query metadata");
+        int limit = Math.max(topK, properties.candidateLimit());
+        var vector = repository.searchExactCandidates(type, embedding, limit);
+        var codes = (properties.strategy() == RetrievalSearchProperties.Strategy.CODE_RRF
+                || properties.strategy() == RetrievalSearchProperties.Strategy.COSINE_CODE_RRF)
+                ? repository.searchCodeCandidates(type, embedding, limit, metadata) : List.<RetrievalSearchHit>of();
+        return CandidateRanker.rank(vector, codes, metadata, properties, topK);
     }
 
     private void validateQueryEmbedding(EmbeddingResult queryEmbedding) {
@@ -59,5 +82,11 @@ public class RetrievalSearchService {
         if (queryEmbedding.version() == null || queryEmbedding.version().isBlank()) {
             throw new InvalidQueryEmbeddingException("query embedding version은 비어 있을 수 없습니다.");
         }
+        double norm = 0;
+        for (float value : vector) {
+            if (!Float.isFinite(value)) throw new InvalidQueryEmbeddingException("query vector must be finite");
+            norm += (double) value * value;
+        }
+        if (norm == 0) throw new InvalidQueryEmbeddingException("query vector must be nonzero");
     }
 }

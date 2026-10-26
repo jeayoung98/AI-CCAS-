@@ -28,6 +28,18 @@ class RetrievalEvidenceEvaluatorTest {
     ));
 
     @Test
+    void rerankedCosineOrderDoesNotCreateNegativeMarginOrChangeCategoryLeader() {
+        var decision = evaluator.evaluate(new RetrievalCandidates(
+                List.of(hit(1, RetrievalItemType.VERIFIED_CASE, "LOST_ITEM", .95, 1)),
+                List.of(hit(2, RetrievalItemType.CATEGORY_REFERENCE, "CYBER_TRANSACTION", .76, 1),
+                        hit(3, RetrievalItemType.CATEGORY_REFERENCE, "LOST_ITEM", .95, 2)),
+                List.of(hit(4, RetrievalItemType.OFFICIAL_GUIDE, null, .9, 1))), true);
+        assertThat(decision.categoryMargin()).isCloseTo(.19, org.assertj.core.data.Offset.offset(.00001));
+        assertThat(decision.evidenceStatus()).isEqualTo(EvidenceStatus.CASE_AND_REFERENCE_SUPPORTED);
+        assertThat(decision.riskSignalPresent()).isTrue();
+    }
+
+    @Test
     void returnsCaseAndReferenceSupportedWhenAllChannelsAgree() {
         RetrievalEvidenceDecision decision = evaluator.evaluate(new RetrievalCandidates(
                 List.of(hit(1, RetrievalItemType.VERIFIED_CASE, "LOST_ITEM", 0.95, 1)),

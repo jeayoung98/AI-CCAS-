@@ -113,6 +113,8 @@ public class RetrievalEvidenceEvaluator {
     private List<RetrievalSearchHit> acceptedHits(List<RetrievalSearchHit> hits, double threshold) {
         return hits.stream()
                 .filter(hit -> hit.cosineSimilarity() >= threshold)
+                .sorted(Comparator.comparingDouble(RetrievalSearchHit::cosineSimilarity).reversed()
+                        .thenComparingLong(RetrievalSearchHit::itemId))
                 .toList();
     }
 
@@ -128,7 +130,7 @@ public class RetrievalEvidenceEvaluator {
             return null;
         }
         List<RetrievalSearchHit> sorted = acceptedCategoryReferences.stream()
-                .sorted(Comparator.comparingInt(RetrievalSearchHit::rank))
+                .sorted(Comparator.comparingDouble(RetrievalSearchHit::cosineSimilarity).reversed())
                 .toList();
         return sorted.get(0).cosineSimilarity() - sorted.get(1).cosineSimilarity();
     }
@@ -163,7 +165,8 @@ public class RetrievalEvidenceEvaluator {
 
     private String topCategoryReferenceCode(List<RetrievalSearchHit> reliableCategoryReferences) {
         return reliableCategoryReferences.stream()
-                .min(Comparator.comparingInt(RetrievalSearchHit::rank))
+                .max(Comparator.comparingDouble(RetrievalSearchHit::cosineSimilarity)
+                        .thenComparing(Comparator.comparingLong(RetrievalSearchHit::itemId).reversed()))
                 .map(RetrievalSearchHit::verifiedCategoryCode)
                 .orElse(null);
     }

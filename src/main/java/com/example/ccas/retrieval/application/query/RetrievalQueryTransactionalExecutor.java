@@ -42,7 +42,7 @@ public class RetrievalQueryTransactionalExecutor {
             boolean riskSignalPresent
     ) {
         retrievalQueryRepository.save(row);
-        RetrievalCandidates candidates = retrievalSearchService.retrieveCandidates(queryEmbedding);
+        RetrievalCandidates candidates = retrievalSearchService.retrieveCandidates(queryEmbedding, row.metadata());
         RetrievalEvidenceDecision decision = evidenceEvaluator.evaluate(candidates, riskSignalPresent);
         retrievalHitRepository.saveAll(row.id(), candidates, decision.hitAssessments());
         retrievalDecisionRepository.save(row.id(), decision);
