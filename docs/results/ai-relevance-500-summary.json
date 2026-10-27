@@ -1,0 +1,31 @@
+{
+  "queryCount": 500,
+  "fullyResolvedQueries": 500,
+  "pairCount": 3500,
+  "judgmentSourceCounts": {
+    "HUMAN": 280,
+    "AI": 3220
+  },
+  "judgmentCounts": {
+    "RELEVANT": 353,
+    "IRRELEVANT": 3147
+  },
+  "newAiPairCount": 3201,
+  "newAiConfidenceCounts": {
+    "HIGH": 2834,
+    "MEDIUM": 367
+  },
+  "newAiSourceLinkedPairs": 3201,
+  "recheckedPairs": 450,
+  "changedRecheckedPairs": 37,
+  "sourceLinkMeaning": "Only proves selected text exists; does not prove semantic correctness",
+  "inputHashes": {
+    "dataset": "f1f47312c684fe1027467e70a878045112b6152e2a6d70a755d6c5d1489377bb",
+    "corpus": "a40a3ddd9b7dd1c63c16bd4bfee1d94708e4398dac6c38a0f2f57441f3640e7e",
+    "human": "c8038aa3775589ab0a471b6306a053a6e33a898a91799db44a5c452ad91bf356",
+    "privacy": "33612b7a561a153c508de9c80ef9be297b69e55be7abe34cc1f3ff4188a0962c"
+  },
+  "promptVersion": "relevance-ai-v2-source-ids",
+  "humanGroundTruthValidated": false,
+  "semanticRetrievalExperimentExecuted": false
+}

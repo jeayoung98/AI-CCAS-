@@ -135,12 +135,15 @@ if __name__ == '__main__':
     parser.add_argument('--input', type=Path, default=ROOT / '.local-data/acrc-drafts-500-v2/drafts.jsonl')
     parser.add_argument('--output', type=Path, default=ROOT / '.local-data/acrc-human-review/responses.json')
     parser.add_argument('--port', type=int, default=8765)
+    parser.add_argument('--ai-report', type=Path, default=ROOT / '.local-data/acrc-ai-relevance-v2/index.html')
     args = parser.parse_args()
     from relevance_store import RelevanceStore
     store = ReviewStore(args.input, args.output)
     relevance = RelevanceStore(store, Path(__file__).with_name('relevance_documents_v2.json'),
                                args.output.with_name('relevance-responses-v2.json'))
-    server = make_server(store, args.port, relevance,
-                         ROOT / '.local-data/acrc-ai-relevance-v1/index.html')
+    report = args.ai_report
+    if not report.exists() and report == ROOT / '.local-data/acrc-ai-relevance-v2/index.html':
+        report = ROOT / '.local-data/acrc-ai-relevance-v1/index.html'
+    server = make_server(store, args.port, relevance, report)
     print(f'Review UI: http://127.0.0.1:{server.server_port}', flush=True)
     server.serve_forever()

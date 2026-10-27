@@ -52,7 +52,9 @@ def export(source, corpus, responses, privacy, output):
                           'reviewedAt': label.get('reviewedAt', record['updatedAt']), 'reviewRevision': record['revision'],
                           'judgmentSource': label.get('judgmentSource', 'HUMAN'),
                           'model': label.get('model'), 'confidence': label.get('confidence'),
-                          'promptVersion': label.get('promptVersion')})
+                          'promptVersion': label.get('promptVersion'),
+                          'evidenceIds': label.get('evidenceIds'),
+                          'evidenceVerificationMeaning': label.get('evidenceVerificationMeaning')})
             (positive if relevance else negative)[types[doc]].append(doc)
         if unresolved:
             pending.append({'queryKey': key, 'state': 'UNRESOLVED_LABELS', 'items': unresolved})
