@@ -39,6 +39,16 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+tasks.register('publicPoolExperiment', JavaExec) {
+    group = 'verification'
+    description = 'Isolated real-embedding candidate-pool comparison; no production DB ingestion.'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.example.ccas.retrieval.evaluation.PublicPoolExperimentMain'
+    System.properties.findAll { key, value -> key.toString().startsWith('pool.') }.each { key, value ->
+        systemProperty key.toString(), value
+    }
+}
+
 tasks.register('validateStructuredBatch', JavaExec) {
     group = 'verification'
     description = 'Offline DTO validation and production SearchTextBuilder execution; no DB or API calls.'
