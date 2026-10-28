@@ -39,6 +39,16 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+tasks.register('validateStructuredBatch', JavaExec) {
+    group = 'verification'
+    description = 'Offline DTO validation and production SearchTextBuilder execution; no DB or API calls.'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.example.ccas.retrieval.evaluation.StructuredBatchValidationMain'
+    System.properties.findAll { key, value -> key.toString().startsWith('structure.') }.each { key, value ->
+        systemProperty key.toString(), value
+    }
+}
+
 tasks.register('retrievalReplay', JavaExec) {
     group = 'verification'
     description = 'Read-only comparison on an isolated corpus and cached query embeddings; no API calls.'

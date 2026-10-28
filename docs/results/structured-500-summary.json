@@ -1,0 +1,49 @@
+{
+  "completedDate": "2026-10-28",
+  "queryCount": 500,
+  "javaValidation": {
+    "inputSha256": "1dbde8d39678f96e63f3e287259eac12003a0d82672abc3a34bf3b739a559112",
+    "recordCount": 500,
+    "validatedCount": 500,
+    "riskSignalPresentCount": 5,
+    "structureVersion": "complaint-structure-v1",
+    "searchTextVersion": "complaint-search-text-v1",
+    "errors": [],
+    "success": true,
+    "embeddingExecuted": false,
+    "semanticAccuracyValidated": false
+  },
+  "generationInputHashes": {
+    "source": "f1f47312c684fe1027467e70a878045112b6152e2a6d70a755d6c5d1489377bb",
+    "privacy": "33612b7a561a153c508de9c80ef9be297b69e55be7abe34cc1f3ff4188a0962c",
+    "enums": "feae3b8aed72cb21be4c6d79b76d75a15088305a8c9ffa41aaa3d4b8bf769e8d",
+    "prompt": "8789e8676c87bd755d239f4b0c2453c3419ceb14318d419187e75556413d363a"
+  },
+  "structureSource": "AI",
+  "humanStructureReviewed": false,
+  "model": "gpt-4o-mini",
+  "promptVersion": "ai-structure-source-ids-v1",
+  "splitCounts": {
+    "test": 400,
+    "dev": 100
+  },
+  "riskSignalCounts": {
+    "WEAPON": 2,
+    "ASSAULT_IN_PROGRESS": 1,
+    "PERSONAL_DATA_EXPOSURE": 1,
+    "CHILD_ABUSE": 1,
+    "DEATH_THREAT": 1
+  },
+  "unknownActionCount": 132,
+  "ongoingStatusCounts": {
+    "PAST_EVENT": 101,
+    "UNKNOWN": 361,
+    "CURRENTLY_HAPPENING": 34,
+    "REPEATED_AND_MAY_CONTINUE": 4
+  },
+  "truncationWarningPreservedCount": 41,
+  "validatedOutputSha256": "abb25097ad14e3db2798edd9105f696be2afdf0e8c31c87feb88ed2a791f3d2e",
+  "embeddingExecuted": false,
+  "dbIngestionExecuted": false,
+  "semanticAccuracyValidated": false
+}
