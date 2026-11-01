@@ -1,0 +1,58 @@
+{
+  "queryCount": 55,
+  "documentCount": 20,
+  "queryInputSha256": "b89937747a894a1a8b0c44ed7b1abc67859e9155921695410654bc5456b59402",
+  "corpusSha256": "4001263291535ffd6a0efe3eef0acfa3556b4eab96af60f501aead7db0828f93",
+  "databaseMemoryRankAgreement": 1.0,
+  "httpSuccessCount": 55,
+  "inputRiskFlagCount": 5,
+  "rankParityRerankWeight": 0.1,
+  "riskFlagPreservationRate": 1.0,
+  "baselineEvidenceStatusCounts": {
+    "INSUFFICIENT_EVIDENCE": 55
+  },
+  "thresholds": {
+    "thresholdProfileVersion": "provisional-v1",
+    "provisional": true,
+    "caseMinSimilarity": 0.8,
+    "categoryMinSimilarity": 0.75,
+    "guideMinSimilarity": 0.7,
+    "categoryMarginMin": 0.05,
+    "caseAgreementMin": 0.67
+  },
+  "databaseSearchLatencyMs": {
+    "BASELINE": {
+      "p50": 5.9398,
+      "p95": 8.1076,
+      "samples": 45
+    },
+    "METADATA": {
+      "p50": 4.0432,
+      "p95": 6.3003,
+      "samples": 45
+    },
+    "CODE_RRF": {
+      "p50": 7.7029,
+      "p95": 10.9835,
+      "samples": 45
+    },
+    "COSINE_CODE_RRF": {
+      "p50": 7.6971,
+      "p95": 11.041,
+      "samples": 45
+    }
+  },
+  "cachedEmbeddingHttpLatencyMs": {
+    "p50": 18.4578,
+    "p95": 24.2074,
+    "samples": 45
+  },
+  "scope": "DISPOSABLE_TEST_DB_ONLY; source DRAFT unchanged; test VERIFIED markers are not production approval",
+  "limitations": [
+    "20-document pool is not a scale benchmark",
+    "HTTP includes disk-cached embeddings, not remote GMS latency",
+    "Risk preservation does not validate upstream extraction",
+    "Evidence statuses are predictions, not independent ground truth",
+    "Rerank weight is supplied as a fixed parity configuration, not selected by this DB test"
+  ]
+}

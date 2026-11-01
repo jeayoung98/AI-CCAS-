@@ -87,11 +87,12 @@ class PublicPoolDatabaseExperiment {
             keys.put(id,d.key());vectors.put(id,v);
             prototypes.add(new RetrievalSearchHit(id,d.type(),h.title(),h.structuredPayload(),h.subjectMatterCodes(),h.requestedActionCodes(),h.riskSignalCodes(),code,null,0,0));
         }
+        double parityWeight=Double.parseDouble(System.getProperty("pool.rerankWeight","0.3"));
         var configs=List.of(
             new RetrievalSearchProperties(new RetrievalSearchProperties.TopK(5,3,3),RetrievalSearchProperties.Strategy.BASELINE,20,0,60),
-            new RetrievalSearchProperties(new RetrievalSearchProperties.TopK(5,3,3),RetrievalSearchProperties.Strategy.METADATA,20,.3,60),
+            new RetrievalSearchProperties(new RetrievalSearchProperties.TopK(5,3,3),RetrievalSearchProperties.Strategy.METADATA,20,parityWeight,60),
             new RetrievalSearchProperties(new RetrievalSearchProperties.TopK(5,3,3),RetrievalSearchProperties.Strategy.CODE_RRF,20,0,60),
-            new RetrievalSearchProperties(new RetrievalSearchProperties.TopK(5,3,3),RetrievalSearchProperties.Strategy.COSINE_CODE_RRF,20,.3,60));
+            new RetrievalSearchProperties(new RetrievalSearchProperties.TopK(5,3,3),RetrievalSearchProperties.Strategy.COSINE_CODE_RRF,20,parityWeight,60));
         var timings=new LinkedHashMap<String,List<Double>>();configs.forEach(c->timings.put(c.strategy().name(),new ArrayList<>()));
         var httpTimings=new ArrayList<Double>();var details=new ArrayList<Object>();var statuses=new TreeMap<String,Integer>();
         var http=HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
@@ -158,13 +159,14 @@ class PublicPoolDatabaseExperiment {
         report.put("queryInputSha256",PublicPoolExperimentMain.hash(Files.readAllBytes(path("pool.queries"))));
         report.put("corpusSha256",PublicPoolExperimentMain.hash(Files.readAllBytes(path("pool.corpus"))));
         report.put("databaseMemoryRankAgreement",1.0);report.put("httpSuccessCount",expectedCount);report.put("inputRiskFlagCount",riskCount);
+        report.put("rankParityRerankWeight",parityWeight);
         report.put("riskFlagPreservationRate",1.0);report.put("baselineEvidenceStatusCounts",statuses);
         report.put("thresholds",thresholds);
         report.put("databaseSearchLatencyMs",latency);report.put("cachedEmbeddingHttpLatencyMs",latency(httpTimings));
         report.put("scope","DISPOSABLE_TEST_DB_ONLY; source DRAFT unchanged; test VERIFIED markers are not production approval");
         report.put("limitations",List.of("20-document pool is not a scale benchmark","HTTP includes disk-cached embeddings, not remote GMS latency",
             "Risk preservation does not validate upstream extraction","Evidence statuses are predictions, not independent ground truth",
-            "Weights 0.3 are fixed parity configurations, not selected by this DB test"));
+            "Rerank weight is supplied as a fixed parity configuration, not selected by this DB test"));
         Files.createDirectories(path("pool.output"));
         JSON.writerWithDefaultPrettyPrinter().writeValue(path("pool.output").resolve("database-report.json").toFile(),report);
         JSON.writerWithDefaultPrettyPrinter().writeValue(path("pool.output").resolve("rankings.json").toFile(),details);

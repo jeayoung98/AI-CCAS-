@@ -86,8 +86,9 @@ Content-Type: application/json
 **최종 결과는 [경찰관 업무 지원 검색 평가](docs/police-retrieval-final-v1.md)를 기준으로 봅니다.**
 55건·20개 문서의 고정 AI 라벨 비교에서 공식 안내 Recall@3은 기본 81.94%, 코사인 기반
 RRF 98.61%였으나 Hit@1은 감소했습니다. 아래는 각 단계의 당시 진행 기록입니다.
-Python 100개·Docker 비의존 Java 579개 테스트는 통과했습니다. 이번 55건의 DB/API
-재검증은 Docker Desktop 시작 오류로 미완료이며 상세 원인을 최종 보고서에 기록했습니다.
+Python 100개·Docker 통합 테스트를 포함한 Java 627개 테스트가 통과했습니다.
+[55건 DB/API 재검증](docs/police-database-http-v1.md)도 완료했습니다. 기본 임시 임계값에서는
+55건 모두 근거 부족이어서, 순위 개선과 운영 근거 채택 품질을 구분해 해석해야 합니다.
 
 현재 평가 목적은 [경찰관 업무 지원 기준](docs/officer-support-evaluation-v1.md)입니다.
 후속 [묶음 평가·자료 수집 후보](docs/officer-support-followup-v2.md)에서는 응답 누락을
