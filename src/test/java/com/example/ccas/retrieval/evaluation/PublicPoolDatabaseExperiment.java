@@ -43,7 +43,7 @@ class PublicPoolDatabaseExperiment {
         r.add("retrieval.search.strategy",()->"BASELINE");
         if(System.getProperty("pool.guideThreshold")!=null) {
             r.add("retrieval.evaluation.guide-min-similarity",()->Double.parseDouble(System.getProperty("pool.guideThreshold")));
-            r.add("retrieval.evaluation.threshold-profile-version",()->"experimental-ai-pool-v3");
+            r.add("retrieval.evaluation.threshold-profile-version",()->System.getProperty("pool.thresholdProfileVersion","experimental-ai-pool-v3"));
         }
     }
     @Autowired RetrievalItemRepository items;

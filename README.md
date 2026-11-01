@@ -86,9 +86,11 @@ Content-Type: application/json
 **최종 결과는 [경찰관 업무 지원 검색 평가](docs/police-retrieval-final-v1.md)를 기준으로 봅니다.**
 55건·20개 문서의 고정 AI 라벨 비교에서 공식 안내 Recall@3은 기본 81.94%, 코사인 기반
 RRF 98.61%였으나 Hit@1은 감소했습니다. 아래는 각 단계의 당시 진행 기록입니다.
-Python 100개·Docker 통합 테스트를 포함한 Java 627개 테스트가 통과했습니다.
+Python 103개·Docker 통합 테스트를 포함한 Java 627개 테스트가 통과했습니다.
 [55건 DB/API 재검증](docs/police-database-http-v1.md)도 완료했습니다. 기본 임시 임계값에서는
 55건 모두 근거 부족이어서, 순위 개선과 운영 근거 채택 품질을 구분해 해석해야 합니다.
+[안내 채택 임계값 교정](docs/police-guide-cutoff-v2.md)은 0.60을 실험 후보로 검증했습니다.
+평가용에서 채택 문서 3/3개는 AI 라벨과 일치했지만 지원한 질의는 3/18건으로 적어 운영 적용은 보류했습니다.
 
 현재 평가 목적은 [경찰관 업무 지원 기준](docs/officer-support-evaluation-v1.md)입니다.
 후속 [묶음 평가·자료 수집 후보](docs/officer-support-followup-v2.md)에서는 응답 누락을
