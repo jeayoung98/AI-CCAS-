@@ -1,0 +1,339 @@
+{
+  "scope" : "OFFLINE_REAL_EMBEDDING_LIMITED_POOL_NOT_DATABASE_BENCHMARK",
+  "inputHashesAndModel" : {
+    "model" : "text-embedding-3-large",
+    "corpus" : "7dc884daffa3a52b305ac8c5737c58df8c89495acf7fcc2c7f8dddc6d09505a9",
+    "queries" : "abb25097ad14e3db2798edd9105f696be2afdf0e8c31c87feb88ed2a791f3d2e",
+    "preparedDocumentPool" : "6af6bce476e25141b499a8c1c211e38808c8741fca15d6ad9080ebde897cba41",
+    "dimensions" : "1536",
+    "qrels" : "4d203d3b06a91e4a62a33ed810f82f96417deff297b2e80b81cba0886787af14",
+    "embeddingVersion" : "embed-v1-large-1536"
+  },
+  "queryCount" : 500,
+  "documentCount" : 20,
+  "embeddingVectorsSha256" : "807c87228f2c7028ddb6abdb3a4a7f0b46ead879a5e7dc9414da44227ab00415",
+  "labelSourceCounts" : {
+    "AI" : 10000
+  },
+  "selectedWeights" : {
+    "BASELINE" : 0.0,
+    "METADATA" : 0.3,
+    "COSINE_CODE_RRF" : 0.1,
+    "CODE_RRF" : 0.0
+  },
+  "scores" : [ {
+    "strategy" : "BASELINE",
+    "weight" : 0.0,
+    "split" : "dev",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 13,
+      "recallAtK" : 1.0,
+      "precisionAtK" : 0.04333333333333333,
+      "mrr" : 0.5641025641025641,
+      "hitAt1" : 0.15384615384615385
+    }
+  }, {
+    "strategy" : "BASELINE",
+    "weight" : 0.0,
+    "split" : "dev",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 9,
+      "recallAtK" : 0.7777777777777778,
+      "precisionAtK" : 0.02333333333333333,
+      "mrr" : 0.5925925925925926,
+      "hitAt1" : 0.4444444444444444
+    }
+  }, {
+    "strategy" : "METADATA",
+    "weight" : 0.05,
+    "split" : "dev",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 13,
+      "recallAtK" : 1.0,
+      "precisionAtK" : 0.04333333333333333,
+      "mrr" : 0.6538461538461539,
+      "hitAt1" : 0.3076923076923077
+    }
+  }, {
+    "strategy" : "METADATA",
+    "weight" : 0.05,
+    "split" : "dev",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 9,
+      "recallAtK" : 0.7777777777777778,
+      "precisionAtK" : 0.02333333333333333,
+      "mrr" : 0.6111111111111112,
+      "hitAt1" : 0.4444444444444444
+    }
+  }, {
+    "strategy" : "METADATA",
+    "weight" : 0.1,
+    "split" : "dev",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 13,
+      "recallAtK" : 1.0,
+      "precisionAtK" : 0.04333333333333333,
+      "mrr" : 0.7307692307692307,
+      "hitAt1" : 0.46153846153846156
+    }
+  }, {
+    "strategy" : "METADATA",
+    "weight" : 0.1,
+    "split" : "dev",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 9,
+      "recallAtK" : 0.7777777777777778,
+      "precisionAtK" : 0.02333333333333333,
+      "mrr" : 0.6481481481481481,
+      "hitAt1" : 0.5555555555555556
+    }
+  }, {
+    "strategy" : "METADATA",
+    "weight" : 0.3,
+    "split" : "dev",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 13,
+      "recallAtK" : 1.0,
+      "precisionAtK" : 0.04333333333333333,
+      "mrr" : 0.8461538461538461,
+      "hitAt1" : 0.6923076923076923
+    }
+  }, {
+    "strategy" : "METADATA",
+    "weight" : 0.3,
+    "split" : "dev",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 9,
+      "recallAtK" : 0.8888888888888888,
+      "precisionAtK" : 0.026666666666666665,
+      "mrr" : 0.7037037037037037,
+      "hitAt1" : 0.5555555555555556
+    }
+  }, {
+    "strategy" : "COSINE_CODE_RRF",
+    "weight" : 0.05,
+    "split" : "dev",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 13,
+      "recallAtK" : 1.0,
+      "precisionAtK" : 0.04333333333333333,
+      "mrr" : 0.6923076923076923,
+      "hitAt1" : 0.38461538461538464
+    }
+  }, {
+    "strategy" : "COSINE_CODE_RRF",
+    "weight" : 0.05,
+    "split" : "dev",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 9,
+      "recallAtK" : 0.7777777777777778,
+      "precisionAtK" : 0.02333333333333333,
+      "mrr" : 0.6481481481481481,
+      "hitAt1" : 0.5555555555555556
+    }
+  }, {
+    "strategy" : "COSINE_CODE_RRF",
+    "weight" : 0.1,
+    "split" : "dev",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 13,
+      "recallAtK" : 1.0,
+      "precisionAtK" : 0.04333333333333333,
+      "mrr" : 0.7307692307692307,
+      "hitAt1" : 0.46153846153846156
+    }
+  }, {
+    "strategy" : "COSINE_CODE_RRF",
+    "weight" : 0.1,
+    "split" : "dev",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 9,
+      "recallAtK" : 0.8888888888888888,
+      "precisionAtK" : 0.026666666666666665,
+      "mrr" : 0.7037037037037037,
+      "hitAt1" : 0.5555555555555556
+    }
+  }, {
+    "strategy" : "COSINE_CODE_RRF",
+    "weight" : 0.3,
+    "split" : "dev",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 13,
+      "recallAtK" : 1.0,
+      "precisionAtK" : 0.04333333333333333,
+      "mrr" : 0.8076923076923077,
+      "hitAt1" : 0.6153846153846154
+    }
+  }, {
+    "strategy" : "COSINE_CODE_RRF",
+    "weight" : 0.3,
+    "split" : "dev",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 9,
+      "recallAtK" : 0.8888888888888888,
+      "precisionAtK" : 0.026666666666666665,
+      "mrr" : 0.7037037037037037,
+      "hitAt1" : 0.5555555555555556
+    }
+  }, {
+    "strategy" : "CODE_RRF",
+    "weight" : 0.0,
+    "split" : "dev",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 13,
+      "recallAtK" : 1.0,
+      "precisionAtK" : 0.04333333333333333,
+      "mrr" : 0.9230769230769231,
+      "hitAt1" : 0.8461538461538461
+    }
+  }, {
+    "strategy" : "CODE_RRF",
+    "weight" : 0.0,
+    "split" : "dev",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 100,
+      "relevantQueries" : 9,
+      "recallAtK" : 0.8888888888888888,
+      "precisionAtK" : 0.026666666666666665,
+      "mrr" : 0.7037037037037037,
+      "hitAt1" : 0.5555555555555556
+    }
+  }, {
+    "strategy" : "BASELINE",
+    "weight" : 0.0,
+    "split" : "test",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 400,
+      "relevantQueries" : 75,
+      "recallAtK" : 0.9866666666666667,
+      "precisionAtK" : 0.06166666666666662,
+      "mrr" : 0.5511111111111112,
+      "hitAt1" : 0.16
+    }
+  }, {
+    "strategy" : "BASELINE",
+    "weight" : 0.0,
+    "split" : "test",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 400,
+      "relevantQueries" : 87,
+      "recallAtK" : 0.6704980842911877,
+      "precisionAtK" : 0.05249999999999997,
+      "mrr" : 0.5191570881226054,
+      "hitAt1" : 0.39080459770114945
+    }
+  }, {
+    "strategy" : "METADATA",
+    "weight" : 0.3,
+    "split" : "test",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 400,
+      "relevantQueries" : 75,
+      "recallAtK" : 1.0,
+      "precisionAtK" : 0.062499999999999944,
+      "mrr" : 0.7355555555555557,
+      "hitAt1" : 0.49333333333333335
+    }
+  }, {
+    "strategy" : "METADATA",
+    "weight" : 0.3,
+    "split" : "test",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 400,
+      "relevantQueries" : 87,
+      "recallAtK" : 0.7049808429118773,
+      "precisionAtK" : 0.054999999999999966,
+      "mrr" : 0.5613026819923372,
+      "hitAt1" : 0.42528735632183906
+    }
+  }, {
+    "strategy" : "COSINE_CODE_RRF",
+    "weight" : 0.1,
+    "split" : "test",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 400,
+      "relevantQueries" : 75,
+      "recallAtK" : 1.0,
+      "precisionAtK" : 0.062499999999999944,
+      "mrr" : 0.6866666666666669,
+      "hitAt1" : 0.4
+    }
+  }, {
+    "strategy" : "COSINE_CODE_RRF",
+    "weight" : 0.1,
+    "split" : "test",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 400,
+      "relevantQueries" : 87,
+      "recallAtK" : 0.7337164750957854,
+      "precisionAtK" : 0.057499999999999954,
+      "mrr" : 0.5804597701149425,
+      "hitAt1" : 0.4367816091954023
+    }
+  }, {
+    "strategy" : "CODE_RRF",
+    "weight" : 0.0,
+    "split" : "test",
+    "channel" : "CATEGORY_REFERENCE",
+    "metrics" : {
+      "queries" : 400,
+      "relevantQueries" : 75,
+      "recallAtK" : 0.9733333333333334,
+      "precisionAtK" : 0.06083333333333329,
+      "mrr" : 0.7955555555555557,
+      "hitAt1" : 0.6533333333333333
+    }
+  }, {
+    "strategy" : "CODE_RRF",
+    "weight" : 0.0,
+    "split" : "test",
+    "channel" : "OFFICIAL_GUIDE",
+    "metrics" : {
+      "queries" : 400,
+      "relevantQueries" : 87,
+      "recallAtK" : 0.7049808429118773,
+      "precisionAtK" : 0.054999999999999966,
+      "mrr" : 0.5593869731800766,
+      "hitAt1" : 0.42528735632183906
+    }
+  } ],
+  "selectionRule" : "Dev OFFICIAL_GUIDE MRR; tie chooses smallest weight; test evaluated after per-run selection; same benchmark may be reused across versions",
+  "limitations" : [ "DRAFT corpus remains unapproved for production; no DB ingestion", "AI judgments are not independently verified ground truth", "No VERIFIED_CASE corpus or evidence-status ground truth", "Small experimental candidate pool; results do not establish large-corpus performance", "Exact cosine and production CandidateRanker used in memory; no PostgreSQL/HTTP latency claim", "Document code mapping is a fixed experimental interpretation, not official classification" ]
+}

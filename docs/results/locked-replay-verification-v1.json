@@ -1,0 +1,12 @@
+{
+  "benchmarkId": "public-500-pool20-ai-v3",
+  "checks": {
+    "scores": true,
+    "selectedWeights": true,
+    "embeddingVectorsSha256": true,
+    "inputHashesAndModel": true
+  },
+  "remoteApiKeyPresent": false,
+  "remoteEndpointDisabled": true,
+  "newLabelsMerged": false
+}

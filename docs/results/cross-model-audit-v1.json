@@ -1,0 +1,84 @@
+{
+  "protocolVersion": "cross-model-audit-v1",
+  "binding": {
+    "hashes": {
+      "source": "f1f47312c684fe1027467e70a878045112b6152e2a6d70a755d6c5d1489377bb",
+      "corpus": "7dc884daffa3a52b305ac8c5737c58df8c89495acf7fcc2c7f8dddc6d09505a9",
+      "oldCorpus": "a40a3ddd9b7dd1c63c16bd4bfee1d94708e4398dac6c38a0f2f57441f3640e7e",
+      "previous": "36e7eb57a0f1e2990505e314ca3e1c5abc4200495593ad60227da6d7c54721f7",
+      "blind": "4b436841c58e21c48561deba3e15f5ebafff95a37690c0fa71234f80db831dc7",
+      "structured": "abb25097ad14e3db2798edd9105f696be2afdf0e8c31c87feb88ed2a791f3d2e",
+      "risk": "4da0700811e45ca37ac50fac0c7a5bfe4b4ec2ad640cee18dce80c3e723674cd",
+      "privacy": "33612b7a561a153c508de9c80ef9be297b69e55be7abe34cc1f3ff4188a0962c"
+    },
+    "model": "gpt-4o",
+    "version": "cross-model-audit-v1"
+  },
+  "selectionCounts": {
+    "relevanceDisputed": 339,
+    "relevanceControls": 50,
+    "riskDisputed": 49,
+    "riskControls": 50
+  },
+  "outcomes": {
+    "relevanceDisputed": {
+      "SUPPORTS_PREVIOUS": 169,
+      "SUPPORTS_BLIND": 170
+    },
+    "relevanceControls": {
+      "CONFIRMS_AGREEMENT": 42,
+      "CHALLENGES_AGREEMENT": 8
+    },
+    "riskDisputed": {
+      "SUPPORTS_BLIND": 9,
+      "SUPPORTS_PREVIOUS": 30,
+      "DIFFERS_FROM_BOTH": 10
+    },
+    "riskControls": {
+      "CONFIRMS_AGREEMENT": 44,
+      "CHALLENGES_AGREEMENT": 6
+    }
+  },
+  "confidenceCounts": {
+    "relevanceDisputed": {
+      "HIGH": 339
+    },
+    "relevanceControls": {
+      "HIGH": 50
+    },
+    "riskDisputed": {
+      "MEDIUM": 15,
+      "HIGH": 25,
+      "LOW": 9
+    },
+    "riskControls": {
+      "MEDIUM": 6,
+      "HIGH": 39,
+      "LOW": 5
+    }
+  },
+  "statusCounts": {
+    "CROSS_MODEL_SUPPORT_NOT_GROUND_TRUTH": 450,
+    "RECHECK_REQUIRED": 38
+  },
+  "relevanceDisputesByDocument": {
+    "police-investigation-objection-v1": 29,
+    "acrc-grievance-definition-v1": 189,
+    "acrc-grievance-application-v1": 106,
+    "police-loss-compensation-v1": 12,
+    "police-application-status-v1": 1,
+    "acrc-epeople-introduction-v1": 2
+  },
+  "actualModels": [
+    "gpt-4o-2024-08-06"
+  ],
+  "previousLabelsVisibleToJudge": false,
+  "originalInputsChanged": false,
+  "accuracyClaim": false,
+  "limitations": [
+    "Targeted disagreements plus stratified controls; not an overall accuracy sample",
+    "Different models from the same provider may share biases",
+    "Two-model agreement is provisional support, not human ground truth",
+    "No ranking or threshold tuning performed on audit results"
+  ]
+}

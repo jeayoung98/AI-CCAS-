@@ -40,13 +40,44 @@ public final class PublicPoolExperimentMain {
 
     static void run() throws Exception {
         Path input = Path.of(required("pool.queries")), corpus = Path.of(required("pool.corpus"));
-        Path qrels = Path.of(required("pool.qrels")), output = Path.of(required("pool.output"));
+        Path output = Path.of(required("pool.output"));
         var props = new Properties();
         try (var stream = PublicPoolExperimentMain.class.getResourceAsStream("/application.properties")) { props.load(stream); }
         var embedding = new EmbeddingProperties(props.getProperty("retrieval.embedding.model"),
                 Integer.parseInt(props.getProperty("retrieval.embedding.dimensions")), props.getProperty("retrieval.embedding.version"));
         var builder = new SearchTextBuilder();
         var documents = documents(corpus, builder);
+        if(Boolean.getBoolean("pool.prepareOnly")) {
+            var texts=new LinkedHashMap<String,String>();
+            documents.forEach(d -> texts.put("document:"+d.key,d.text));
+            try(var factory=Validation.buildDefaultValidatorFactory()) {
+                for(var row:readLines(input)) {
+                    var request=JSON.treeToValue(row.path("request"),RetrievalRequest.class);
+                    if(!factory.getValidator().validate(request).isEmpty() || !request.maskingCompleted()) throw new IllegalArgumentException("Invalid prepared request");
+                    String text=builder.buildForComplaint(new RetrievalApiMapper().toCommand(request).structuredComplaint());
+                    if(!text.equals(row.path("searchText").asText()) || !hash(text.getBytes(StandardCharsets.UTF_8)).equals(row.path("searchTextSha256").asText())) throw new IllegalArgumentException("Prepared text mismatch");
+                    if(texts.put("query:"+row.path("queryKey").asText(),text)!=null) throw new IllegalArgumentException("Duplicate prepared key");
+                }
+            }
+            Path cache=Path.of(System.getProperty("pool.cache",output.resolve("cache").toString()));
+            Files.createDirectories(cache);
+            embed(texts,embedding,cache);
+            System.out.println("Prepared vectors only: "+texts.size()+"; no labels or metrics evaluated");
+            return;
+        }
+        Path qrels = Path.of(required("pool.qrels"));
+        String benchmarkId="UNLOCKED_EXPERIMENT";
+        if(System.getProperty("pool.benchmarkLock")!=null) {
+            var actual=new LinkedHashMap<String,String>();
+            actual.put("queries",hash(Files.readAllBytes(input)));actual.put("corpus",hash(Files.readAllBytes(corpus)));
+            actual.put("qrels",hash(Files.readAllBytes(qrels.resolve("qrels.jsonl"))));
+            actual.put("resolvedQueries",hash(Files.readAllBytes(qrels.resolve("resolved-queries.jsonl"))));
+            actual.put("qrelsSummary",hash(Files.readAllBytes(qrels.resolve("summary.json"))));
+            try(var stream=PublicPoolExperimentMain.class.getResourceAsStream("/application.properties")) {
+                actual.put("embeddingAndThresholdConfig",hash(stream.readAllBytes()));
+            }
+            benchmarkId=verifyBenchmark(JSON.readTree(Path.of(System.getProperty("pool.benchmarkLock")).toFile()),actual);
+        }
         var queries = new ArrayList<Query>();
         var resolved = new HashMap<String, JsonNode>();
         for (var row : readLines(qrels.resolve("resolved-queries.jsonl"))) {
@@ -76,7 +107,8 @@ public final class PublicPoolExperimentMain {
                 queries.add(new Query(key, split, group, text, new StructuredMetadataExtractor().extract(command.structuredComplaint())));
             }
         }
-        if (queries.size()!=500 || resolved.size()!=500) throw new IllegalArgumentException("Expected 500 resolved queries");
+        int expectedCount = expectedQueryCount();
+        if (queries.size()!=expectedCount || resolved.size()!=expectedCount) throw new IllegalArgumentException("Unexpected resolved query count");
         Map<String,Map<String,Integer>> labels = new HashMap<>();
         Set<String> documentKeys = new HashSet<>();
         documents.forEach(d -> documentKeys.add(d.key));
@@ -86,7 +118,7 @@ public final class PublicPoolExperimentMain {
                     || !Set.of(0,1).contains(row.path("relevance").asInt())) throw new IllegalArgumentException("Invalid qrel");
             if (labels.computeIfAbsent(key, k -> new HashMap<>()).put(doc,row.path("relevance").asInt())!=null) throw new IllegalArgumentException("Duplicate qrel");
         }
-        if (labels.size()!=500 || labels.values().stream().anyMatch(m -> !m.keySet().equals(documentKeys))) throw new IllegalArgumentException("Incomplete pool judgments");
+        if (labels.size()!=expectedCount || labels.values().stream().anyMatch(m -> !m.keySet().equals(documentKeys))) throw new IllegalArgumentException("Incomplete pool judgments");
         var fingerprint = Map.of("queries",hash(Files.readAllBytes(input)),"corpus",hash(Files.readAllBytes(corpus)),
                 "qrels",hash(Files.readAllBytes(qrels.resolve("qrels.jsonl"))),
                 "preparedDocumentPool",hash(JSON.writeValueAsBytes(documents)),
@@ -96,11 +128,12 @@ public final class PublicPoolExperimentMain {
         if (Files.exists(manifest) && !JSON.readTree(manifest.toFile()).equals(JSON.valueToTree(fingerprint))) throw new IllegalArgumentException("Use new experiment directory");
         JSON.writerWithDefaultPrettyPrinter().writeValue(manifest.toFile(), fingerprint);
         JSON.writerWithDefaultPrettyPrinter().writeValue(output.resolve("prepared-document-pool.json").toFile(), documents);
-        Files.createDirectories(output.resolve("cache"));
+        Path cache=Path.of(System.getProperty("pool.cache", output.resolve("cache").toString()));
+        Files.createDirectories(cache);
         var texts=new LinkedHashMap<String,String>();
         documents.forEach(d -> texts.put("document:"+d.key,d.text));
         queries.forEach(q -> texts.put("query:"+q.key,q.text));
-        var vectors=embed(texts,embedding,output.resolve("cache"));
+        var vectors=embed(texts,embedding,cache);
         var scores=new ArrayList<Scores>();
         // Weights and selection rule are fixed before test scores are computed.
         scores.addAll(score(queries,documents,labels,vectors,"dev",RetrievalSearchProperties.Strategy.BASELINE,0));
@@ -121,18 +154,25 @@ public final class PublicPoolExperimentMain {
         scores.addAll(score(queries,documents,labels,vectors,"dev",RetrievalSearchProperties.Strategy.CODE_RRF,0));
         for(var entry:selected.entrySet()) scores.addAll(score(queries,documents,labels,vectors,"test",entry.getKey(),entry.getValue()));
         var report=new LinkedHashMap<String,Object>();
+        report.put("benchmarkId",benchmarkId);
         report.put("scope","OFFLINE_REAL_EMBEDDING_LIMITED_POOL_NOT_DATABASE_BENCHMARK");
         report.put("inputHashesAndModel",fingerprint); report.put("queryCount",queries.size()); report.put("documentCount",documents.size());
         report.put("embeddingVectorsSha256",hash(JSON.writeValueAsBytes(new TreeMap<>(vectors))));
         report.put("labelSourceCounts",summary.path("judgmentSourceCounts")); report.put("selectedWeights",selected); report.put("scores",scores);
-        report.put("selectionRule","Dev OFFICIAL_GUIDE MRR; tie chooses smallest weight; test evaluated once after selection");
+        report.put("selectionRule","Dev OFFICIAL_GUIDE MRR; tie chooses smallest weight; test evaluated after per-run selection; same benchmark may be reused across versions");
         report.put("limitations",List.of("DRAFT corpus remains unapproved for production; no DB ingestion",
             "AI judgments are not independently verified ground truth","No VERIFIED_CASE corpus or evidence-status ground truth",
-            "CATEGORY_REFERENCE has 1 candidate: Recall@3 is saturated","Only 6 guide candidates; results do not establish large-corpus performance",
+            "Small experimental candidate pool; results do not establish large-corpus performance",
             "Exact cosine and production CandidateRanker used in memory; no PostgreSQL/HTTP latency claim",
             "Document code mapping is a fixed experimental interpretation, not official classification"));
         JSON.writerWithDefaultPrettyPrinter().writeValue(output.resolve("report.json").toFile(),report);
-        System.out.println("Completed real embedding pool experiment: 500 queries, 7 candidate documents");
+        System.out.println("Completed real embedding pool experiment: "+queries.size()+" queries, "+documents.size()+" candidate documents");
+    }
+
+    static int expectedQueryCount() {
+        int count = Integer.parseInt(System.getProperty("pool.expectedCount", "500"));
+        if (count < 1) throw new IllegalArgumentException("Invalid expected query count");
+        return count;
     }
 
     static List<Document> documents(Path corpus, SearchTextBuilder builder) throws Exception {
@@ -141,7 +181,11 @@ public final class PublicPoolExperimentMain {
             String key=node.path("itemKey").asText();
             List<SubjectMatterCode> subjects;
             List<RequestedActionCode> actions;
-            switch(key) {
+            if (node.has("experimentalMetadata")) {
+                var metadata=node.path("experimentalMetadata");
+                subjects=enumCodes(metadata.path("subjectMatterCodes"), SubjectMatterCode.class);
+                actions=enumCodes(metadata.path("requestedActionCodes"), RequestedActionCode.class);
+            } else switch(key) {
                 case "police-investigation-objection-v1" -> {subjects=List.of(SubjectMatterCode.POLICE_SERVICE_COMPLAINT);actions=List.of(RequestedActionCode.APPLY);}
                 case "police-application-status-v1" -> {subjects=List.of(SubjectMatterCode.CASE_STATUS);actions=List.of(RequestedActionCode.CHECK_STATUS);}
                 case "police-information-disclosure-v1" -> {subjects=List.of(SubjectMatterCode.OTHER);actions=List.of(RequestedActionCode.APPLY,RequestedActionCode.SEARCH);}
@@ -153,7 +197,14 @@ public final class PublicPoolExperimentMain {
             RetrievalItemType type=RetrievalItemType.valueOf(node.path("itemType").asText());
             Object payload; String text;
             if(type==RetrievalItemType.CATEGORY_REFERENCE) {
-                var category=new CategoryReference("GRIEVANCE",node.path("title").asText(),node.path("text").asText(),
+                String code="GRIEVANCE";
+                if(node.has("experimentalMetadata")) {
+                    var categoryCode=node.path("experimentalMetadata").path("categoryCode");
+                    if(!categoryCode.isTextual()) throw new IllegalArgumentException("Missing experimental category code");
+                    code=categoryCode.asText();
+                }
+                if(code.isBlank()) throw new IllegalArgumentException("Missing experimental category code");
+                var category=new CategoryReference(code,node.path("title").asText(),node.path("text").asText(),
                     List.of(node.path("text").asText()),List.of(node.path("boundary").asText()),List.of(),subjects,actions,true);
                 payload=category; text=builder.buildForCategoryReference(category);
             } else if(type==RetrievalItemType.OFFICIAL_GUIDE) {
@@ -167,8 +218,25 @@ public final class PublicPoolExperimentMain {
                 subjects.stream().map(Enum::name).toList(),actions.stream().map(Enum::name).toList(),List.of(),null,null,0,0);
             result.add(new Document(key,type,text,hit));
         }
-        if(result.size()!=7 || result.stream().map(Document::key).distinct().count()!=7) throw new IllegalArgumentException("Expected seven unique documents");
+        if(result.isEmpty() || result.stream().map(Document::key).anyMatch(String::isBlank)
+                || result.stream().map(Document::key).distinct().count()!=result.size()) throw new IllegalArgumentException("Expected unique nonempty documents");
         return result;
+    }
+
+    static <T extends Enum<T>> List<T> enumCodes(JsonNode array, Class<T> type) {
+        if(!array.isArray() || array.isEmpty()) throw new IllegalArgumentException("Missing document metadata codes");
+        var codes=new ArrayList<T>();
+        for(var code:array) codes.add(Enum.valueOf(type,code.asText()));
+        if(new HashSet<>(codes).size()!=codes.size()) throw new IllegalArgumentException("Duplicate metadata code");
+        return List.copyOf(codes);
+    }
+
+    static String verifyBenchmark(JsonNode lock, Map<String,String> actual) {
+        var keys=new HashSet<String>();lock.path("inputs").fieldNames().forEachRemaining(keys::add);
+        if(!keys.equals(actual.keySet()) || lock.path("benchmarkId").asText().isBlank()) throw new IllegalArgumentException("Incomplete benchmark lock");
+        for(var entry:actual.entrySet()) if(!entry.getValue().equals(lock.path("inputs").path(entry.getKey()).path("sha256").asText()))
+            throw new IllegalArgumentException("Frozen benchmark changed; use a new version");
+        return lock.path("benchmarkId").asText();
     }
 
     static Map<String,float[]> embed(Map<String,String> texts, EmbeddingProperties config, Path cache) throws Exception {
@@ -226,7 +294,8 @@ public final class PublicPoolExperimentMain {
                     .thenComparing(Comparator.comparingDouble(RetrievalSearchHit::cosineSimilarity).reversed()).thenComparingLong(RetrievalSearchHit::itemId)).toList();
                 var config=new RetrievalSearchProperties(new RetrievalSearchProperties.TopK(5,3,3),strategy,20,weight,60);
                 boolean fusion=strategy==RetrievalSearchProperties.Strategy.CODE_RRF||strategy==RetrievalSearchProperties.Strategy.COSINE_CODE_RRF;
-                predictions.add(CandidateRanker.rank(hits,fusion?codeHits:List.of(),q.metadata,config,3).stream().map(h -> keys.get(h.itemId())).toList());
+                predictions.add(CandidateRanker.rank(hits.stream().limit(config.candidateLimit()).toList(),
+                    fusion?codeHits.stream().limit(config.candidateLimit()).toList():List.of(),q.metadata,config,3).stream().map(h -> keys.get(h.itemId())).toList());
                 expected.add(gold);
             }
             result.add(new Scores(strategy.name(),weight,split,type.name(),metrics(predictions,expected,3)));

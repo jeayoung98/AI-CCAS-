@@ -1,0 +1,343 @@
+{
+  "selectionRule": "Dev balanced accuracy of pool guide availability; tie chooses lower cutoff",
+  "grid": [
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9
+  ],
+  "dev": [
+    {
+      "queries": 100,
+      "threshold": 0.2,
+      "confusion": {
+        "tp": 9,
+        "fp": 91,
+        "tn": 0,
+        "fn": 0
+      },
+      "availableGuideRecall": 1.0,
+      "noRelevantGuideRejectionRate": 0.0,
+      "balancedAccuracy": 0.5,
+      "acceptedHitPrecision": 0.023333333333333334,
+      "acceptedHitCount": 300,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 93,
+      "queriesWithRelevantAcceptedGuide": 7,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.7777777777777778
+    },
+    {
+      "queries": 100,
+      "threshold": 0.25,
+      "confusion": {
+        "tp": 9,
+        "fp": 91,
+        "tn": 0,
+        "fn": 0
+      },
+      "availableGuideRecall": 1.0,
+      "noRelevantGuideRejectionRate": 0.0,
+      "balancedAccuracy": 0.5,
+      "acceptedHitPrecision": 0.023333333333333334,
+      "acceptedHitCount": 300,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 93,
+      "queriesWithRelevantAcceptedGuide": 7,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.7777777777777778
+    },
+    {
+      "queries": 100,
+      "threshold": 0.3,
+      "confusion": {
+        "tp": 9,
+        "fp": 91,
+        "tn": 0,
+        "fn": 0
+      },
+      "availableGuideRecall": 1.0,
+      "noRelevantGuideRejectionRate": 0.0,
+      "balancedAccuracy": 0.5,
+      "acceptedHitPrecision": 0.023333333333333334,
+      "acceptedHitCount": 300,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 93,
+      "queriesWithRelevantAcceptedGuide": 7,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.7777777777777778
+    },
+    {
+      "queries": 100,
+      "threshold": 0.35,
+      "confusion": {
+        "tp": 9,
+        "fp": 89,
+        "tn": 2,
+        "fn": 0
+      },
+      "availableGuideRecall": 1.0,
+      "noRelevantGuideRejectionRate": 0.02197802197802198,
+      "balancedAccuracy": 0.510989010989011,
+      "acceptedHitPrecision": 0.024734982332155476,
+      "acceptedHitCount": 283,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 91,
+      "queriesWithRelevantAcceptedGuide": 7,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.7777777777777778
+    },
+    {
+      "queries": 100,
+      "threshold": 0.4,
+      "confusion": {
+        "tp": 8,
+        "fp": 67,
+        "tn": 24,
+        "fn": 1
+      },
+      "availableGuideRecall": 0.8888888888888888,
+      "noRelevantGuideRejectionRate": 0.26373626373626374,
+      "balancedAccuracy": 0.5763125763125763,
+      "acceptedHitPrecision": 0.03571428571428571,
+      "acceptedHitCount": 168,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 69,
+      "queriesWithRelevantAcceptedGuide": 6,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.6666666666666666
+    },
+    {
+      "queries": 100,
+      "threshold": 0.45,
+      "confusion": {
+        "tp": 5,
+        "fp": 20,
+        "tn": 71,
+        "fn": 4
+      },
+      "availableGuideRecall": 0.5555555555555556,
+      "noRelevantGuideRejectionRate": 0.7802197802197802,
+      "balancedAccuracy": 0.667887667887668,
+      "acceptedHitPrecision": 0.07547169811320754,
+      "acceptedHitCount": 53,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 21,
+      "queriesWithRelevantAcceptedGuide": 4,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.4444444444444444
+    },
+    {
+      "queries": 100,
+      "threshold": 0.5,
+      "confusion": {
+        "tp": 4,
+        "fp": 7,
+        "tn": 84,
+        "fn": 5
+      },
+      "availableGuideRecall": 0.4444444444444444,
+      "noRelevantGuideRejectionRate": 0.9230769230769231,
+      "balancedAccuracy": 0.6837606837606838,
+      "acceptedHitPrecision": 0.15,
+      "acceptedHitCount": 20,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 8,
+      "queriesWithRelevantAcceptedGuide": 3,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.3333333333333333
+    },
+    {
+      "queries": 100,
+      "threshold": 0.55,
+      "confusion": {
+        "tp": 1,
+        "fp": 3,
+        "tn": 88,
+        "fn": 8
+      },
+      "availableGuideRecall": 0.1111111111111111,
+      "noRelevantGuideRejectionRate": 0.967032967032967,
+      "balancedAccuracy": 0.539072039072039,
+      "acceptedHitPrecision": 0.25,
+      "acceptedHitCount": 4,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 3,
+      "queriesWithRelevantAcceptedGuide": 1,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.1111111111111111
+    },
+    {
+      "queries": 100,
+      "threshold": 0.6,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 91,
+        "fn": 9
+      },
+      "availableGuideRecall": 0.0,
+      "noRelevantGuideRejectionRate": 1.0,
+      "balancedAccuracy": 0.5,
+      "acceptedHitPrecision": null,
+      "acceptedHitCount": 0,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 0,
+      "queriesWithRelevantAcceptedGuide": 0,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.0
+    },
+    {
+      "queries": 100,
+      "threshold": 0.65,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 91,
+        "fn": 9
+      },
+      "availableGuideRecall": 0.0,
+      "noRelevantGuideRejectionRate": 1.0,
+      "balancedAccuracy": 0.5,
+      "acceptedHitPrecision": null,
+      "acceptedHitCount": 0,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 0,
+      "queriesWithRelevantAcceptedGuide": 0,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.0
+    },
+    {
+      "queries": 100,
+      "threshold": 0.7,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 91,
+        "fn": 9
+      },
+      "availableGuideRecall": 0.0,
+      "noRelevantGuideRejectionRate": 1.0,
+      "balancedAccuracy": 0.5,
+      "acceptedHitPrecision": null,
+      "acceptedHitCount": 0,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 0,
+      "queriesWithRelevantAcceptedGuide": 0,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.0
+    },
+    {
+      "queries": 100,
+      "threshold": 0.75,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 91,
+        "fn": 9
+      },
+      "availableGuideRecall": 0.0,
+      "noRelevantGuideRejectionRate": 1.0,
+      "balancedAccuracy": 0.5,
+      "acceptedHitPrecision": null,
+      "acceptedHitCount": 0,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 0,
+      "queriesWithRelevantAcceptedGuide": 0,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.0
+    },
+    {
+      "queries": 100,
+      "threshold": 0.8,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 91,
+        "fn": 9
+      },
+      "availableGuideRecall": 0.0,
+      "noRelevantGuideRejectionRate": 1.0,
+      "balancedAccuracy": 0.5,
+      "acceptedHitPrecision": null,
+      "acceptedHitCount": 0,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 0,
+      "queriesWithRelevantAcceptedGuide": 0,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.0
+    },
+    {
+      "queries": 100,
+      "threshold": 0.85,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 91,
+        "fn": 9
+      },
+      "availableGuideRecall": 0.0,
+      "noRelevantGuideRejectionRate": 1.0,
+      "balancedAccuracy": 0.5,
+      "acceptedHitPrecision": null,
+      "acceptedHitCount": 0,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 0,
+      "queriesWithRelevantAcceptedGuide": 0,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.0
+    },
+    {
+      "queries": 100,
+      "threshold": 0.9,
+      "confusion": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 91,
+        "fn": 9
+      },
+      "availableGuideRecall": 0.0,
+      "noRelevantGuideRejectionRate": 1.0,
+      "balancedAccuracy": 0.5,
+      "acceptedHitPrecision": null,
+      "acceptedHitCount": 0,
+      "queriesWithOnlyIrrelevantAcceptedGuides": 0,
+      "queriesWithRelevantAcceptedGuide": 0,
+      "relevantGuideRetrievalAndAcceptanceRecall": 0.0
+    }
+  ],
+  "selectedThreshold": 0.5,
+  "testSelected": {
+    "queries": 400,
+    "threshold": 0.5,
+    "confusion": {
+      "tp": 33,
+      "fp": 17,
+      "tn": 296,
+      "fn": 54
+    },
+    "availableGuideRecall": 0.3793103448275862,
+    "noRelevantGuideRejectionRate": 0.9456869009584664,
+    "balancedAccuracy": 0.6624986228930263,
+    "acceptedHitPrecision": 0.21568627450980393,
+    "acceptedHitCount": 102,
+    "queriesWithOnlyIrrelevantAcceptedGuides": 29,
+    "queriesWithRelevantAcceptedGuide": 21,
+    "relevantGuideRetrievalAndAcceptanceRecall": 0.2413793103448276
+  },
+  "testProvisional070": {
+    "queries": 400,
+    "threshold": 0.7,
+    "confusion": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 313,
+      "fn": 87
+    },
+    "availableGuideRecall": 0.0,
+    "noRelevantGuideRejectionRate": 1.0,
+    "balancedAccuracy": 0.5,
+    "acceptedHitPrecision": null,
+    "acceptedHitCount": 0,
+    "queriesWithOnlyIrrelevantAcceptedGuides": 0,
+    "queriesWithRelevantAcceptedGuide": 0,
+    "relevantGuideRetrievalAndAcceptanceRecall": 0.0
+  },
+  "productionThresholdChanged": false,
+  "scope": "BASELINE official-guide channel only; no relevant guide in this pool is not globally no evidence",
+  "limitations": [
+    "AI labels are not independent human truth",
+    "Availability classification can count a positive even when accepted documents are wrong; see acceptedHitPrecision",
+    "No VERIFIED_CASE refusal or real ambiguity semantic ground truth",
+    "Risk extraction accuracy is not measured by flag preservation"
+  ],
+  "inputs": {
+    "qrelsSha256": "4d203d3b06a91e4a62a33ed810f82f96417deff297b2e80b81cba0886787af14",
+    "rankingsSha256": "be8bda6d010598ea104419d2e58f2aee710c50c0cdad4001bd5e7acdf7fb0a8b",
+    "corpusSha256": "7dc884daffa3a52b305ac8c5737c58df8c89495acf7fcc2c7f8dddc6d09505a9",
+    "queryInputSha256": "abb25097ad14e3db2798edd9105f696be2afdf0e8c31c87feb88ed2a791f3d2e"
+  }
+}

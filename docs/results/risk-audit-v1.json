@@ -1,0 +1,56 @@
+{
+  "queryCount": 500,
+  "exactSetAgreementRate": 0.902,
+  "disagreementCount": 49,
+  "perCodeTransitions": {
+    "ABDUCTION": {
+      "0->0": 499,
+      "0->1": 1
+    },
+    "ASSAULT_IN_PROGRESS": {
+      "0->0": 469,
+      "0->1": 30,
+      "1->1": 1
+    },
+    "CHILD_ABUSE": {
+      "0->0": 494,
+      "0->1": 5,
+      "1->1": 1
+    },
+    "DEATH_THREAT": {
+      "0->0": 489,
+      "0->1": 10,
+      "1->1": 1
+    },
+    "MISSING_PERSON": {
+      "0->0": 500
+    },
+    "PERSONAL_DATA_EXPOSURE": {
+      "0->0": 492,
+      "0->1": 7,
+      "1->0": 1
+    },
+    "STALKING_PATTERN": {
+      "0->0": 491,
+      "0->1": 9
+    },
+    "WEAPON": {
+      "0->0": 498,
+      "1->0": 2
+    }
+  },
+  "blindConfidenceCounts": {
+    "LOW": 450,
+    "MEDIUM": 43,
+    "HIGH": 7
+  },
+  "accuracyClaim": false,
+  "structuredInputsChanged": false,
+  "limitation": "Both sides are AI judgments, potentially same model family; disagreement is not proof of error",
+  "binding": {
+    "source": "abb25097ad14e3db2798edd9105f696be2afdf0e8c31c87feb88ed2a791f3d2e",
+    "privacy": "33612b7a561a153c508de9c80ef9be297b69e55be7abe34cc1f3ff4188a0962c",
+    "model": "gpt-4o-mini",
+    "promptVersion": "blind-risk-audit-v1"
+  }
+}

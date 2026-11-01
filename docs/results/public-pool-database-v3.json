@@ -1,0 +1,42 @@
+{
+  "queryCount" : 500,
+  "documentCount" : 20,
+  "queryInputSha256" : "abb25097ad14e3db2798edd9105f696be2afdf0e8c31c87feb88ed2a791f3d2e",
+  "corpusSha256" : "7dc884daffa3a52b305ac8c5737c58df8c89495acf7fcc2c7f8dddc6d09505a9",
+  "databaseMemoryRankAgreement" : 1.0,
+  "httpSuccessCount" : 500,
+  "inputRiskFlagCount" : 5,
+  "riskFlagPreservationRate" : 1.0,
+  "baselineEvidenceStatusCounts" : {
+    "INSUFFICIENT_EVIDENCE" : 500
+  },
+  "databaseSearchLatencyMs" : {
+    "BASELINE" : {
+      "p50" : 12.8817,
+      "samples" : 490,
+      "p95" : 19.2378
+    },
+    "METADATA" : {
+      "p50" : 8.3193,
+      "samples" : 490,
+      "p95" : 10.9512
+    },
+    "CODE_RRF" : {
+      "p50" : 15.7855,
+      "samples" : 490,
+      "p95" : 21.8326
+    },
+    "COSINE_CODE_RRF" : {
+      "p50" : 15.6649,
+      "samples" : 490,
+      "p95" : 21.7739
+    }
+  },
+  "cachedEmbeddingHttpLatencyMs" : {
+    "p50" : 40.9793,
+    "samples" : 490,
+    "p95" : 57.793
+  },
+  "scope" : "DISPOSABLE_TEST_DB_ONLY; source DRAFT unchanged; test VERIFIED markers are not production approval",
+  "limitations" : [ "20-document pool is not a scale benchmark", "HTTP includes disk-cached embeddings, not remote GMS latency", "Risk preservation does not validate upstream extraction", "Evidence statuses are predictions, not independent ground truth", "Weights 0.3 are fixed parity configurations, not selected by this DB test" ]
+}

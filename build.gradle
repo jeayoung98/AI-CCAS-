@@ -37,6 +37,20 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+    exclude '**/PublicPoolDatabaseExperiment.class'
+}
+
+tasks.register('publicPoolDatabaseExperiment', Test) {
+    group = 'verification'
+    description = 'Disposable pgvector + HTTP replay with cached real vectors; no live embedding calls.'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform()
+    include '**/PublicPoolDatabaseExperiment.class'
+    outputs.upToDateWhen { false }
+    System.properties.findAll { key, value -> key.toString().startsWith('pool.') }.each { key, value ->
+        systemProperty key.toString(), value
+    }
 }
 
 tasks.register('publicPoolExperiment', JavaExec) {

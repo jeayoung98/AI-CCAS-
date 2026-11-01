@@ -1,0 +1,32 @@
+{
+  "comparedPairs": 3500,
+  "agreementRate": 0.9031428571428571,
+  "transitionCounts": {
+    "RELEVANT->RELEVANT": 98,
+    "IRRELEVANT->IRRELEVANT": 3063,
+    "RELEVANT->IRRELEVANT": 255,
+    "IRRELEVANT->RELEVANT": 84
+  },
+  "byPreviousSource": {
+    "HUMAN": {
+      "agree": 185,
+      "disagree": 95
+    },
+    "AI": {
+      "disagree": 244,
+      "agree": 2976
+    }
+  },
+  "disagreementCount": 339,
+  "accuracyClaim": false,
+  "previousResponsesSha256": "36e7eb57a0f1e2990505e314ca3e1c5abc4200495593ad60227da6d7c54721f7",
+  "corpusSha256": "7dc884daffa3a52b305ac8c5737c58df8c89495acf7fcc2c7f8dddc6d09505a9",
+  "blindResponsesSha256": "4b436841c58e21c48561deba3e15f5ebafff95a37690c0fa71234f80db831dc7",
+  "model": "gpt-4o-mini",
+  "promptVersion": "blind-relevance-v1",
+  "queryCount": 500,
+  "documentCount": 20,
+  "blindedToPreviousLabels": true,
+  "humanGroundTruth": false,
+  "limitation": "Separate prompt, potentially same model family; agreement is not accuracy"
+}

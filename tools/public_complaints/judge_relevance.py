@@ -9,7 +9,7 @@ import json
 import os
 from pathlib import Path
 import tempfile
-import requests
+from gms_request import chat
 
 from export_relevance import digest, export
 
@@ -85,14 +85,9 @@ def judge(row, record, documents, model, recheck_low=False):
                'previousJudgments': {k: v for k, v in record['labels'].items() if k not in pending},
                'evidenceUnits': units, 'pendingItemKeys': pending}
     for attempt in range(2):
-        response = requests.post(os.environ['OPENAI_BASE_URL'].rstrip('/') + '/chat/completions',
-            headers={'Authorization': 'Bearer ' + os.environ['OPENAI_API_KEY']},
-            json={'model': model, 'temperature': 0, 'response_format': {'type': 'json_object'},
+        data = chat({'model': model, 'temperature': 0, 'response_format': {'type': 'json_object'},
                   'messages': [{'role': 'system', 'content': SYSTEM},
-                               {'role': 'user', 'content': json.dumps(payload, ensure_ascii=False)}]}, timeout=90)
-        if not response.ok:
-            raise RuntimeError(f'GMS HTTP {response.status_code}; response omitted')
-        data = response.json()
+                               {'role': 'user', 'content': json.dumps(payload, ensure_ascii=False)}]})
         try:
             labels = validate_labels(json.loads(data['choices'][0]['message']['content']), pending, text, units)
             return {'labels': labels, 'model': data.get('model', model), 'promptVersion': PROMPT_VERSION,
