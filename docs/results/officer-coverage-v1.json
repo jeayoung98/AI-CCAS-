@@ -1,0 +1,92 @@
+{
+  "version": "officer-coverage-inventory-v1",
+  "groups": {
+    "all": {
+      "queryCount": 500,
+      "sourceCategoryCounts": {
+        "경찰민원": 107,
+        "복지노동민원": 69,
+        "산업농림환경민원": 51,
+        "주택건축민원": 136,
+        "재정세무민원": 39,
+        "도시수자원민원": 26,
+        "국방보훈민원": 51,
+        "행정문화교육민원": 7,
+        "교통도로민원": 11,
+        "기업·취약계층·집단민원": 3
+      },
+      "existingAiSubjectCodeCounts": {
+        "SAFETY_THREAT": 9,
+        "LOST_ITEM": 0,
+        "TRAFFIC_ADMIN": 49,
+        "CYBER_TRANSACTION": 2,
+        "PATROL_REQUEST": 0,
+        "CASE_STATUS": 104,
+        "POLICE_SERVICE_COMPLAINT": 74,
+        "GENERAL_CONSULTATION": 30,
+        "OTHER": 245,
+        "UNKNOWN": 0
+      }
+    },
+    "dev": {
+      "queryCount": 100,
+      "sourceCategoryCounts": {
+        "산업농림환경민원": 13,
+        "복지노동민원": 11,
+        "재정세무민원": 9,
+        "주택건축민원": 28,
+        "국방보훈민원": 12,
+        "경찰민원": 17,
+        "교통도로민원": 4,
+        "도시수자원민원": 5,
+        "행정문화교육민원": 1
+      },
+      "existingAiSubjectCodeCounts": {
+        "SAFETY_THREAT": 3,
+        "LOST_ITEM": 0,
+        "TRAFFIC_ADMIN": 8,
+        "CYBER_TRANSACTION": 1,
+        "PATROL_REQUEST": 0,
+        "CASE_STATUS": 19,
+        "POLICE_SERVICE_COMPLAINT": 11,
+        "GENERAL_CONSULTATION": 6,
+        "OTHER": 52,
+        "UNKNOWN": 0
+      }
+    },
+    "policeSourceDev": {
+      "queryCount": 17,
+      "sourceCategoryCounts": {
+        "경찰민원": 17
+      },
+      "existingAiSubjectCodeCounts": {
+        "SAFETY_THREAT": 1,
+        "LOST_ITEM": 0,
+        "TRAFFIC_ADMIN": 5,
+        "CYBER_TRANSACTION": 0,
+        "PATROL_REQUEST": 0,
+        "CASE_STATUS": 2,
+        "POLICE_SERVICE_COMPLAINT": 9,
+        "GENERAL_CONSULTATION": 0,
+        "OTHER": 0,
+        "UNKNOWN": 0
+      }
+    }
+  },
+  "corpusTypeCounts": {
+    "VERIFIED_CASE": 0,
+    "CATEGORY_REFERENCE": 4,
+    "OFFICIAL_GUIDE": 16
+  },
+  "limitations": [
+    "Source category is publisher metadata, not a police workload classification",
+    "Subject codes are existing AI extraction, not verified ground truth; multi-label counts may exceed queries",
+    "Zero observed code means a coverage warning, not proof of absence in original text",
+    "No new test labeling or retrieval evaluation performed"
+  ],
+  "inputHashes": {
+    "source": "f1f47312c684fe1027467e70a878045112b6152e2a6d70a755d6c5d1489377bb",
+    "structured": "abb25097ad14e3db2798edd9105f696be2afdf0e8c31c87feb88ed2a791f3d2e",
+    "corpus": "4001263291535ffd6a0efe3eef0acfa3556b4eab96af60f501aead7db0828f93"
+  }
+}

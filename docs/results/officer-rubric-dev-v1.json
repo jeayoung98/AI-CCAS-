@@ -1,0 +1,188 @@
+{
+  "version": "officer-support-rubric-v1",
+  "binding": {
+    "source": "f1f47312c684fe1027467e70a878045112b6152e2a6d70a755d6c5d1489377bb",
+    "privacy": "33612b7a561a153c508de9c80ef9be297b69e55be7abe34cc1f3ff4188a0962c",
+    "corpus": "4001263291535ffd6a0efe3eef0acfa3556b4eab96af60f501aead7db0828f93",
+    "promptSha256": "67b9627f39d498c503bc95e612a82ed1292a95a5875c8766131b1d94266fc62e",
+    "controlsSha256": "6230bf18720046a669ea9eee4239561614ffa841dff4c3e356c1915d40383b55",
+    "models": [
+      "gpt-4o-mini",
+      "gpt-4o"
+    ],
+    "version": "officer-support-rubric-v1"
+  },
+  "results": {
+    "dev": {
+      "queryCount": 17,
+      "channels": {
+        "VERIFIED_CASE": {
+          "pairCount": 0,
+          "missingPairs": 0,
+          "unknownPairs": 0,
+          "gradeCounts": {
+            "gpt-4o-mini": {},
+            "gpt-4o": {}
+          },
+          "directEvidenceAgreement": {
+            "count": 0,
+            "agreement": null,
+            "kappa": null,
+            "positiveAgreement": null
+          },
+          "exactGradeAgreement": null
+        },
+        "CATEGORY_REFERENCE": {
+          "pairCount": 68,
+          "missingPairs": 12,
+          "unknownPairs": 0,
+          "gradeCounts": {
+            "gpt-4o-mini": {
+              "1": 13,
+              "0": 43
+            },
+            "gpt-4o": {
+              "1": 16,
+              "0": 52
+            }
+          },
+          "directEvidenceAgreement": {
+            "count": 56,
+            "agreement": 1.0,
+            "kappa": null,
+            "positiveAgreement": null,
+            "positiveCountByModel": [
+              0,
+              0
+            ]
+          },
+          "exactGradeAgreement": 1.0
+        },
+        "OFFICIAL_GUIDE": {
+          "pairCount": 272,
+          "missingPairs": 48,
+          "unknownPairs": 0,
+          "gradeCounts": {
+            "gpt-4o-mini": {
+              "0": 202,
+              "2": 16,
+              "1": 6
+            },
+            "gpt-4o": {
+              "1": 20,
+              "2": 23,
+              "0": 229
+            }
+          },
+          "directEvidenceAgreement": {
+            "count": 224,
+            "agreement": 0.9866071428571429,
+            "kappa": 0.901869158878505,
+            "positiveAgreement": 0.9090909090909091,
+            "positiveCountByModel": [
+              16,
+              17
+            ]
+          },
+          "exactGradeAgreement": 0.9107142857142857
+        }
+      }
+    },
+    "synthetic": {
+      "queryCount": 12,
+      "channels": {
+        "VERIFIED_CASE": {
+          "pairCount": 0,
+          "missingPairs": 0,
+          "unknownPairs": 0,
+          "gradeCounts": {
+            "gpt-4o-mini": {},
+            "gpt-4o": {}
+          },
+          "directEvidenceAgreement": {
+            "count": 0,
+            "agreement": null,
+            "kappa": null,
+            "positiveAgreement": null
+          },
+          "exactGradeAgreement": null,
+          "authorExpectedGradeMatches": {
+            "gpt-4o-mini": 0,
+            "gpt-4o": 0
+          }
+        },
+        "CATEGORY_REFERENCE": {
+          "pairCount": 0,
+          "missingPairs": 0,
+          "unknownPairs": 0,
+          "gradeCounts": {
+            "gpt-4o-mini": {},
+            "gpt-4o": {}
+          },
+          "directEvidenceAgreement": {
+            "count": 0,
+            "agreement": null,
+            "kappa": null,
+            "positiveAgreement": null
+          },
+          "exactGradeAgreement": null,
+          "authorExpectedGradeMatches": {
+            "gpt-4o-mini": 0,
+            "gpt-4o": 0
+          }
+        },
+        "OFFICIAL_GUIDE": {
+          "pairCount": 12,
+          "missingPairs": 0,
+          "unknownPairs": 0,
+          "gradeCounts": {
+            "gpt-4o-mini": {
+              "2": 7,
+              "1": 2,
+              "0": 3
+            },
+            "gpt-4o": {
+              "2": 6,
+              "0": 6
+            }
+          },
+          "directEvidenceAgreement": {
+            "count": 12,
+            "agreement": 0.9166666666666666,
+            "kappa": 0.8333333333333333,
+            "positiveAgreement": 0.9230769230769231,
+            "positiveCountByModel": [
+              7,
+              6
+            ]
+          },
+          "exactGradeAgreement": 0.75,
+          "authorExpectedGradeMatches": {
+            "gpt-4o-mini": 9,
+            "gpt-4o": 12
+          }
+        }
+      }
+    }
+  },
+  "expectedResponses": 58,
+  "completedResponses": 55,
+  "complete": false,
+  "actualModels": [
+    "gpt-4o-2024-08-06",
+    "gpt-4o-mini-2024-07-18"
+  ],
+  "testQueriesSent": 0,
+  "productionChanged": false,
+  "originalLabelsChanged": false,
+  "accuracyClaim": false,
+  "labelStatus": "AI_PROVISIONAL_OFFICER_SUPPORT_PILOT",
+  "limitations": [
+    "Source category is not ground truth for police task coverage",
+    "Existing development subset is reused, not an independent holdout",
+    "Agreement is not accuracy; same-provider models may share errors",
+    "Synthetic expected grades are authored controls, not actual cases",
+    "No verified-case candidates; no retrieval ranking or operational quality claim",
+    "Missing responses excluded from pairwise agreement, never converted to negative labels"
+  ]
+}

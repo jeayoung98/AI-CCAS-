@@ -1,0 +1,383 @@
+{
+  "version": "officer-support-corpus-pilot-v1",
+  "checkedDate": "2026-10-29",
+  "scope": "Evaluation-only adaptation for police officer support; inherited source paraphrases, no new source verification or production approval",
+  "documents": [
+    {
+      "itemKey": "acrc-grievance-definition-v1",
+      "itemType": "CATEGORY_REFERENCE",
+      "title": "고충민원의 범위와 일반 문의·신고의 구분",
+      "url": "https://www.acrc.go.kr/menu.es?mid=a10102010100",
+      "section": "고충민원을 신청하기 전 안내 / 주요기능",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "text": "행정기관의 부당하거나 소극적인 처분, 불합리한 제도로 권리 침해나 불편을 겪는 문제는 고충민원 제도의 대상이 될 수 있다. 반면 단순한 행정절차 질문이나 법령 해석 문의, 교통법규 위반 신고 등은 고충민원과 구별된다. 국민권익위원회는 고충민원을 조사하고 처리하며, 여러 사람이 관련된 갈등에 대해서는 조정을 수행한다.",
+      "boundary": "고충민원이라는 유형을 설명하는 자료입니다. 개별 행위가 실제 위법하거나 부당하다는 판단, 특정 사건의 해결 결과는 담지 않습니다.",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING"
+    },
+    {
+      "itemKey": "acrc-grievance-application-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "고충민원 작성과 신청 방법",
+      "url": "https://www.acrc.go.kr/menu.es?mid=a10201010100",
+      "section": "신청서 작성 유의사항 / 신청방법",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "text": "고충민원은 인터넷뿐 아니라 우편·팩스 또는 방문 상담을 통해 신청하는 방법이 안내되어 있다. 신청 내용에는 사건의 주체, 시점, 장소, 경위 등을 사실 중심으로 명확히 적고, 문서나 사진 같은 근거 자료가 있으면 함께 제출하도록 설명한다. 권익위원회 누리집에서의 신청은 국민신문고를 통해 접수된다.",
+      "boundary": "고충민원 신청 절차에 관한 자료다. 경찰관이 현재 민원의 구체적인 처리·안내 업무에 활용할 수 있는지 평가한다. 민원인의 명시적 절차 질문을 필수로 요구하지 않는다. 사건의 사실관계, 담당자 책임, 보상 여부를 판단하는 근거는 아니다.",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "boundaryProvenance": "EVALUATOR_SCOPE_CORRECTION_NOT_OFFICIAL_QUOTE"
+    },
+    {
+      "itemKey": "acrc-epeople-introduction-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "국민신문고의 역할과 연결 기관",
+      "url": "https://www.acrc.go.kr/menu.es?mid=a10104030100",
+      "section": "국민신문고는",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "text": "국민신문고는 정부에 대한 민원과 제안을 온라인으로 신청하고 처리하는 창구다. 중앙행정기관과 지방자치단체, 교육청, 해외공관뿐 아니라 사법부와 주요 공공기관에도 연결되어 있다.",
+      "boundary": "창구 자체의 기능을 설명합니다. 모든 민원과 자동으로 관련되는 문서는 아니며, 개별 사건의 답이나 최종 처리기관을 확정하지 않습니다.",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING"
+    },
+    {
+      "itemKey": "police-investigation-objection-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "수사 이의 신청·수사관 기피 신청 방법",
+      "url": "https://minwon24.police.go.kr/custServiceCenter/siteUtztnGdInfo.do",
+      "section": "수사 이의 신청 / 수사관 기피 신청",
+      "text": "경찰민원24의 해당 메뉴에서는 경찰청 또는 경찰서를 선택한 뒤 민원 신청 화면으로 이동해 내용을 작성하고 신청할 수 있도록 안내한다.",
+      "boundary": "온라인 신청 절차를 설명합니다. 수사 과오나 기피 사유가 실제로 인정되는지 판단하지 않습니다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING"
+    },
+    {
+      "itemKey": "police-application-status-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "신청한 경찰민원의 처리 결과 확인",
+      "url": "https://minwon24.police.go.kr/custServiceCenter/siteUtztnGdInfo.do",
+      "section": "신청하기, 취소하기 / 나의민원",
+      "text": "경찰민원24에서 신청한 민원의 처리 결과는 나의민원의 신청 내역, 신고·제보 내역, 상담·문의 내역에서 확인하도록 안내한다.",
+      "boundary": "경찰민원24 이용 안내입니다. 모든 형사사건 수사기록을 조회할 수 있다는 의미는 아닙니다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING"
+    },
+    {
+      "itemKey": "police-information-disclosure-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "경찰 보유 기록과 정보공개 청구",
+      "url": "https://www.smpa.go.kr/user/nd21910.do",
+      "section": "정보공개 청구 / 청구가능정보",
+      "text": "공공기관이 업무상 작성하거나 취득해 보유·관리하는 문서와 사진 등 기록정보를 청구하는 정보공개 제도를 설명한다. 공개 청구와 청구 전 정보를 제공하는 사전정보 공표를 구분한다.",
+      "boundary": "청구 제도의 설명입니다. 수사자료를 포함한 특정 문서의 공개 가능 여부를 보장하지 않습니다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING"
+    },
+    {
+      "itemKey": "police-loss-compensation-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "경찰 직무집행에 따른 손실보상 제도",
+      "url": "https://www.smpa.go.kr/user/nd61776.do",
+      "section": "손실보상제도 개요 / 신청 / 심의",
+      "text": "경찰의 적법한 직무집행 중 발생한 생명·신체·재산상 손실에 관한 보상 제도를 안내한다. 청구서와 피해를 뒷받침하는 자료 등을 제출하고, 심의위원회의 심사를 통해 보상 여부를 결정하는 절차를 설명한다.",
+      "boundary": "적법한 직무집행을 전제로 한 제도입니다. 위법행위에 대한 배상과 동일시하지 않으며 개별 청구 자격이나 지급 여부는 확정하지 않습니다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING"
+    },
+    {
+      "itemKey": "lost-service-scope-v1",
+      "itemType": "CATEGORY_REFERENCE",
+      "title": "유실물 민원의 범위",
+      "url": "https://minwon24.police.go.kr/custServiceCenter/siteUtztnGdInfo.do",
+      "section": "유실물 민원 바로가기",
+      "text": "물건을 잃어버리거나 주운 상황에 대해 신고와 물품 정보 검색 서비스를 제공한다.",
+      "boundary": "분실 신고와 물품 검색의 범위 설명이며 절도 여부를 판단하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "LOST_ITEM"
+        ],
+        "requestedActionCodes": [
+          "REPORT",
+          "SEARCH"
+        ],
+        "categoryCode": "LOST_ITEM"
+      }
+    },
+    {
+      "itemKey": "patrol-service-scope-v1",
+      "itemType": "CATEGORY_REFERENCE",
+      "title": "탄력순찰의 목적",
+      "url": "https://minwon24.police.go.kr/cvlcpt/cvlcptGdInfo.do?cvlcptId=MW-914",
+      "section": "탄력 순찰이란",
+      "text": "주민이 불안하게 느끼는 장소와 희망 시간을 제시해 예방 순찰을 요청하는 제도다.",
+      "boundary": "진행 중인 위험에 대한 긴급 출동이나 특정 시간 방문을 보장하는 안내가 아니다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "PATROL_REQUEST"
+        ],
+        "requestedActionCodes": [
+          "APPLY"
+        ],
+        "categoryCode": "PATROL_REQUEST"
+      }
+    },
+    {
+      "itemKey": "cyber-fraud-scope-v1",
+      "itemType": "CATEGORY_REFERENCE",
+      "title": "사이버 거래 피해 유형",
+      "url": "https://ecrm.police.go.kr/minwon/crs/quick/cyber1",
+      "section": "정보통신망 이용 범죄 / 사이버 사기",
+      "text": "온라인 물품 거래, 쇼핑몰, 게임 거래를 이용한 대금 편취 유형을 설명한다.",
+      "boundary": "해당 유형과의 관련성을 찾는 자료이며 개별 거래의 범죄 성립을 확정하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "CYBER_TRANSACTION"
+        ],
+        "requestedActionCodes": [
+          "CONSULT",
+          "REPORT"
+        ],
+        "categoryCode": "CYBER_TRANSACTION"
+      }
+    },
+    {
+      "itemKey": "lost-report-guide-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "분실물 신고 메뉴",
+      "url": "https://minwon24.police.go.kr/custServiceCenter/siteUtztnGdInfo.do",
+      "section": "유실물 민원 바로가기",
+      "text": "경찰민원24의 분실물 신고 서비스를 통해 잃어버린 물품을 신고할 수 있다.",
+      "boundary": "분실 사실 신고 안내로 물건의 발견을 보장하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "LOST_ITEM"
+        ],
+        "requestedActionCodes": [
+          "REPORT"
+        ],
+        "categoryCode": null
+      }
+    },
+    {
+      "itemKey": "lost-search-guide-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "분실물·습득물 검색",
+      "url": "https://minwon24.police.go.kr/custServiceCenter/siteUtztnGdInfo.do",
+      "section": "유실물 민원 바로가기",
+      "text": "분실물 검색과 습득물 검색 메뉴에서 등록된 물품 정보를 찾을 수 있다.",
+      "boundary": "등록된 정보 검색이며 소유권이나 물품 반환을 확정하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "LOST_ITEM"
+        ],
+        "requestedActionCodes": [
+          "SEARCH"
+        ],
+        "categoryCode": null
+      }
+    },
+    {
+      "itemKey": "patrol-apply-guide-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "순찰 희망 장소·시간 신청",
+      "url": "https://minwon24.police.go.kr/cvlcpt/cvlcptGdInfo.do?cvlcptId=MW-914",
+      "section": "제공 내용 / 탄력 순찰이란",
+      "text": "온라인이나 오프라인에서 순찰을 희망하는 시간과 장소를 제시해 신청할 수 있다.",
+      "boundary": "순찰 수요 접수 안내이며 즉시 출동 서비스로 해석하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "PATROL_REQUEST"
+        ],
+        "requestedActionCodes": [
+          "APPLY"
+        ],
+        "categoryCode": null
+      }
+    },
+    {
+      "itemKey": "cyber-report-guide-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "사이버 피해 신고와 준비 자료",
+      "url": "https://ecrm.police.go.kr/minwon/main",
+      "section": "신고 전 안내사항",
+      "text": "피해 사실을 상세히 작성하고 이체 내역이나 대화 기록 등 증빙을 준비하도록 안내한다. 온라인 작성 후 경찰서 출석·진술이 필요할 수 있다.",
+      "boundary": "개별 신고의 접수 완료나 수사 결과를 보장하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "CYBER_TRANSACTION"
+        ],
+        "requestedActionCodes": [
+          "REPORT"
+        ],
+        "categoryCode": null
+      }
+    },
+    {
+      "itemKey": "cyber-consult-guide-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "사이버범죄 관련 상담",
+      "url": "https://ecrm.police.go.kr/minwon/main",
+      "section": "상담하기",
+      "text": "사이버범죄 관련 문의를 위해 상담하기 기능을 제공한다.",
+      "boundary": "상담 요청과 정식 피해 신고를 구분하며 법적 결론을 확정하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "CYBER_TRANSACTION"
+        ],
+        "requestedActionCodes": [
+          "CONSULT"
+        ],
+        "categoryCode": null
+      }
+    },
+    {
+      "itemKey": "cyber-process-guide-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "사이버 신고 사건의 일반 처리 절차",
+      "url": "https://ecrm.police.go.kr/minwon/crs/quick/process",
+      "section": "사건처리절차 안내",
+      "text": "온라인 접수, 경찰서 방문, 조사와 종결로 이어지는 일반적인 과정을 안내한다. 시스템 신고와 가까운 경찰서 방문 접수 방법이 있다.",
+      "boundary": "일반 절차 설명이며 특정 사건의 진행 상태를 조회하는 자료가 아니다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "CYBER_TRANSACTION"
+        ],
+        "requestedActionCodes": [
+          "REPORT",
+          "CONSULT"
+        ],
+        "categoryCode": null
+      }
+    },
+    {
+      "itemKey": "cyber-history-guide-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "사이버사기 피해신고 이력조회",
+      "url": "https://minwon24.police.go.kr/custServiceCenter/siteUtztnGdInfo.do",
+      "section": "사이버사기 피해신고 이력조회",
+      "text": "전화번호·계좌번호·이메일에 대해 일정 조건에 해당하는 신고 이력이 있는지 조회하는 기능을 안내한다.",
+      "boundary": "조회 결과만으로 상대방의 사기 여부나 거래 안전성을 확정하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "CYBER_TRANSACTION"
+        ],
+        "requestedActionCodes": [
+          "SEARCH"
+        ],
+        "categoryCode": null
+      }
+    },
+    {
+      "itemKey": "missing-preregister-guide-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "실종 예방을 위한 지문 등 사전등록",
+      "url": "https://minwon24.police.go.kr/cvlcpt/cvlcptGdInfo.do?cvlcptId=MW-076",
+      "section": "기본 정보 / 신청방법",
+      "text": "보호자가 아동 등의 지문·얼굴 정보를 미리 등록하는 예방 제도다. 인터넷, 방문, 모바일 등 신청 방법을 안내한다.",
+      "boundary": "이미 발생한 실종 신고와 구분하며 사전등록 문의만으로 실종 위험 신호를 부여하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "SAFETY_THREAT"
+        ],
+        "requestedActionCodes": [
+          "APPLY"
+        ],
+        "categoryCode": null
+      }
+    },
+    {
+      "itemKey": "traffic-certificate-guide-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "교통사고 사실확인원 발급",
+      "url": "https://minwon24.police.go.kr/cvlcpt/cvlcptGdInfo.do?cvlcptId=MW-005",
+      "section": "기본 정보 / 제출 서류",
+      "text": "교통사고 당사자 등이 사실확인원 발급을 신청하는 절차와 본인·대리인 확인 서류를 안내한다. 온라인 대리 신청은 지원하지 않는다고 설명한다.",
+      "boundary": "서류 발급 안내이며 과실 비율이나 조사 결과 변경을 결정하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "TRAFFIC_ADMIN"
+        ],
+        "requestedActionCodes": [
+          "APPLY"
+        ],
+        "categoryCode": null
+      }
+    },
+    {
+      "itemKey": "complaint-post-guide-v1",
+      "itemType": "OFFICIAL_GUIDE",
+      "title": "고소·고발 서류의 우편·팩스 접수 안내",
+      "url": "https://www.jbpolice.go.kr/index.police?menuCd=DOM_000000209003000000",
+      "section": "고소·고발(우)",
+      "text": "전북경찰청은 고소·고발 서류를 보내기 전에 담당 경찰관서에 연락해 안내받은 후 필요한 서류를 송부하도록 설명한다.",
+      "boundary": "지역 관서의 절차 안내로 모든 사건의 접수 방식이나 범죄 성립을 확정하지 않는다.",
+      "contentKind": "ASSISTANT_PARAPHRASE_OF_OFFICIAL_SOURCE",
+      "reviewStatus": "DRAFT",
+      "usageReview": "PENDING",
+      "sourceCheckedDate": "2026-10-29",
+      "experimentalMetadata": {
+        "subjectMatterCodes": [
+          "GENERAL_CONSULTATION",
+          "OTHER"
+        ],
+        "requestedActionCodes": [
+          "REPORT"
+        ],
+        "categoryCode": null
+      }
+    }
+  ],
+  "derivedFrom": "relevance_documents_v3.json"
+}

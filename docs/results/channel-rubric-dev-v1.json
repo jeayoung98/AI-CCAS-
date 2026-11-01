@@ -1,0 +1,127 @@
+{
+  "version": "channel-rubric-dev-pilot-v1",
+  "binding": {
+    "inputs": {
+      "source": "f1f47312c684fe1027467e70a878045112b6152e2a6d70a755d6c5d1489377bb",
+      "privacy": "33612b7a561a153c508de9c80ef9be297b69e55be7abe34cc1f3ff4188a0962c",
+      "corpus": "7dc884daffa3a52b305ac8c5737c58df8c89495acf7fcc2c7f8dddc6d09505a9"
+    },
+    "oldPromptSha256": "4a35951959b30012b3298cda59417172e41dfba2f1dd210242dd1b7c39cf5659",
+    "newPromptSha256": "f5fc738b21c525a683176cc412da8c77a03929a7ebed4f620fe2e0cbd113b24d",
+    "models": [
+      "gpt-4o-mini",
+      "gpt-4o"
+    ],
+    "targets": [
+      "acrc-grievance-definition-v1",
+      "acrc-grievance-application-v1"
+    ],
+    "version": "channel-rubric-dev-pilot-v1"
+  },
+  "queryCount": 100,
+  "split": "dev",
+  "documentCountEvaluated": 2,
+  "fullCorpusContextCount": 20,
+  "labelsPerArmAndModel": 200,
+  "results": {
+    "acrc-grievance-definition-v1": {
+      "oldBinary": {
+        "count": 100,
+        "agreement": 0.69,
+        "kappa": 0.3799999999999999,
+        "positiveAgreement": 0.7350427350427351,
+        "positiveCountByModel": [
+          50,
+          67
+        ]
+      },
+      "newDirectEvidence": {
+        "count": 100,
+        "agreement": 1.0,
+        "kappa": null,
+        "positiveAgreement": 1.0,
+        "positiveCountByModel": [
+          100,
+          100
+        ]
+      },
+      "oldBinaryOnSameAssessedQueries": {
+        "count": 100,
+        "agreement": 0.69,
+        "kappa": 0.3799999999999999,
+        "positiveAgreement": 0.7350427350427351,
+        "positiveCountByModel": [
+          50,
+          67
+        ]
+      },
+      "newExactGradeAgreementOnAssessed": 1.0,
+      "excludedUnknownPairs": 0,
+      "gradeCounts": {
+        "gpt-4o-mini": {
+          "2": 100
+        },
+        "gpt-4o": {
+          "2": 100
+        }
+      }
+    },
+    "acrc-grievance-application-v1": {
+      "oldBinary": {
+        "count": 100,
+        "agreement": 0.74,
+        "kappa": 0.14754098360655749,
+        "positiveAgreement": 0.2777777777777778,
+        "positiveCountByModel": [
+          11,
+          25
+        ]
+      },
+      "newDirectEvidence": {
+        "count": 100,
+        "agreement": 0.44,
+        "kappa": 0.0,
+        "positiveAgreement": 0.0,
+        "positiveCountByModel": [
+          56,
+          0
+        ]
+      },
+      "oldBinaryOnSameAssessedQueries": {
+        "count": 100,
+        "agreement": 0.74,
+        "kappa": 0.14754098360655749,
+        "positiveAgreement": 0.2777777777777778,
+        "positiveCountByModel": [
+          11,
+          25
+        ]
+      },
+      "newExactGradeAgreementOnAssessed": 0.03,
+      "excludedUnknownPairs": 0,
+      "gradeCounts": {
+        "gpt-4o-mini": {
+          "2": 56,
+          "1": 44
+        },
+        "gpt-4o": {
+          "0": 92,
+          "1": 8
+        }
+      }
+    }
+  },
+  "testQueriesSent": 0,
+  "benchmarkLabelsChanged": false,
+  "accuracyClaim": false,
+  "actualModels": [
+    "gpt-4o-2024-08-06",
+    "gpt-4o-mini-2024-07-18"
+  ],
+  "limitations": [
+    "Agreement is not accuracy",
+    "New rubric changes the relevance target; do not compare Recall across definitions",
+    "Only two selected documents and reused dev queries; not whole-corpus validation",
+    "Same-provider models can share errors; higher agreement can follow a change in label prevalence"
+  ]
+}

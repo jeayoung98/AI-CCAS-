@@ -1,0 +1,146 @@
+{
+  "version": "fact-rubric-dev-pilot-v2",
+  "binding": {
+    "source": "f1f47312c684fe1027467e70a878045112b6152e2a6d70a755d6c5d1489377bb",
+    "privacy": "33612b7a561a153c508de9c80ef9be297b69e55be7abe34cc1f3ff4188a0962c",
+    "promptSha256": "a0fff531704a7a0e91abcef7bffada091faad98b110808ed0521e9cfa22614eb",
+    "syntheticSha256": "999a16657c3f1645fa14a1a921ffebecc675f315671b82a94f2169a0e0e3c553",
+    "models": [
+      "gpt-4o-mini",
+      "gpt-4o"
+    ],
+    "version": "fact-rubric-dev-pilot-v2"
+  },
+  "results": {
+    "dev": {
+      "queryCount": 100,
+      "channels": {
+        "acrc-grievance-definition-v1": {
+          "directEvidenceAgreement": {
+            "count": 100,
+            "agreement": 0.96,
+            "kappa": 0.0,
+            "positiveAgreement": 0.9795918367346939,
+            "positiveCountByModel": [
+              100,
+              96
+            ]
+          },
+          "exactGradeAgreement": 0.96,
+          "unknownPairs": 0,
+          "gradeCounts": {
+            "gpt-4o-mini": {
+              "2": 100
+            },
+            "gpt-4o": {
+              "2": 96,
+              "0": 4
+            }
+          }
+        },
+        "acrc-grievance-application-v1": {
+          "directEvidenceAgreement": {
+            "count": 92,
+            "agreement": 1.0,
+            "kappa": null,
+            "positiveAgreement": null,
+            "positiveCountByModel": [
+              0,
+              0
+            ]
+          },
+          "exactGradeAgreement": 0.9565217391304348,
+          "unknownPairs": 8,
+          "gradeCounts": {
+            "gpt-4o-mini": {
+              "1": 92,
+              "UNASSESSABLE": 8
+            },
+            "gpt-4o": {
+              "1": 96,
+              "0": 4
+            }
+          }
+        }
+      }
+    },
+    "synthetic": {
+      "queryCount": 24,
+      "channels": {
+        "acrc-grievance-definition-v1": {
+          "directEvidenceAgreement": {
+            "count": 23,
+            "agreement": 0.9565217391304348,
+            "kappa": 0.8930232558139536,
+            "positiveAgreement": 0.9696969696969697,
+            "positiveCountByModel": [
+              17,
+              16
+            ]
+          },
+          "exactGradeAgreement": 0.9565217391304348,
+          "unknownPairs": 1,
+          "gradeCounts": {
+            "gpt-4o-mini": {
+              "2": 17,
+              "0": 6,
+              "UNASSESSABLE": 1
+            },
+            "gpt-4o": {
+              "2": 16,
+              "0": 8
+            }
+          },
+          "syntheticExpectedGradeMatches": {
+            "gpt-4o-mini": 22,
+            "gpt-4o": 24
+          }
+        },
+        "acrc-grievance-application-v1": {
+          "directEvidenceAgreement": {
+            "count": 21,
+            "agreement": 1.0,
+            "kappa": 1.0,
+            "positiveAgreement": 1.0,
+            "positiveCountByModel": [
+              8,
+              8
+            ]
+          },
+          "exactGradeAgreement": 1.0,
+          "unknownPairs": 3,
+          "gradeCounts": {
+            "gpt-4o-mini": {
+              "2": 8,
+              "1": 7,
+              "UNASSESSABLE": 3,
+              "0": 6
+            },
+            "gpt-4o": {
+              "2": 8,
+              "1": 8,
+              "0": 8
+            }
+          },
+          "syntheticExpectedGradeMatches": {
+            "gpt-4o-mini": 21,
+            "gpt-4o": 24
+          }
+        }
+      }
+    }
+  },
+  "testQueriesSent": 0,
+  "originalLabelsChanged": false,
+  "realWorldAccuracyClaim": false,
+  "actualModels": [
+    "gpt-4o-2024-08-06",
+    "gpt-4o-mini-2024-07-18"
+  ],
+  "limitations": [
+    "Dev-only pilot after observing failed rubric v1, not untouched holdout",
+    "Hand-authored synthetic controls are not actual complaints or independent ground truth",
+    "Exact quotation checks prove presence, not semantic correctness",
+    "Agreement does not establish accuracy; no production grading adopted"
+  ]
+}
