@@ -1,0 +1,385 @@
+{
+  "version": "police-candidate-split-v1",
+  "binding": {
+    "version": "police-candidate-split-v1",
+    "source": "fc2f9415dae2a4346eae333a9e014efe26e6310cc87b7d4b39fc9b792eeffaa7",
+    "historical": "f1f47312c684fe1027467e70a878045112b6152e2a6d70a755d6c5d1489377bb",
+    "manual": "54bef3be1b29f1ebb2b10bbf9a50a49b7409cb5da90a3b4b2ed022ac4b32f57c",
+    "promptSha256": "037e4a8cd272a59fd539130010c047408f7706889c4758fee96e4ca8ec86484f",
+    "model": "gpt-4o",
+    "groupRule": "source identity; char3gram Jaccard>=0.30 and sequence>=0.55; AI families; transitive union",
+    "splitRule": "stable group SHA256 modulo100 <40 dev; prior exposure forces whole family dev"
+  },
+  "candidateCount": 55,
+  "groupCount": 40,
+  "multiQueryGroups": 8,
+  "aiProposedGroups": 8,
+  "internalLexicalMatches": 0,
+  "historicalLexicalMatches": 0,
+  "previouslyExposedQueryCount": 3,
+  "forcedDevByExposureFamilyCount": 9,
+  "splitCounts": {
+    "test": 28,
+    "dev": 27
+  },
+  "splitDispositionCounts": {
+    "dev": {
+      "GENERAL_OR_EXAMPLE_CANDIDATE": 12,
+      "SPECIFIC_CANDIDATE": 15
+    },
+    "test": {
+      "SPECIFIC_CANDIDATE": 17,
+      "GENERAL_OR_EXAMPLE_CANDIDATE": 11
+    }
+  },
+  "groupOverlap": 0,
+  "previouslyExposedTestCount": 0,
+  "actualModel": "gpt-4o-2024-08-06",
+  "candidateSha256": "1b69728e4152d51f7248451b0552ac0a16911e575feb1659478dcaaa125384db",
+  "benchmarkEligibleCount": 0,
+  "familyDecisionSha256": "c3fb6429c2a2e9424b30290cf9e54bdfb9487273b33b3777537ae0e7c34be105",
+  "groupManifestSha256": "e16aee0bd4f13c90ee8dc2990bed9bfae4a22444e9d3126ba2a9b836ab6d34ff",
+  "limitations": [
+    "AI family grouping is provisional; grouping is not deletion or proof of same incident",
+    "Lexical-only comparison with historical 500 may miss semantic duplicates",
+    "All queries already screened by AI; this is not pristine independently authored ground truth",
+    "Structure, Java validation, qrels and retrieval scores remain pending"
+  ],
+  "groupManifest": [
+    {
+      "groupId": "police-family-06129b38e8a400d2",
+      "members": [
+        "law-public-query-384712"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-08e754289ec730e2",
+      "members": [
+        "law-public-query-2739653"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-0eb1ab366cd307cf",
+      "members": [
+        "law-public-query-2734293",
+        "law-public-query-2734497"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-114bc7b4204861b1",
+      "members": [
+        "law-public-query-384718"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-12ca182401fd8a67",
+      "members": [
+        "law-public-query-383530"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-1fcbf0627b7cb7c2",
+      "members": [
+        "law-public-query-2768807"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-25788dfb417695b3",
+      "members": [
+        "law-public-query-2753071"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-2989c7e12b6ef2e6",
+      "members": [
+        "law-public-query-2290531",
+        "law-public-query-2660857"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-30c87aa587a36fe6",
+      "members": [
+        "law-public-query-2733469"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-315f8da7b55f7392",
+      "members": [
+        "law-public-query-2290539"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-31603f9dfabd90c8",
+      "members": [
+        "law-public-query-386198"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-36ec5c57a7d6f8b9",
+      "members": [
+        "law-public-query-2644313"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-49416bb84e808ea0",
+      "members": [
+        "law-public-query-2724043"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-4d15616409bfd71c",
+      "members": [
+        "law-public-query-2548373"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-588f401e4bbff7ee",
+      "members": [
+        "law-public-query-386098"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-5beb07ea28c0dcd5",
+      "members": [
+        "law-public-query-2398309",
+        "law-public-query-2747393",
+        "law-public-query-384622",
+        "law-public-query-384676",
+        "law-public-query-384756",
+        "law-public-query-385538",
+        "law-public-query-410304"
+      ],
+      "split": "dev",
+      "previouslyExposed": true
+    },
+    {
+      "groupId": "police-family-65acec5d92bd6edd",
+      "members": [
+        "law-public-query-2718599",
+        "law-public-query-383288",
+        "law-public-query-384660"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-75ff9907cb60ce06",
+      "members": [
+        "law-public-query-2737177",
+        "law-public-query-2770895"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-79739ffe53bf47f6",
+      "members": [
+        "law-public-query-2651817"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-7ad0b054b1f11edd",
+      "members": [
+        "law-public-query-2718899"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-7d53f05a45c8ae19",
+      "members": [
+        "law-public-query-386648"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-81fbf794e562a869",
+      "members": [
+        "law-public-query-2752903"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-8760129ad78bc0fb",
+      "members": [
+        "law-public-query-2771417"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-8e866eca160fccca",
+      "members": [
+        "law-public-query-2753083"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-96c6c9ad6890c168",
+      "members": [
+        "law-public-query-2734303"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-9df4287855a0be58",
+      "members": [
+        "law-public-query-2768787",
+        "law-public-query-384656"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-9f02d7c59c353b9f",
+      "members": [
+        "law-public-query-384644",
+        "law-public-query-384654"
+      ],
+      "split": "dev",
+      "previouslyExposed": true
+    },
+    {
+      "groupId": "police-family-a3f0e63f505a9742",
+      "members": [
+        "law-public-query-384326"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-ab97a2aa3dc0c8b9",
+      "members": [
+        "law-public-query-2766223"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-aec0db1c1de81b5c",
+      "members": [
+        "law-public-query-2747423"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-bedb861d5fca7704",
+      "members": [
+        "law-public-query-2766191"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-c08e747010f8c95f",
+      "members": [
+        "law-public-query-2737085"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-d00deada0585e53f",
+      "members": [
+        "law-public-query-2290543"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-dd88006ce2315cc6",
+      "members": [
+        "law-public-query-2716231",
+        "law-public-query-2768803",
+        "law-public-query-384398"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-e3d922db84c179f6",
+      "members": [
+        "law-public-query-2825669"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-ea3473627c640c1a",
+      "members": [
+        "law-public-query-2768813"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-ec6c5d476d468a00",
+      "members": [
+        "law-public-query-2747457"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-ee12fc4b063c69be",
+      "members": [
+        "law-public-query-2825649"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-f07b02e2330aadef",
+      "members": [
+        "law-public-query-2747463"
+      ],
+      "split": "dev",
+      "previouslyExposed": false
+    },
+    {
+      "groupId": "police-family-f7f1dbfd6c97a7b2",
+      "members": [
+        "law-public-query-2747425"
+      ],
+      "split": "test",
+      "previouslyExposed": false
+    }
+  ]
+}

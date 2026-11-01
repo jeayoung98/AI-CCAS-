@@ -1,0 +1,26 @@
+{
+  "version": "officer-public-intake-v1",
+  "checkedDate": "2026-10-30",
+  "draftCount": 4,
+  "topicCounts": {
+    "LOST_ITEM": 2,
+    "PATROL_REQUEST": 1,
+    "CYBER_TRANSACTION": 1
+  },
+  "uniqueSourceGroups": 4,
+  "nearDuplicateFlags": 0,
+  "benchmarkEligibleCount": 0,
+  "originalBenchmarkChanged": false,
+  "inputHashes": {
+    "seeds": "afe120d48ca011c67e1ae021a083b1c527a3f880a9dd4336076a8850048e0d41",
+    "existing": "f1f47312c684fe1027467e70a878045112b6152e2a6d70a755d6c5d1489377bb",
+    "drafts": "3029af4f75a762a3e343982cc9e676750a85759a37d16e60718202e926c7406c"
+  },
+  "limitations": [
+    "Paraphrased public queries, not full raw complaints or verified retrieval cases",
+    "Privacy review by assistant plus regex checks, not a guarantee of de-identification",
+    "Similarity check is lexical only; semantic and cross-publication duplicates may remain",
+    "One source and all derived question/answer/paraphrases must share a split group",
+    "Usage pending; no qrels, embeddings or production imports generated"
+  ]
+}

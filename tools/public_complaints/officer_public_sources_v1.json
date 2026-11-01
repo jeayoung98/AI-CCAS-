@@ -1,0 +1,66 @@
+{
+  "version": "officer-public-source-manifest-v1",
+  "checkedDate": "2026-10-30",
+  "records": [
+    {
+      "sourceId": "law-lost-phone",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384644&mode=2&ofiClsCd=350128",
+      "topic": "LOST_ITEM",
+      "sourceSection": "질의요지",
+      "sourceDate": "2025-07-17",
+      "privacyReview": "ASSISTANT_REVIEWED_PARAPHRASE",
+      "sourceKind": "PUBLISHED_PUBLIC_QUERY",
+      "access": "BODY_CHECKED",
+      "checkedDate": "2026-10-30",
+      "usageReview": "PENDING",
+      "benchmarkEligible": false
+    },
+    {
+      "sourceId": "law-lost-wallet",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384654&mode=2&ofiClsCd=350128",
+      "topic": "LOST_ITEM",
+      "sourceSection": "질의요지",
+      "sourceDate": "2025-07-17",
+      "privacyReview": "ASSISTANT_REVIEWED_PARAPHRASE",
+      "sourceKind": "PUBLISHED_PUBLIC_QUERY",
+      "access": "BODY_CHECKED",
+      "checkedDate": "2026-10-30",
+      "usageReview": "PENDING",
+      "benchmarkEligible": false
+    },
+    {
+      "sourceId": "guri-patrol-school",
+      "sourceUrl": "https://www.guri.go.kr/mayor/selectBbsNttView.do?bbsNo=482&key=1165&nttNo=144606",
+      "topic": "PATROL_REQUEST",
+      "sourceSection": "공개 민원 본문",
+      "sourceDate": null,
+      "privacyReview": "ASSISTANT_REVIEWED_PARAPHRASE",
+      "sourceKind": "PUBLISHED_PUBLIC_QUERY",
+      "access": "BODY_CHECKED",
+      "checkedDate": "2026-10-30",
+      "usageReview": "HOLD_NO_ITEM_LICENSE_CONFIRMED",
+      "benchmarkEligible": false,
+      "policyUrl": "https://www.guri.go.kr/www/contents.do?key=788",
+      "usageNote": "Policy requires prior consultation for material without KOGL mark; item-specific permission not confirmed. No embedding, evaluation or redistribution of draft."
+    },
+    {
+      "sourceId": "law-cyber-trade",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=385538&mode=2&ofiClsCd=350128",
+      "topic": "CYBER_TRANSACTION",
+      "sourceSection": "질의요지",
+      "sourceDate": "2025-04-15",
+      "privacyReview": "ASSISTANT_REVIEWED_PARAPHRASE",
+      "sourceKind": "PUBLISHED_PUBLIC_QUERY",
+      "access": "BODY_CHECKED",
+      "checkedDate": "2026-10-30",
+      "usageReview": "PENDING",
+      "benchmarkEligible": false
+    }
+  ],
+  "excluded": [
+    {
+      "sourceUrl": "https://www.dobong.go.kr/subsite/ceo_frame/bbs.asp?bmode=D&code=10000662&pcode=12730767",
+      "reason": "Search snippet found; HTTP 200 body did not contain expected complaint; not counted"
+    }
+  ]
+}

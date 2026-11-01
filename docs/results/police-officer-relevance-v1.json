@@ -1,0 +1,217 @@
+{
+  "fullyResolvedQueries": 55,
+  "unresolvedQueries": 0,
+  "resolvedPairs": 1100,
+  "positivePairs": 75,
+  "gradeDisagreements": 262,
+  "directEvidenceDisagreements": 104,
+  "completeQuerySplitCounts": {
+    "test": 28,
+    "dev": 27
+  },
+  "channels": {
+    "VERIFIED_CASE": {
+      "dev": {
+        "pairedBinaryAgreement": {
+          "count": 0,
+          "agreement": null,
+          "kappa": null,
+          "positiveAgreement": null
+        },
+        "gradeCounts": {
+          "gpt-4o-mini": {},
+          "gpt-4o": {}
+        },
+        "exactGradeAgreement": null,
+        "unknownPairs": 0,
+        "primaryPositiveQueries": null,
+        "primaryNoPositiveQueries": null
+      },
+      "test": {
+        "pairedBinaryAgreement": {
+          "count": 0,
+          "agreement": null,
+          "kappa": null,
+          "positiveAgreement": null
+        },
+        "gradeCounts": {
+          "gpt-4o-mini": {},
+          "gpt-4o": {}
+        },
+        "exactGradeAgreement": null,
+        "unknownPairs": 0,
+        "primaryPositiveQueries": null,
+        "primaryNoPositiveQueries": null
+      }
+    },
+    "CATEGORY_REFERENCE": {
+      "dev": {
+        "pairedBinaryAgreement": {
+          "count": 108,
+          "agreement": 0.8611111111111112,
+          "kappa": 0.35200000000000026,
+          "positiveAgreement": 0.4,
+          "positiveCountByModel": [
+            20,
+            5
+          ]
+        },
+        "gradeCounts": {
+          "gpt-4o-mini": {
+            "0": 59,
+            "1": 29,
+            "2": 20
+          },
+          "gpt-4o": {
+            "0": 80,
+            "1": 23,
+            "2": 5
+          }
+        },
+        "exactGradeAgreement": 0.6666666666666666,
+        "unknownPairs": 0,
+        "primaryPositiveQueries": 5,
+        "primaryNoPositiveQueries": 22
+      },
+      "test": {
+        "pairedBinaryAgreement": {
+          "count": 112,
+          "agreement": 0.9285714285714286,
+          "kappa": 0.6024844720496896,
+          "positiveAgreement": 0.6363636363636364,
+          "positiveCountByModel": [
+            15,
+            7
+          ]
+        },
+        "gradeCounts": {
+          "gpt-4o-mini": {
+            "1": 35,
+            "0": 62,
+            "2": 15
+          },
+          "gpt-4o": {
+            "0": 78,
+            "1": 27,
+            "2": 7
+          }
+        },
+        "exactGradeAgreement": 0.7678571428571429,
+        "unknownPairs": 0,
+        "primaryPositiveQueries": 7,
+        "primaryNoPositiveQueries": 21
+      }
+    },
+    "OFFICIAL_GUIDE": {
+      "dev": {
+        "pairedBinaryAgreement": {
+          "count": 432,
+          "agreement": 0.9120370370370371,
+          "kappa": 0.5734774475161092,
+          "positiveAgreement": 0.62,
+          "positiveCountByModel": [
+            62,
+            38
+          ]
+        },
+        "gradeCounts": {
+          "gpt-4o-mini": {
+            "1": 96,
+            "0": 274,
+            "2": 62
+          },
+          "gpt-4o": {
+            "0": 347,
+            "2": 38,
+            "1": 47
+          }
+        },
+        "exactGradeAgreement": 0.7777777777777778,
+        "unknownPairs": 0,
+        "primaryPositiveQueries": 20,
+        "primaryNoPositiveQueries": 7
+      },
+      "test": {
+        "pairedBinaryAgreement": {
+          "count": 448,
+          "agreement": 0.9040178571428571,
+          "kappa": 0.4630393577879359,
+          "positiveAgreement": 0.5057471264367817,
+          "positiveCountByModel": [
+            62,
+            25
+          ]
+        },
+        "gradeCounts": {
+          "gpt-4o-mini": {
+            "2": 62,
+            "1": 89,
+            "0": 297
+          },
+          "gpt-4o": {
+            "0": 374,
+            "1": 49,
+            "2": 25
+          }
+        },
+        "exactGradeAgreement": 0.7678571428571429,
+        "unknownPairs": 0,
+        "primaryPositiveQueries": 18,
+        "primaryNoPositiveQueries": 10
+      }
+    }
+  },
+  "groupOverlap": 0,
+  "version": "police-officer-relevance-v1",
+  "binding": {
+    "version": "police-officer-relevance-v1",
+    "queries": "b89937747a894a1a8b0c44ed7b1abc67859e9155921695410654bc5456b59402",
+    "structureReport": "bbe8dd24911f5f046f16a7ae91699693900dbbbbb49371af240c13b41034ad65",
+    "corpus": "4001263291535ffd6a0efe3eef0acfa3556b4eab96af60f501aead7db0828f93",
+    "promptSha256": "67b9627f39d498c503bc95e612a82ed1292a95a5875c8766131b1d94266fc62e",
+    "schemaSha256": "dcc0a17c59623441fe5c841f78114fa66740039dc6dea105dc66f858b7722f1c",
+    "models": [
+      "gpt-4o-mini",
+      "gpt-4o"
+    ],
+    "primary": "gpt-4o",
+    "batchSize": 5,
+    "strictOutput": true,
+    "projection": "grade2 positive; 0/1 negative for DIRECT relevance only; unknown excluded, query unresolved",
+    "modelPolicy": "primary fixed before generation; disagreements audited, never auto-merged"
+  },
+  "queryCount": 55,
+  "documentCount": 20,
+  "modelResponseUnits": 110,
+  "gradedLabelCount": 2200,
+  "actualModels": [
+    "gpt-4o-2024-08-06",
+    "gpt-4o-mini-2024-07-18"
+  ],
+  "primaryModel": "gpt-4o",
+  "labelStatus": "FROZEN_AI_PROVISIONAL",
+  "humanGroundTruth": false,
+  "accuracyClaim": false,
+  "retrievalEvaluationExecuted": false,
+  "productionKnowledgePromoted": false,
+  "documentCounts": {
+    "CATEGORY_REFERENCE": 4,
+    "OFFICIAL_GUIDE": 16
+  },
+  "inputHashes": {
+    "queries": "b89937747a894a1a8b0c44ed7b1abc67859e9155921695410654bc5456b59402",
+    "corpus": "4001263291535ffd6a0efe3eef0acfa3556b4eab96af60f501aead7db0828f93"
+  },
+  "limitations": [
+    "AI labels, not human ground truth; agreement is not accuracy",
+    "Small draft pool; no VERIFIED_CASE candidates or final evidence/risk labels",
+    "Same-provider models may share errors; primary fixed, no adjudication of disagreement",
+    "Test label generation is not a search strategy evaluation or performance claim"
+  ],
+  "outputHashes": {
+    "qrels.jsonl": "e068f45f1c2604053f0cf4d98b7fa1a2eaa472ed6e01c61e7dfa40771124beea",
+    "resolved-queries.jsonl": "eb4b05ebada64bdfa8d17545eff55cc69c4c9623acebc44d65f48a7526b9f1aa",
+    "pending.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "disagreements.jsonl": "df83bf4163f3c2e0320fff4beef487ae7f40e11a829d20fbaa180abb8f768e44"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "version": "police-structure-input-v1",
+  "queryCount": 55,
+  "splitCounts": {
+    "test": 28,
+    "dev": 27
+  },
+  "inputHashes": {
+    "candidates": "1b69728e4152d51f7248451b0552ac0a16911e575feb1659478dcaaa125384db",
+    "screenCheckpoint": "52ad6999273ef9dffd1ed864ae1dcbe07d1e31eeb37bba7ca4f8f121a3b17b80",
+    "splitLock": "791c229b702f6f6021c6e8870a778b11f8e45b251b5d0338afaeeadfbf018300",
+    "requests": "6f4b6bd61fe101484f5b6f057cad0d89e83232b2f69656fa218b720ff55b5d51"
+  },
+  "privacySource": "AI_SCREENING",
+  "humanReviewed": false,
+  "benchmarkEligibleCount": 0,
+  "javaValidationExecuted": true,
+  "limitations": [
+    "AI privacy PASS is not a privacy guarantee",
+    "maskingCompleted=true is set only on separate evaluation requests after this AI gate",
+    "Source IDs establish traceability, not semantic correctness",
+    "Generated structures are not retrieval relevance labels or final classifications"
+  ],
+  "javaReport": {
+    "inputSha256": "6f4b6bd61fe101484f5b6f057cad0d89e83232b2f69656fa218b720ff55b5d51",
+    "recordCount": 55,
+    "validatedCount": 55,
+    "riskSignalPresentCount": 5,
+    "structureVersion": "complaint-structure-v1",
+    "searchTextVersion": "complaint-search-text-v1",
+    "errors": [],
+    "success": true,
+    "embeddingExecuted": false,
+    "semanticAccuracyValidated": false
+  },
+  "structureSummary": {
+    "queryCount": 55,
+    "inputHashes": {
+      "source": "1b69728e4152d51f7248451b0552ac0a16911e575feb1659478dcaaa125384db",
+      "privacy": "73fea9f654a408b0afa21c6cb1013b9f3f0c0a47cdec6c7c6899f552dc055e9b",
+      "enums": "feae3b8aed72cb21be4c6d79b76d75a15088305a8c9ffa41aaa3d4b8bf769e8d",
+      "prompt": "8789e8676c87bd755d239f4b0c2453c3419ceb14318d419187e75556413d363a"
+    },
+    "model": "gpt-4o",
+    "promptVersion": "ai-structure-source-ids-v1",
+    "structureSource": "AI",
+    "humanStructureReviewed": false,
+    "embeddingExecuted": false,
+    "sourceLinkMeaning": "SOURCE_LINK_ONLY_NOT_SEMANTIC_VALIDATION",
+    "javaValidationExecuted": false,
+    "splitCounts": {
+      "test": 28,
+      "dev": 27
+    },
+    "riskSignalCounts": {
+      "CHILD_ABUSE": 1,
+      "STALKING_PATTERN": 2,
+      "PERSONAL_DATA_EXPOSURE": 2
+    },
+    "unknownActionCount": 7
+  },
+  "actualModels": [
+    "gpt-4o-2024-08-06"
+  ],
+  "validatedOutputSha256": "b89937747a894a1a8b0c44ed7b1abc67859e9155921695410654bc5456b59402",
+  "splitLineagePreserved": true,
+  "riskFlagConsistentCount": 55,
+  "offlineReplayIdentical": true,
+  "javaSelectedTests": 21,
+  "pythonTests": 98
+}

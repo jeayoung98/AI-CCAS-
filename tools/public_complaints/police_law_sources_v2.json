@@ -1,0 +1,628 @@
+{
+  "version": "police-law-json-source-catalog-v2",
+  "records": [
+    {
+      "queryKey": "law-public-query-2770895",
+      "groupId": "law-public-query-2770895",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2770895",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "e45cf378e9796e1aabb93afa1dbc00bae5a71dcbd3fb9d66894c041252e58c68"
+    },
+    {
+      "queryKey": "law-public-query-2768803",
+      "groupId": "law-public-query-2768803",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2768803",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "872eb588b87f304fdcae7a88b8adea8b9c0176d7551d08a439a54d17ae3a8415"
+    },
+    {
+      "queryKey": "law-public-query-2737087",
+      "groupId": "law-public-query-2737087",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2737087",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "464ebbe38baf70d624c14401e166fce8e462b4b5f156cad392786f0b8b7da425"
+    },
+    {
+      "queryKey": "law-public-query-2737153",
+      "groupId": "law-public-query-2737153",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2737153",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "994746df7e67e20426e2118bf8f7f56769f98c0230c4a12e1d3f802a10f0ef74"
+    },
+    {
+      "queryKey": "law-public-query-2716231",
+      "groupId": "law-public-query-2716231",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2716231",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "1d08cea645435554f7f3098072716cc5a3fa3077f29d7b12369329b78995a0c8"
+    },
+    {
+      "queryKey": "law-public-query-2650861",
+      "groupId": "law-public-query-2650861",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2650861",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "1f42ab72c39f7423bd8dc69bda211337f1eb2d024c212da7971ed322b7a9d2dd"
+    },
+    {
+      "queryKey": "law-public-query-2651815",
+      "groupId": "law-public-query-2651815",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2651815",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "380aca30e503f4857c40db0ac9a1c6627e97b68ad2f1f89e5c83c612bde7a2dc"
+    },
+    {
+      "queryKey": "law-public-query-384398",
+      "groupId": "law-public-query-384398",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384398",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "0dad592fc74b9b7fa57c48bbc3d021ce61619c763a5fc25bf01510a3a0983eb3"
+    },
+    {
+      "queryKey": "law-public-query-384660",
+      "groupId": "law-public-query-384660",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384660",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "82f7ac7ccd21be2c3a88bda8a629bdfdaa3b99acf7a70498016788a89a7d5c55"
+    },
+    {
+      "queryKey": "law-public-query-384654",
+      "groupId": "law-public-query-384654",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384654",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "8b722da167d63f21af4b2098c61e760850424591560cd24e5e0c17b61dcd282f"
+    },
+    {
+      "queryKey": "law-public-query-384644",
+      "groupId": "law-public-query-384644",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384644",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "cd2af86fe489c79d6924f46413688faa08a4057e51c0cee1c978f78cbc096fad"
+    },
+    {
+      "queryKey": "law-public-query-384326",
+      "groupId": "law-public-query-384326",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384326",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "e9448c5970e9dce7fd67cbef4dad5c75f4ed80201d4a3ffdf6391441a7716f0a"
+    },
+    {
+      "queryKey": "law-public-query-386098",
+      "groupId": "law-public-query-386098",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=386098",
+      "discoveryKeyword": "유실물",
+      "maskedTextSha256": "3d6e2eb76bb1a886e09e3da1b46ba2c9b57521f82f81952493a96287f972b7e1"
+    },
+    {
+      "queryKey": "law-public-query-2768813",
+      "groupId": "law-public-query-2768813",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2768813",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "53cda44545ae49c62f045057c7e54ffa3007d764f5241008648ff4ed580bb94d"
+    },
+    {
+      "queryKey": "law-public-query-2737149",
+      "groupId": "law-public-query-2737149",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2737149",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "11c6183bafa0d00b63ead11aa91ea65ad7ad92232fc688558a6cc003a1eb110d"
+    },
+    {
+      "queryKey": "law-public-query-2726769",
+      "groupId": "law-public-query-2726769",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2726769",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "06ff6b808bed7ad88e4915ef2d5d88a908f007181557ba928fffcff2d49eac49"
+    },
+    {
+      "queryKey": "law-public-query-2724043",
+      "groupId": "law-public-query-2724043",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2724043",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "bef6b763f6695f598cbf1ade00266a65b654d86e3b2259ac3f86a1d4101c9e86"
+    },
+    {
+      "queryKey": "law-public-query-2718599",
+      "groupId": "law-public-query-2718599",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2718599",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "74493e56d86290a5f4af646686284a4f86607e9b92103ba8314c787728580480"
+    },
+    {
+      "queryKey": "law-public-query-2651817",
+      "groupId": "law-public-query-2651817",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2651817",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "52f4d07aae0e7b004a5964a9bec9d3683b7e0b183ed1e8b8434f2073cdd912a4"
+    },
+    {
+      "queryKey": "law-public-query-2641773",
+      "groupId": "law-public-query-2641773",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2641773",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "7323ec825fbced942c86acdcef6a103935c1f4f83d5afd45b79f293ea01b6b72"
+    },
+    {
+      "queryKey": "law-public-query-2641733",
+      "groupId": "law-public-query-2641733",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2641733",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "baa8e96d7290de47560c8f6f2a1654dbba2266944671bd7ffd1aadb28408194d"
+    },
+    {
+      "queryKey": "law-public-query-2548373",
+      "groupId": "law-public-query-2548373",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2548373",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "55b6ee8c030d0097741b61ec34f26ab432f117321c5849d844e436a361edb54a"
+    },
+    {
+      "queryKey": "law-public-query-381860",
+      "groupId": "law-public-query-381860",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=381860",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "c97395318f9d49f54ebe3739c9efc61901240f4eb6203ab4cd0fd3e26f85f0f2"
+    },
+    {
+      "queryKey": "law-public-query-383288",
+      "groupId": "law-public-query-383288",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=383288",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "ce35a1c403b64ec602662a48104686fb6b092af9b4f12e0854f7ed7604299f78"
+    },
+    {
+      "queryKey": "law-public-query-383126",
+      "groupId": "law-public-query-383126",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=383126",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "903eb65d4bf15b1a4e35e7205383442105936ef75df73c441bd28a0f3f536344"
+    },
+    {
+      "queryKey": "law-public-query-383386",
+      "groupId": "law-public-query-383386",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=383386",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "2a1dcc0774806c9d0eeb1d669d802a008fef343db87e3a163b75e80a008539aa"
+    },
+    {
+      "queryKey": "law-public-query-384718",
+      "groupId": "law-public-query-384718",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384718",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "155c00a6e83d9e325c0186c94de42b0218dc0a3a3c18349747bcb8e1c49bbf88"
+    },
+    {
+      "queryKey": "law-public-query-384738",
+      "groupId": "law-public-query-384738",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384738",
+      "discoveryKeyword": "분실",
+      "maskedTextSha256": "4449b792808e72af676abcc6e01859aaa134ac6169f36974ae674ea0165c5ae6"
+    },
+    {
+      "queryKey": "law-public-query-2751965",
+      "groupId": "law-public-query-2751965",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2751965",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "82f261b55d3295fbd930a58908a79cdf78cd59d5f273179e919bf8229774643d"
+    },
+    {
+      "queryKey": "law-public-query-2753083",
+      "groupId": "law-public-query-2753083",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2753083",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "18add675243260da2d387ebb4a3ead897784d36655299de49f3a83427db97c23"
+    },
+    {
+      "queryKey": "law-public-query-2753071",
+      "groupId": "law-public-query-2753071",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2753071",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "c7bfe2daf490048b7628bcc8fda79bedbec92c9998752c4ea474b41172d5c06b"
+    },
+    {
+      "queryKey": "law-public-query-2737171",
+      "groupId": "law-public-query-2737171",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2737171",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "a6422671cd349fbf844207b83eccaec2246ca367a911e6d06f8c26efe459688d"
+    },
+    {
+      "queryKey": "law-public-query-2733469",
+      "groupId": "law-public-query-2733469",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2733469",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "88ab8fa838ce8a5eb8f2c9952111609e7e46718d3b4cc6f3f764460e17748c88"
+    },
+    {
+      "queryKey": "law-public-query-2718899",
+      "groupId": "law-public-query-2718899",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2718899",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "34837c4a2446f05baca1f7d455460cd459901cafb331d126ec3f78dae603f5c4"
+    },
+    {
+      "queryKey": "law-public-query-2660857",
+      "groupId": "law-public-query-2660857",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2660857",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "90de616178b7ae7d2435dafccca19df299510994a026e94db1cad16aeb357c6a"
+    },
+    {
+      "queryKey": "law-public-query-2644313",
+      "groupId": "law-public-query-2644313",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2644313",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "553857743ae5d2eff4f6d4100f4492af566e6279dfcce6ac4d6728e01ead70b5"
+    },
+    {
+      "queryKey": "law-public-query-2572237",
+      "groupId": "law-public-query-2572237",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2572237",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "908ec53ed3543497b5a1b5e15dff77814bc5b36c0b000e079e45b2195bdf40b6"
+    },
+    {
+      "queryKey": "law-public-query-383400",
+      "groupId": "law-public-query-383400",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=383400",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "a6e3913c8f010afbd367f71a06f80623653d87d050cb970f2082650dc8216a7a"
+    },
+    {
+      "queryKey": "law-public-query-383530",
+      "groupId": "law-public-query-383530",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=383530",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "43106ae240177b78de794eb26029b40f2a7e1d1a1ab87114516702a0e36dc513"
+    },
+    {
+      "queryKey": "law-public-query-384632",
+      "groupId": "law-public-query-384632",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384632",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "05ff06ef6a8d6208fc6f518d7d9ffb7f8cd72b791d0b361215f2ebadb19d0445"
+    },
+    {
+      "queryKey": "law-public-query-384656",
+      "groupId": "law-public-query-384656",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384656",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "8ff7c82e8745b62cbd09b34e4409aeb64f79e8c3c5bb0a384400c2802a62d2a6"
+    },
+    {
+      "queryKey": "law-public-query-384712",
+      "groupId": "law-public-query-384712",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384712",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "b0917e31d7501cfacfe88a06fe724cc5398c964332c0e3db20215580ea36e628"
+    },
+    {
+      "queryKey": "law-public-query-386648",
+      "groupId": "law-public-query-386648",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=386648",
+      "discoveryKeyword": "순찰",
+      "maskedTextSha256": "6f384c683643e074511aa82ca93dc97ed0e590111a803305169d274892e3efc7"
+    },
+    {
+      "queryKey": "law-public-query-2747393",
+      "groupId": "law-public-query-2747393",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2747393",
+      "discoveryKeyword": "중고",
+      "maskedTextSha256": "6b10f33367079bf16cb3fbc19c40b3c6ba721d9f5610f82e86c236c6db5852dd"
+    },
+    {
+      "queryKey": "law-public-query-2734303",
+      "groupId": "law-public-query-2734303",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2734303",
+      "discoveryKeyword": "중고",
+      "maskedTextSha256": "5818a12d7e80620c25fc756e84f47a8a4fec4ef3ead9bb799627090815f1d02f"
+    },
+    {
+      "queryKey": "law-public-query-2733485",
+      "groupId": "law-public-query-2733485",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2733485",
+      "discoveryKeyword": "중고",
+      "maskedTextSha256": "6c993dc7e3f9338cc48e9aee43299c53a67661c2bd70377b52ec29257f71ebdf"
+    },
+    {
+      "queryKey": "law-public-query-2398309",
+      "groupId": "law-public-query-2398309",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2398309",
+      "discoveryKeyword": "중고",
+      "maskedTextSha256": "d3f58adf8f0b375b22ac3d99e25d9db72b78a5633ae24f4538f7e448add0b4d9"
+    },
+    {
+      "queryKey": "law-public-query-384622",
+      "groupId": "law-public-query-384622",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384622",
+      "discoveryKeyword": "중고",
+      "maskedTextSha256": "350e54d7035302dab428dce97c07cab2d482b77612e2ec223aea73d01d2d0356"
+    },
+    {
+      "queryKey": "law-public-query-384676",
+      "groupId": "law-public-query-384676",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384676",
+      "discoveryKeyword": "중고",
+      "maskedTextSha256": "9aa3a0b6639f73240ba08017ac22c6033fd3e52dbb54c61242b4c73167c6e0e4"
+    },
+    {
+      "queryKey": "law-public-query-384756",
+      "groupId": "law-public-query-384756",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=384756",
+      "discoveryKeyword": "중고",
+      "maskedTextSha256": "a37ce89b261532628a828d334b6de27d1d7ca8a84a0f670e5279e782b9d4acc5"
+    },
+    {
+      "queryKey": "law-public-query-410304",
+      "groupId": "law-public-query-410304",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=410304",
+      "discoveryKeyword": "중고",
+      "maskedTextSha256": "0f3faa017d78c7ca0da6403102aefaabdff2f558fe7aa9cf747f9ea21e49dcf0"
+    },
+    {
+      "queryKey": "law-public-query-385538",
+      "groupId": "law-public-query-385538",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=385538",
+      "discoveryKeyword": "중고",
+      "maskedTextSha256": "19f7325da07ce712a695d78157ebfdedee815b9c38efd8cb99214ba9a7c283fd"
+    },
+    {
+      "queryKey": "law-public-query-2290539",
+      "groupId": "law-public-query-2290539",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2290539",
+      "discoveryKeyword": "중고",
+      "maskedTextSha256": "df9add584a16a9a7ee671f9f2a783610dae8a5053018cdd6944fe81dbbf0ed1a"
+    },
+    {
+      "queryKey": "law-public-query-2825649",
+      "groupId": "law-public-query-2825649",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2825649",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "106f74f72a06ab85923684cc56bb6b72c890ea977b3aab3ffb1cf27f70224397"
+    },
+    {
+      "queryKey": "law-public-query-2825669",
+      "groupId": "law-public-query-2825669",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2825669",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "a824098542a2a1e436356e75d0c55eacdb580dbde1667990c3b5429ac752cab5"
+    },
+    {
+      "queryKey": "law-public-query-2768801",
+      "groupId": "law-public-query-2768801",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2768801",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "063d22c45bbeeef6f8bee042be7d701fd5bb0c3c828492466e5e7f555477200d"
+    },
+    {
+      "queryKey": "law-public-query-2768807",
+      "groupId": "law-public-query-2768807",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2768807",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "49f7ec265639a54ff03612431c58ec3f22feee52be8b86bc80bf4e3034cec8b0"
+    },
+    {
+      "queryKey": "law-public-query-2768679",
+      "groupId": "law-public-query-2768679",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2768679",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "7da18e5d06b9bcedb0624ff6c841dc7715cdc43fcabe921b6b159ff84258020a"
+    },
+    {
+      "queryKey": "law-public-query-2766225",
+      "groupId": "law-public-query-2766225",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2766225",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "0d7a8225283ce09d17c7ac29cc8e48cf6165ba1f796e31f55f66bbbfa1f91c7e"
+    },
+    {
+      "queryKey": "law-public-query-2755717",
+      "groupId": "law-public-query-2755717",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2755717",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "ca82d4221af6f6cb6eea1ba74f1350e3a6002531885c79efe8aaa8a2f77e73c7"
+    },
+    {
+      "queryKey": "law-public-query-2752903",
+      "groupId": "law-public-query-2752903",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2752903",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "7e7d6d1ca78543613452903b66db4bdfb9be4f60b27e9520d1ad089a3d8ac44e"
+    },
+    {
+      "queryKey": "law-public-query-2750087",
+      "groupId": "law-public-query-2750087",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2750087",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "7d4aa82c1db83f2a33dd574154eaa5de56c80b9f9d7a4f32dbdedbe136e68e6d"
+    },
+    {
+      "queryKey": "law-public-query-2753095",
+      "groupId": "law-public-query-2753095",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2753095",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "ec275a59b859662cfda25f42ebfe71431e8daf9fa1efea13100e36ae1b4d4d1b"
+    },
+    {
+      "queryKey": "law-public-query-2747423",
+      "groupId": "law-public-query-2747423",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2747423",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "bdf12f004ae0c6284cd7b48706d49d6431e2f76cae321b8245da372d06df3755"
+    },
+    {
+      "queryKey": "law-public-query-2747425",
+      "groupId": "law-public-query-2747425",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2747425",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "cdf9b96272164115fac74b1a8f72a355794b2be6fd017a728d7e2611922c9a6b"
+    },
+    {
+      "queryKey": "law-public-query-2747419",
+      "groupId": "law-public-query-2747419",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2747419",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "134a2ca51c54816a415567f550e186dc011483811620cb82e6f9be39774751bb"
+    },
+    {
+      "queryKey": "law-public-query-2747463",
+      "groupId": "law-public-query-2747463",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2747463",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "5585457a750ca6957f5f73eb126c507f5030c1c1a982ab7d40f378497b14a3b2"
+    },
+    {
+      "queryKey": "law-public-query-2747457",
+      "groupId": "law-public-query-2747457",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2747457",
+      "discoveryKeyword": "교통",
+      "maskedTextSha256": "6fce134cf9566e0a77dea57bfc02c1ba9c332382fc9e9e972502d01b4696307d"
+    },
+    {
+      "queryKey": "law-public-query-2771417",
+      "groupId": "law-public-query-2771417",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2771417",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "0ff0d9ae58788cb6984a436766cf52f868d7c40b17b25fc20a16191062d004f2"
+    },
+    {
+      "queryKey": "law-public-query-2766223",
+      "groupId": "law-public-query-2766223",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2766223",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "6f65c288153da215ad7c4de57954ca2cf804b87cf596a5445a989cdb007d9c00"
+    },
+    {
+      "queryKey": "law-public-query-2766191",
+      "groupId": "law-public-query-2766191",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2766191",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "a86d83f0e85e4c26cb5d4c1756eafe70430b2762fe1abf07665eac582573a44e"
+    },
+    {
+      "queryKey": "law-public-query-2758457",
+      "groupId": "law-public-query-2758457",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2758457",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "3585a450df3ba5bb8162da3ed9262ef3c32fbfbe79708f85c5925e21a2704d46"
+    },
+    {
+      "queryKey": "law-public-query-2750083",
+      "groupId": "law-public-query-2750083",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2750083",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "c6d86c9ac0336aee3c615034a9c9e7b6c311eb3294b255290f9cef39b47a59de"
+    },
+    {
+      "queryKey": "law-public-query-2739653",
+      "groupId": "law-public-query-2739653",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2739653",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "d1c5b19f79527c3d89c1baa8843de7a8646ae9d16abcdf114ea6b239f99b2ab9"
+    },
+    {
+      "queryKey": "law-public-query-2736915",
+      "groupId": "law-public-query-2736915",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2736915",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "3db25624860fbc93302cc85e74b1f3793368975fbc982637ac6336034bebb94d"
+    },
+    {
+      "queryKey": "law-public-query-2737099",
+      "groupId": "law-public-query-2737099",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2737099",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "d125f967b33366c5495ae177d13c9c159a30cb93017055d76ec37c3ba7aca72c"
+    },
+    {
+      "queryKey": "law-public-query-2737177",
+      "groupId": "law-public-query-2737177",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2737177",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "bb26e5ae98e2175fdcb3aad5d8f30a1819e207e269dad949fd51f6d2d8c5b480"
+    },
+    {
+      "queryKey": "law-public-query-2737085",
+      "groupId": "law-public-query-2737085",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2737085",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "7d971bc9674016de4f0f0444ee0907c893d18ee390f3f5d3c1de77aa8f5c20c9"
+    },
+    {
+      "queryKey": "law-public-query-2734293",
+      "groupId": "law-public-query-2734293",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2734293",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "d1aa7cf33c33367d8b5ca9de23375e192962120e5716558c8b7e83dd570fb58d"
+    },
+    {
+      "queryKey": "law-public-query-2734497",
+      "groupId": "law-public-query-2734497",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2734497",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "fe571f5cb1950280e6905990f9e10e0c72e624d69dda620d45d318c021fdd3bb"
+    },
+    {
+      "queryKey": "law-public-query-2733479",
+      "groupId": "law-public-query-2733479",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2733479",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "3cdc5624f48ef6532f88c3c5288226763e24b8a3cd52010b0f27fa7df9246d4a"
+    },
+    {
+      "queryKey": "law-public-query-2733497",
+      "groupId": "law-public-query-2733497",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2733497",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "1675d8fea464e3047493f2e97e49d27adb64d80a34c1847be719f02b07fb26f8"
+    },
+    {
+      "queryKey": "law-public-query-2733509",
+      "groupId": "law-public-query-2733509",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2733509",
+      "discoveryKeyword": "진행",
+      "maskedTextSha256": "ec3e566f4dd910a4e88fec1d5d2b2ce67882aeaddc741bbe5fda04f4d29859a8"
+    },
+    {
+      "queryKey": "law-public-query-2768787",
+      "groupId": "law-public-query-2768787",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2768787",
+      "discoveryKeyword": "안전조치",
+      "maskedTextSha256": "6599dcf3f4c033f8905d9321de663dbf5c1f5badd6482734f35e66fdb4afa453"
+    },
+    {
+      "queryKey": "law-public-query-386198",
+      "groupId": "law-public-query-386198",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=386198",
+      "discoveryKeyword": "안전조치",
+      "maskedTextSha256": "35bde114fe2c81c3ed227513493d8891241b50c899b3840b74a891e19a519649"
+    },
+    {
+      "queryKey": "law-public-query-385452",
+      "groupId": "law-public-query-385452",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=385452",
+      "discoveryKeyword": "안전조치",
+      "maskedTextSha256": "9543f24e27db9c6fd2673730713a5439c996ba8e7735e04066dbeb646df409d1"
+    },
+    {
+      "queryKey": "law-public-query-2290531",
+      "groupId": "law-public-query-2290531",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2290531",
+      "discoveryKeyword": "안전조치",
+      "maskedTextSha256": "9c570e968734bff1d7c7726bec9dedda088bba3ab8f16594c759d197074570ea"
+    },
+    {
+      "queryKey": "law-public-query-2290543",
+      "groupId": "law-public-query-2290543",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2290543",
+      "discoveryKeyword": "안전조치",
+      "maskedTextSha256": "09636f9161f6debe8e0542564e62aa9ab7df4293fbea1cb2a4ffd7cd8cc11adc"
+    },
+    {
+      "queryKey": "law-public-query-2768805",
+      "groupId": "law-public-query-2768805",
+      "sourceUrl": "https://www.law.go.kr/LSW/cgmExpcInfoP.do?cgmExpcDatSeq=2768805",
+      "discoveryKeyword": "불친절",
+      "maskedTextSha256": "3e3402efa457a2ded85d29dd0e1be0d714b43b09859e4beb92821cf059bac5dc"
+    }
+  ]
+}

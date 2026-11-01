@@ -1,0 +1,80 @@
+{
+  "version": "police-intake-screen-v1",
+  "binding": {
+    "sourceSha256": "c42f0cd1c761825af2a425dc7c2c712df4a3201504b10ce4bdaedcdddadf4f9d",
+    "promptSha256": "0d8f01a26754315e834023bb631df568d9423673e6c22cf4a1c39b8f64a07c57",
+    "preparedSha256": "cf64795f4fb518503f7f066fddbf00ad570ad96c8574e85d03b35baced1210a5",
+    "model": "gpt-4o",
+    "version": "police-intake-screen-v1"
+  },
+  "queryCount": 89,
+  "responseCount": 89,
+  "complete": true,
+  "dispositionCounts": {
+    "SPECIFIC_CANDIDATE": 32,
+    "GENERAL_OR_EXAMPLE_CANDIDATE": 23,
+    "NOT_PRIMARY_EVALUATION_CANDIDATE": 34
+  },
+  "subjectCodeCounts": {
+    "LOST_ITEM": 16,
+    "GENERAL_CONSULTATION": 27,
+    "CYBER_TRANSACTION": 14,
+    "TRAFFIC_ADMIN": 24,
+    "PATROL_REQUEST": 9,
+    "SAFETY_THREAT": 6,
+    "POLICE_SERVICE_COMPLAINT": 3
+  },
+  "questionKindCounts": {
+    "SPECIFIC_SITUATION": 32,
+    "GENERAL_PROCEDURE": 57
+  },
+  "preflightRedactionCount": 0,
+  "privacyCounts": {
+    "PASS": 89
+  },
+  "officerUseCounts": {
+    "USEFUL": 55,
+    "BACKGROUND_ONLY": 34
+  },
+  "subjectCountsByDisposition": {
+    "SPECIFIC_CANDIDATE": {
+      "LOST_ITEM": 8,
+      "TRAFFIC_ADMIN": 7,
+      "GENERAL_CONSULTATION": 4,
+      "CYBER_TRANSACTION": 7,
+      "PATROL_REQUEST": 7,
+      "SAFETY_THREAT": 5,
+      "POLICE_SERVICE_COMPLAINT": 1
+    },
+    "GENERAL_OR_EXAMPLE_CANDIDATE": {
+      "LOST_ITEM": 6,
+      "CYBER_TRANSACTION": 5,
+      "SAFETY_THREAT": 1,
+      "PATROL_REQUEST": 1,
+      "TRAFFIC_ADMIN": 4,
+      "GENERAL_CONSULTATION": 5,
+      "POLICE_SERVICE_COMPLAINT": 1
+    },
+    "NOT_PRIMARY_EVALUATION_CANDIDATE": {
+      "LOST_ITEM": 2,
+      "GENERAL_CONSULTATION": 18,
+      "CYBER_TRANSACTION": 2,
+      "TRAFFIC_ADMIN": 13,
+      "PATROL_REQUEST": 1,
+      "POLICE_SERVICE_COMPLAINT": 1
+    }
+  },
+  "actualModels": [
+    "gpt-4o-2024-08-06"
+  ],
+  "benchmarkEligibleCount": 0,
+  "humanReviewed": false,
+  "accuracyClaim": false,
+  "rewrittenQueries": 0,
+  "limitations": [
+    "One-model AI screening, not independent ground truth or privacy certification",
+    "Factual preservation uses fixed regex redaction and no AI text rewriting",
+    "AI topic codes are multi-label drafts; not final routing or crime decisions",
+    "Source duplication, splits and retrieval qrels remain pending"
+  ]
+}

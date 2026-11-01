@@ -1,0 +1,36 @@
+{
+  "draftCount": 89,
+  "uniqueSourceIdsSeen": 89,
+  "discoveryKeywordCounts": {
+    "유실물": 13,
+    "분실": 15,
+    "순찰": 15,
+    "중고": 10,
+    "교통": 15,
+    "진행": 15,
+    "안전조치": 5,
+    "불친절": 1
+  },
+  "skipped": {},
+  "benchmarkEligibleCount": 0,
+  "liveQueryRecordsValidated": 89,
+  "limitations": [
+    "Automatic redaction does not certify privacy",
+    "Responses are excluded to reduce answer leakage",
+    "Cross-source duplication and subject coverage still need review"
+  ],
+  "version": "police-law-json-intake-v2",
+  "checkedDate": "2026-10-30",
+  "manualDraftSourceOverlapCount": 3,
+  "manualDraftSourceOverlapGroups": [
+    "law-public-query-384644",
+    "law-public-query-384654",
+    "law-public-query-385538"
+  ],
+  "privacyReviewPendingCount": 89,
+  "originalBenchmarkChanged": false,
+  "inputHashes": {
+    "drafts": "c42f0cd1c761825af2a425dc7c2c712df4a3201504b10ce4bdaedcdddadf4f9d",
+    "protocol": "cf1c15e50422dbee4159c1622f99a689a7f403f542bf5f550944b14959e6a3e6"
+  }
+}
