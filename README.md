@@ -1,6 +1,6 @@
 # AI-CCAS · 민원 안내를 위한 근거 검색 모듈
 
-경찰 관련 민원 안내 서비스의 **벡터 검색 백엔드 모듈**입니다. 검색 모듈 구현을 완료한 프로젝트입니다. 개인정보가 제거된 구조화 민원을 입력받아 유사 사례·유형 기준·공식 안내 문서를 검색하고, 후속 AI가 사용할 근거를 반환합니다.
+경찰관의 민원 처리·안내 업무를 지원하는 **벡터 검색 백엔드 모듈**입니다. 개인정보가 제거된 구조화 민원을 입력받아 유사 사례·유형 기준·공식 안내 문서를 검색하고, 후속 AI가 사용할 근거를 반환합니다. 민원인의 발화는 입력이며, 검색 근거의 유용성은 경찰관의 업무를 기준으로 평가합니다. 최종 분류·법적 판단·처리 경로 확정은 이 모듈의 범위가 아닙니다.
 
 ## 구현 기능
 
@@ -82,6 +82,44 @@ Content-Type: application/json
 [요청 DTO](src/main/java/com/example/ccas/retrieval/api/dto/RetrievalRequest.java) · [구조화 민원 DTO](src/main/java/com/example/ccas/retrieval/api/dto/StructuredComplaintRequest.java) · [응답 DTO](src/main/java/com/example/ccas/retrieval/api/dto/RetrievalResponse.java)
 
 ## 평가 상태
+
+**최종 결과는 [경찰관 업무 지원 검색 평가](docs/police-retrieval-final-v1.md)를 기준으로 봅니다.**
+55건·20개 문서의 고정 AI 라벨 비교에서 공식 안내 Recall@3은 기본 81.94%, 코사인 기반
+RRF 98.61%였으나 Hit@1은 감소했습니다. 아래는 각 단계의 당시 진행 기록입니다.
+Python 100개·Docker 비의존 Java 579개 테스트는 통과했습니다. 이번 55건의 DB/API
+재검증은 Docker Desktop 시작 오류로 미완료이며 상세 원인을 최종 보고서에 기록했습니다.
+
+현재 평가 목적은 [경찰관 업무 지원 기준](docs/officer-support-evaluation-v1.md)입니다.
+후속 [묶음 평가·자료 수집 후보](docs/officer-support-followup-v2.md)에서는 응답 누락을
+보완하고 실제 질의와 공식 안내·작성 예시의 출처를 구분합니다.
+[공개 질의 수집 초안](docs/officer-public-intake-v1.md)에 유실물·순찰 등 4건의
+출처와 편입 보류 상태를 기록했습니다. 기존 500건 벤치마크에는 합산하지 않았습니다.
+[경찰청 공개 질의 API 신청 안내](docs/police-law-api-setup.md)와 승인 후 사용할 수집
+도구를 준비했고, [JSON API 수집](docs/police-law-json-intake-v2.md)으로 공개 질의 초안
+89건을 저장했습니다. 비식별·업무 범위 추가 점검 전이므로 평가 정답이나 운영 자료로 승격하지 않았습니다.
+[89건 AI 점검](docs/police-intake-screen-v1.md)에서 구체적 상황 후보 32건과 일반 절차 후보
+23건을 구분했습니다. 단일 모델 초안이며 중복·분할·정답 라벨 고정은 남아 있습니다.
+[후보 그룹·분할 고정](docs/police-candidate-split-v1.md)에서 55건을 40개 그룹으로 묶고
+개발 27건·평가 28건으로 나눴습니다. 사실 구조화와 검색 정답 라벨 생성은 남아 있습니다.
+[55건 구조화·Java 검증](docs/police-structure-validation-v1.md)을 완료해 고정 템플릿의
+검색 텍스트를 생성했습니다. 관련성 정답과 검색 성능 평가는 후속 단계입니다.
+[경찰관 기준 관련성 AI 라벨](docs/police-officer-relevance-v1.md)도 고정했습니다.
+두 모델의 2,200개 등급 중 주 모델 1,100쌍을 평가 기준으로 사용하며, 검색 성능 비교는 아직 실행하지 않았습니다.
+기존 500건은 여러 분야의 고충민원이 섞인 자료이므로 경찰 민원 전체를 대표하지 않습니다.
+민원인의 명시적 절차 질문을 필수로 삼았던 아래 실험은 과거 탐색 기록으로 보존합니다.
+
+[채널별 관련성 기준 개발 실험](docs/channel-rubric-pilot-v1.md)에서는 개발 100건으로
+평가 기준의 안정성을 시험합니다. 모델 간 일치율을 정확도로 해석하지 않으며,
+기존 벤치마크 라벨과 운영 설정에 자동 반영하지 않습니다.
+
+[평가 기준 고정·교차 모델 검증](docs/evaluation-stability-v1.md)을 추가했습니다.
+라벨과 후보가 바뀐 점수를 같은 실험으로 비교하지 않도록 고정 벤치마크 해시를 검사하며,
+교차 평가 결과를 기존 정답에 자동 병합하지 않습니다.
+
+2026-10-29에는 [확장 후보·블라인드 AI·실제 DB/API 평가](docs/retrieval-validation-v3.md)를
+추가했습니다. 후보는 유형 기준 4개·공식 안내 16개이며, 일회용 DB에서 500건 HTTP 요청과
+검색 순위를 검증합니다. 임시 임계값이 모든 근거를 거부하는 문제도 별도로 평가합니다.
+운영 승인이나 최종 민원 분류 정확도와는 구분합니다.
 
 2026-10-28 실제 공개 사례 500건의 임베딩과 문서 후보 7개를 사용한
 [소규모 후보 비교](docs/public-pool-experiment.md)를 완료했습니다. AI 중심 라벨 기준의

@@ -1,0 +1,53 @@
+{
+  "benchmarkId": "police55-officer-ai-v1",
+  "inputs": {
+    "queries": {
+      "path": ".local-data/police-structure-java-v1/validated-requests.jsonl",
+      "sha256": "b89937747a894a1a8b0c44ed7b1abc67859e9155921695410654bc5456b59402"
+    },
+    "corpus": {
+      "path": "tools/public_complaints/officer_documents_v1.json",
+      "sha256": "4001263291535ffd6a0efe3eef0acfa3556b4eab96af60f501aead7db0828f93"
+    },
+    "qrels": {
+      "path": ".local-data/police-officer-relevance-v1/qrels/qrels.jsonl",
+      "sha256": "e068f45f1c2604053f0cf4d98b7fa1a2eaa472ed6e01c61e7dfa40771124beea"
+    },
+    "resolvedQueries": {
+      "path": ".local-data/police-officer-relevance-v1/qrels/resolved-queries.jsonl",
+      "sha256": "eb4b05ebada64bdfa8d17545eff55cc69c4c9623acebc44d65f48a7526b9f1aa"
+    },
+    "qrelsSummary": {
+      "path": ".local-data/police-officer-relevance-v1/qrels/summary.json",
+      "sha256": "f0fe4bff6548bf722d894c4137117bd6201342e81db1f0b46a1f597ed7340094"
+    },
+    "embeddingAndThresholdConfig": {
+      "path": "src/main/resources/application.properties",
+      "sha256": "e71e2e199c6811c28bc4cfe5152d1d5491e8c425fb554e1852831b5dcd220f71"
+    }
+  },
+  "queryCount": 55,
+  "documentCount": 20,
+  "splitCounts": {
+    "dev": 27,
+    "test": 28
+  },
+  "topK": {
+    "CATEGORY_REFERENCE": 3,
+    "OFFICIAL_GUIDE": 3
+  },
+  "selection": {
+    "weights": [
+      0.05,
+      0.1,
+      0.3
+    ],
+    "objective": "Dev OFFICIAL_GUIDE MRR",
+    "tieBreak": "smallest weight"
+  },
+  "labelStatus": "FROZEN_AI_PROVISIONAL",
+  "limitations": [
+    "Small pool, no VERIFIED_CASE or final evidence-status ground truth",
+    "Model disagreements retained; not independently human validated"
+  ]
+}

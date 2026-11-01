@@ -1,0 +1,370 @@
+{
+  "benchmarkId": "police55-officer-ai-v1",
+  "scope": "OFFLINE_REAL_EMBEDDING_LIMITED_POOL_NOT_DATABASE_BENCHMARK",
+  "inputHashesAndModel": {
+    "qrels": "e068f45f1c2604053f0cf4d98b7fa1a2eaa472ed6e01c61e7dfa40771124beea",
+    "dimensions": "1536",
+    "preparedDocumentPool": "6af6bce476e25141b499a8c1c211e38808c8741fca15d6ad9080ebde897cba41",
+    "queries": "b89937747a894a1a8b0c44ed7b1abc67859e9155921695410654bc5456b59402",
+    "corpus": "4001263291535ffd6a0efe3eef0acfa3556b4eab96af60f501aead7db0828f93",
+    "model": "text-embedding-3-large",
+    "embeddingVersion": "embed-v1-large-1536"
+  },
+  "queryCount": 55,
+  "documentCount": 20,
+  "embeddingVectorsSha256": "3b4737aa0e7808a71aa55a863c744b687956e3e24a2e6efc1180af64a7df4b8f",
+  "labelSourceCounts": null,
+  "selectedWeights": {
+    "BASELINE": 0.0,
+    "METADATA": 0.1,
+    "COSINE_CODE_RRF": 0.1,
+    "CODE_RRF": 0.0
+  },
+  "scores": [
+    {
+      "strategy": "BASELINE",
+      "weight": 0.0,
+      "split": "dev",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 5,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.06172839506172839,
+        "mrr": 1.0,
+        "hitAt1": 1.0
+      }
+    },
+    {
+      "strategy": "BASELINE",
+      "weight": 0.0,
+      "split": "dev",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 20,
+        "recallAtK": 0.6,
+        "precisionAtK": 0.2716049382716049,
+        "mrr": 0.675,
+        "hitAt1": 0.45
+      }
+    },
+    {
+      "strategy": "METADATA",
+      "weight": 0.05,
+      "split": "dev",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 5,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.06172839506172839,
+        "mrr": 1.0,
+        "hitAt1": 1.0
+      }
+    },
+    {
+      "strategy": "METADATA",
+      "weight": 0.05,
+      "split": "dev",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 20,
+        "recallAtK": 0.6,
+        "precisionAtK": 0.2716049382716049,
+        "mrr": 0.6666666666666666,
+        "hitAt1": 0.45
+      }
+    },
+    {
+      "strategy": "METADATA",
+      "weight": 0.1,
+      "split": "dev",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 5,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.06172839506172839,
+        "mrr": 1.0,
+        "hitAt1": 1.0
+      }
+    },
+    {
+      "strategy": "METADATA",
+      "weight": 0.1,
+      "split": "dev",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 20,
+        "recallAtK": 0.65,
+        "precisionAtK": 0.2839506172839506,
+        "mrr": 0.725,
+        "hitAt1": 0.55
+      }
+    },
+    {
+      "strategy": "METADATA",
+      "weight": 0.3,
+      "split": "dev",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 5,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.06172839506172839,
+        "mrr": 1.0,
+        "hitAt1": 1.0
+      }
+    },
+    {
+      "strategy": "METADATA",
+      "weight": 0.3,
+      "split": "dev",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 20,
+        "recallAtK": 0.75,
+        "precisionAtK": 0.3333333333333333,
+        "mrr": 0.7,
+        "hitAt1": 0.5
+      }
+    },
+    {
+      "strategy": "COSINE_CODE_RRF",
+      "weight": 0.05,
+      "split": "dev",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 5,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.06172839506172839,
+        "mrr": 1.0,
+        "hitAt1": 1.0
+      }
+    },
+    {
+      "strategy": "COSINE_CODE_RRF",
+      "weight": 0.05,
+      "split": "dev",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 20,
+        "recallAtK": 0.65,
+        "precisionAtK": 0.2839506172839506,
+        "mrr": 0.6666666666666666,
+        "hitAt1": 0.4
+      }
+    },
+    {
+      "strategy": "COSINE_CODE_RRF",
+      "weight": 0.1,
+      "split": "dev",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 5,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.06172839506172839,
+        "mrr": 1.0,
+        "hitAt1": 1.0
+      }
+    },
+    {
+      "strategy": "COSINE_CODE_RRF",
+      "weight": 0.1,
+      "split": "dev",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 20,
+        "recallAtK": 0.65,
+        "precisionAtK": 0.2839506172839506,
+        "mrr": 0.6833333333333333,
+        "hitAt1": 0.45
+      }
+    },
+    {
+      "strategy": "COSINE_CODE_RRF",
+      "weight": 0.3,
+      "split": "dev",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 5,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.06172839506172839,
+        "mrr": 0.7666666666666667,
+        "hitAt1": 0.6
+      }
+    },
+    {
+      "strategy": "COSINE_CODE_RRF",
+      "weight": 0.3,
+      "split": "dev",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 20,
+        "recallAtK": 0.6,
+        "precisionAtK": 0.2716049382716049,
+        "mrr": 0.6666666666666666,
+        "hitAt1": 0.45
+      }
+    },
+    {
+      "strategy": "CODE_RRF",
+      "weight": 0.0,
+      "split": "dev",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 5,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.06172839506172839,
+        "mrr": 0.7666666666666667,
+        "hitAt1": 0.6
+      }
+    },
+    {
+      "strategy": "CODE_RRF",
+      "weight": 0.0,
+      "split": "dev",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 27,
+        "relevantQueries": 20,
+        "recallAtK": 0.7,
+        "precisionAtK": 0.32098765432098764,
+        "mrr": 0.7,
+        "hitAt1": 0.55
+      }
+    },
+    {
+      "strategy": "BASELINE",
+      "weight": 0.0,
+      "split": "test",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 28,
+        "relevantQueries": 7,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.08333333333333333,
+        "mrr": 1.0,
+        "hitAt1": 1.0
+      }
+    },
+    {
+      "strategy": "BASELINE",
+      "weight": 0.0,
+      "split": "test",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 28,
+        "relevantQueries": 18,
+        "recallAtK": 0.8194444444444444,
+        "precisionAtK": 0.238095238095238,
+        "mrr": 0.7407407407407407,
+        "hitAt1": 0.6111111111111112
+      }
+    },
+    {
+      "strategy": "METADATA",
+      "weight": 0.1,
+      "split": "test",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 28,
+        "relevantQueries": 7,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.08333333333333333,
+        "mrr": 1.0,
+        "hitAt1": 1.0
+      }
+    },
+    {
+      "strategy": "METADATA",
+      "weight": 0.1,
+      "split": "test",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 28,
+        "relevantQueries": 18,
+        "recallAtK": 0.9583333333333334,
+        "precisionAtK": 0.27380952380952367,
+        "mrr": 0.7592592592592592,
+        "hitAt1": 0.5555555555555556
+      }
+    },
+    {
+      "strategy": "COSINE_CODE_RRF",
+      "weight": 0.1,
+      "split": "test",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 28,
+        "relevantQueries": 7,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.08333333333333333,
+        "mrr": 1.0,
+        "hitAt1": 1.0
+      }
+    },
+    {
+      "strategy": "COSINE_CODE_RRF",
+      "weight": 0.1,
+      "split": "test",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 28,
+        "relevantQueries": 18,
+        "recallAtK": 0.9861111111111112,
+        "precisionAtK": 0.28571428571428564,
+        "mrr": 0.75,
+        "hitAt1": 0.5555555555555556
+      }
+    },
+    {
+      "strategy": "CODE_RRF",
+      "weight": 0.0,
+      "split": "test",
+      "channel": "CATEGORY_REFERENCE",
+      "metrics": {
+        "queries": 28,
+        "relevantQueries": 7,
+        "recallAtK": 1.0,
+        "precisionAtK": 0.08333333333333333,
+        "mrr": 0.9047619047619048,
+        "hitAt1": 0.8571428571428571
+      }
+    },
+    {
+      "strategy": "CODE_RRF",
+      "weight": 0.0,
+      "split": "test",
+      "channel": "OFFICIAL_GUIDE",
+      "metrics": {
+        "queries": 28,
+        "relevantQueries": 18,
+        "recallAtK": 0.875,
+        "precisionAtK": 0.24999999999999994,
+        "mrr": 0.6944444444444444,
+        "hitAt1": 0.5555555555555556
+      }
+    }
+  ],
+  "selectionRule": "Dev OFFICIAL_GUIDE MRR; tie chooses smallest weight; test evaluated after per-run selection; same benchmark may be reused across versions",
+  "limitations": [
+    "DRAFT corpus remains unapproved for production; no DB ingestion",
+    "AI judgments are not independently verified ground truth",
+    "No VERIFIED_CASE corpus or evidence-status ground truth",
+    "Small experimental candidate pool; results do not establish large-corpus performance",
+    "Exact cosine and production CandidateRanker used in memory; no PostgreSQL/HTTP latency claim",
+    "Document code mapping is a fixed experimental interpretation, not official classification"
+  ]
+}
