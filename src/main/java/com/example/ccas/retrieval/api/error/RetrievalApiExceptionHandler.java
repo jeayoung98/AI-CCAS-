@@ -1,5 +1,8 @@
 package com.example.ccas.retrieval.api.error;
 
+import com.example.ccas.answer.AnswerController;
+import com.example.ccas.answer.AnswerGenerationException;
+import com.example.ccas.retrieval.api.RetrievalController;
 import com.example.ccas.retrieval.application.query.InvalidRetrievalQueryException;
 import com.example.ccas.retrieval.application.query.RetrievalQuerySerializationException;
 import com.example.ccas.retrieval.application.search.RetrievalSearchException;
@@ -13,7 +16,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice(assignableTypes = com.example.ccas.retrieval.api.RetrievalController.class)
+@RestControllerAdvice(assignableTypes = {RetrievalController.class, AnswerController.class})
 public class RetrievalApiExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -34,6 +37,11 @@ public class RetrievalApiExceptionHandler {
     @ExceptionHandler(EmbeddingRequestException.class)
     ProblemDetail handleEmbeddingRequestFailure(EmbeddingRequestException exception) {
         return problem(HttpStatus.BAD_GATEWAY, "Retrieval processing failed.", "Embedding provider request failed.");
+    }
+
+    @ExceptionHandler(AnswerGenerationException.class)
+    ProblemDetail handleAnswerFailure(AnswerGenerationException exception) {
+        return problem(HttpStatus.BAD_GATEWAY, "Answer generation failed.", "A cited answer could not be generated.");
     }
 
     @ExceptionHandler({

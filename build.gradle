@@ -38,6 +38,17 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
     exclude '**/PublicPoolDatabaseExperiment.class'
+    exclude '**/LiveRagAnswerTest.class'
+}
+
+tasks.register('liveRagAnswer', Test) {
+    group = 'verification'
+    description = 'Generate a cited answer using the configured provider and a disposable synthetic corpus.'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform()
+    include '**/LiveRagAnswerTest.class'
+    outputs.upToDateWhen { false }
 }
 
 tasks.register('publicPoolDatabaseExperiment', Test) {

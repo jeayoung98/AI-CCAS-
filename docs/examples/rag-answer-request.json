@@ -1,0 +1,38 @@
+{
+  "inputSource": "TEXT",
+  "maskingCompleted": true,
+  "maskedText": "도서관에서 지갑을 잃어버렸어요. 분실물을 어떻게 조회하나요?",
+  "structuredComplaint": {
+    "factualSummary": "도서관에서 지갑을 분실했고 분실물 조회 방법을 알고 싶다.",
+    "context": {
+      "placeType": "PUBLIC_FACILITY",
+      "relationshipType": "UNKNOWN",
+      "timePattern": "ONE_TIME"
+    },
+    "observedFacts": [
+      {
+        "factType": "ACTION",
+        "value": "도서관에서 지갑을 잃어버림",
+        "evidence": "도서관에서 지갑을 잃어버렸어요.",
+        "certainty": "EXPLICIT"
+      }
+    ],
+    "riskSignals": [],
+    "subjectMatters": [
+      {
+        "code": "LOST_ITEM",
+        "evidence": "지갑을 잃어버렸어요.",
+        "certainty": "EXPLICIT"
+      }
+    ],
+    "requestedActions": [
+      {
+        "code": "SEARCH",
+        "evidence": "분실물을 어떻게 조회하나요?",
+        "certainty": "EXPLICIT"
+      }
+    ],
+    "ongoingStatus": "PAST_EVENT",
+    "missingInformation": []
+  }
+}

@@ -1,6 +1,6 @@
-# AI-CCAS · 민원 안내를 위한 근거 검색 모듈
+# AI-CCAS · 경찰 민원 근거 검색과 답변 생성
 
-경찰관의 민원 처리·안내 업무를 지원하는 **벡터 검색 백엔드 모듈**입니다. 개인정보가 제거된 구조화 민원을 입력받아 유사 사례·유형 기준·공식 안내 문서를 검색하고, 후속 AI가 사용할 근거를 반환합니다. 민원인의 발화는 입력이며, 검색 근거의 유용성은 경찰관의 업무를 기준으로 평가합니다. 최종 분류·법적 판단·처리 경로 확정은 이 모듈의 범위가 아닙니다.
+경찰관의 민원 안내 업무를 지원하는 RAG 백엔드입니다. 개인정보를 제거한 구조화 민원을 받아 유사 사례·유형 기준·공식 안내를 검색합니다. 답변 API는 근거가 충분할 때 공식 안내에서 인용문을 찾아 민원인에게 전달할 한국어 답변을 작성합니다.
 
 ## 구현 기능
 
@@ -9,6 +9,7 @@
 - **임베딩 생성:** OpenAI 임베딩 API 연동, 모델·차원·버전 설정 관리
 - **근거 검색:** PostgreSQL·pgvector를 사용한 코사인 유사도 검색
 - **근거 평가:** 관련 근거 부족과 상위 결과 간 모호성을 구분
+- **민원 답변 생성** — GPT가 작성한 한국어 안내 문장마다 인용 번호를 붙이고, 서버가 인용문을 검색 문서 원문과 대조
 - **검색 이력 저장:** 검색 요청·결과·근거 평가 결과 저장
 - **지식 적재 및 평가:** 검색 지식 JSON 적재, 평가 데이터와 지표 계산 기반
 
@@ -36,6 +37,7 @@
 | Backend | Java 26, Spring Boot 4.0.6, Gradle |
 | Database | PostgreSQL 17, pgvector, JdbcTemplate, Flyway |
 | External API | OpenAI `text-embedding-3-large` · 기본 1,536차원 |
+| 답변 생성 | OpenAI 호환 Chat Completions · 기본 `gpt-4o-mini` |
 | Test | JUnit, Spring Boot Test, Testcontainers |
 | Local Environment | Docker Compose |
 
@@ -43,7 +45,7 @@
 
 ## 로컬 실행
 
-Java 26과 Docker가 필요합니다. 검색 API의 임베딩 생성에는 `OPENAI_API_KEY` 환경변수가 필요합니다.
+Java 26과 Docker가 필요합니다. 임베딩과 답변 생성에 사용할 API 키를 `OPENAI_API_KEY` 환경변수로 설정하세요.
 
 ### Windows PowerShell
 
@@ -80,6 +82,36 @@ Content-Type: application/json
 응답에는 `queryId`, `riskSignalPresent`, `decision`, `channels`가 포함됩니다.
 
 [요청 DTO](src/main/java/com/example/ccas/retrieval/api/dto/RetrievalRequest.java) · [구조화 민원 DTO](src/main/java/com/example/ccas/retrieval/api/dto/StructuredComplaintRequest.java) · [응답 DTO](src/main/java/com/example/ccas/retrieval/api/dto/RetrievalResponse.java)
+
+## 민원 답변 API
+
+`POST /api/rag/answer`는 검색 API와 같은 요청을 받습니다. 마스킹을 마친 유실물 민원 [예제](docs/examples/rag-answer-request.json)를 로컬 서버에 보내려면 다음 명령을 사용하세요.
+
+```powershell
+curl.exe -H "Content-Type: application/json" --data-binary "@docs/examples/rag-answer-request.json" http://localhost:8080/api/rag/answer
+```
+
+검색과 생성은 동일한 `OPENAI_API_KEY`와 `OPENAI_BASE_URL`을 사용합니다. 생성 모델은 `RAG_ANSWER_MODEL`로 설정하며 Chat Completions의 JSON 응답 모드를 지원해야 합니다. 안내를 생성하려면 [검수한 공식 안내 지식](data/retrieval/import/README.md)을 먼저 적재하세요.
+
+| 응답 필드 | 의미 |
+|---|---|
+| `queryId`, `evidenceStatus`, `riskSignalPresent` | 검색 이력 ID, 근거 판정, 입력 위험 신호 여부 |
+| `answerStatus`, `answer` | `GENERATED`이면 한국어 안내 문장과 인용 번호, `ABSTAINED`이면 안내를 유보한 이유 |
+| `citations` | 인용 번호 순서대로 검색 항목 ID, 문서 제목, 구간 제목, 실제 문서에 있는 인용문 |
+
+답변에는 검색 임계값을 통과한 공식 안내만 사용합니다. 근거 부족·충돌 때는 생성 호출을 생략합니다. 모델도 자료로 답할 수 없으면 유보할 수 있습니다. 답변 API는 생성된 답변을 저장하지 않습니다. 모델 호출 실패나 문서에서 확인할 수 없는 인용은 HTTP 502로 반환합니다.
+
+### 실제 모델로 재현하기
+
+Docker를 실행하고 API 키를 설정한 뒤 `.\gradlew.bat liveRagAnswer`를 실행하세요. 테스트는 임시 pgvector DB에서 같은 유실물 민원을 두 번 보냅니다. 빈 DB에서는 `ABSTAINED`를 반환하고, 합성 안내 문서 한 건을 적재한 뒤에는 `GENERATED` 답변과 해당 문서의 인용문을 반환합니다.
+
+2026-11-08 검증에서 GPT가 합성 문서를 바탕으로 생성한 답변은 다음과 같습니다.
+
+> 도서관에서 잃어버린 지갑을 조회하려면 분실물 조회 화면에서 물품 종류를 지갑으로 선택하고 분실 장소를 입력합니다. [1]
+
+인용 번호 `[1]`은 응답의 `citations[0]`에 있는 합성 문서 「도서관 분실물 조회」의 구절을 가리킵니다. 이 예제는 안내 임계값 0.45에서 생성됐습니다. 서비스 기본값 0.70으로 같은 예제를 실행했을 때는 근거 부족으로 답변을 유보했습니다.
+
+Java 기본 테스트 639건과 실제 모델을 호출하는 종단 간 테스트 1건이 모두 통과했습니다. 재현한 답변과 인용문은 `build/reports/tests/liveRagAnswer/index.html`에서 해당 테스트의 표준 출력으로 확인할 수 있습니다.
 
 ## 평가 상태
 
@@ -158,6 +190,7 @@ bash gradlew test
 | 경로 | 내용 |
 |---|---|
 | [API](src/main/java/com/example/ccas/retrieval/api/) | 검색 요청·응답, 입력 검증 |
+| [답변 생성](src/main/java/com/example/ccas/answer/) | 근거 판정에 따른 답변 생성·유보, GPT 호출, 인용문 검증 |
 | [검색 처리](src/main/java/com/example/ccas/retrieval/application/) | 검색 텍스트 생성, 검색 실행, 근거 평가 |
 | [DB 접근](src/main/java/com/example/ccas/retrieval/infrastructure/persistence/) | pgvector 검색 및 이력 저장 |
 | [DB 스키마](src/main/resources/db/migration/V1__create_vector_retrieval_schema.sql) | Flyway 초기 스키마 |
